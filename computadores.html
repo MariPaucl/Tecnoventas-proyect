@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<body>
+
+	<div class="head">
+		<div class="logo">
+		<a href="#">TECNOVENTAS</a>
+		</div>
+		<nav class="navbar">
+		<ul>
+
+			<li><a href="sesion.html">Cerrar sesion</a></li>
+			<li><a href="inicio.html">Inicio</a></li>
+			<li><a href="#">Productos <i class="icon-abajo2"></i></a>
+				<ul class="submenu">
+					<li><a href="cell.html">
+						Celulares
+					</a></li>
+					<li><a href="Portatiles.html">
+						Portatiles
+					</a></li>
+					<li><a href="Tablets.html">
+						Tablets
+					</a></li>
+					<li><a href="parlantes.html">
+						Parlantes
+					</a></li>
+					<li><a href="Audifonos.html">
+						Audifonos
+					</a></li>
+				</ul>
+			</li>
+	
+	
+		</ul>
+		</nav>
+	
+	
+	
+	  </div>
+	  <div id="stn-icon-search">
+		<i class="fa-solid fa-magnifying-glass" ><img src="img/lupa.png" alt="" id="icon-search"></i>
+	</div>
+	<div id="ctn-bars-search">
+		<input type="text" id="inputSearch" placeholder="¿que deseas buscar?">
+	</div>
+	
+	<ul id="box-search">
+		<li><a href="Productos_Cliente/computadores/all1.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >All In One LENOVO</i></a></li>
+		<li><a href="Productos_Cliente/computadores/all2.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >All in One HP</i></a></li>
+		<li><a href="Productos_Cliente/computadores/all3.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >All In One LENOVO</i></a></li>
+		<li><a href="Productos_Cliente/computadores/all4.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >All in One HP</i></a></li>
+		<li><a href="Productos_Cliente/computadores/all5.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >All In One HP</i></a></li>
+		<li><a href="Productos_Cliente/computadores/all6.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >All In One HP</i></a></li>
+		<li><a href="Productos_Cliente/computadores/all7.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >All In One LENOVO</i></a></li>
+		<li><a href="Productos_Cliente/computadores/all8.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >All In One ASUS Zen</i></a></li>
+	</ul>
+	<div id="cover-ctn-search"></div>
+	<script src="js/scriptbuscador.js"></script>
+	</body>
+	
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Tienda</title>
+        <link rel="stylesheet" href="Productos_Cliente/parlantes/styles.css">
+		<link rel="stylesheet" href="css/fitro.css">
+		<link rel="stylesheet" href="css/buscador.css">
+    </head>
+    <body>
+        <header>
+            <h1>Tienda</h1>
+
+            <div class="container-icon">
+				<div class="container-cart-icon">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="icon-cart"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+						/>
+					</svg>
+					<div class="count-products">
+						<span id="contador-productos">0</span>
+					</div>
+				</div>
+
+				<div class="container-cart-products hidden-cart">
+					<div class="row-product hidden">
+						<div class="cart-product">
+							<div class="info-cart-product">
+								<span class="cantidad-producto-carrito">1</span>
+								<p class="titulo-producto-carrito">no nike</p>
+								<span class="precio-producto-carrito">$200</span>
+							</div>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="1.5"
+								stroke="currentColor"
+								class="icon-close"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M6 18L18 6M6 6l12 12"
+								/>
+							</svg>
+						</div>
+					</div>
+
+					<div class="cart-total hidden">
+						<h3>Total:</h3>
+						<span class="total-pagar">$200</span>
+						
+					</div>
+					<p class="cart-empty">El carrito está vacío</p>
+					<div class="hidde">
+					<a href="Compra/compra.html"  class="cta">
+						
+						<span class="boton">Finalizar Compra</span>
+						<svg width="13px" height="10px" viewBox="0 0 13 10">
+						  <path d="M1,5 L11,5"></path>
+						  <polyline points="8 1 12 5 8 9"></polyline>
+						</svg>
+					  </a>
+					</div>
+					
+				</div>
+			
+			
+			
+			</div>
+		</header>
+		<div class="categoria_list">
+			<a href="#" class="category_item" category="all">Todo</a>
+			<a href="#" class="category_item" category="HP">HP</a>
+			<a href="#" class="category_item" category="LENOVO">LENOVO</a>
+			<a href="#" class="category_item" category="ASUS">ASUS</a>
+		</div>
+		<div class="pro">
+			<div class="filtro">
+				<div class="h1">Filtro</div>
+				<hr class="l1">
+				<div class="h2">Memoria Ram</div>
+				<hr class="l2">
+				<div>
+					<span class="tag">8-Ram</span>
+					<span class="tag">16-Ram</span>
+					<span class="tag">64-Ram</span>
+				</div>
+				<div class="h2">Tipo Almacenamiento</div>
+				<hr class="l2">
+				<div>
+					<span class="tag">HDD</span>
+					<span class="tag">SSD</span>
+				</div>
+				<div class="h2">Almacenamiento</div>
+				<hr class="l2">
+				<div>
+					<span class="tag">512_GB</span>
+					<span class="tag">1_TB</span>
+				</div>
+				<div class="h2">Procesador</div>
+				<hr class="l2">
+				<div>
+					<span class="tag">Intel</span>
+					<span class="tag">Ryzen</span>
+				</div>
+			</div>
+        <div class="container-items">
+			<div class="item" category="LENOVO" data-tags="8-Ram SSD 1_TB Intel">
+				<figure>
+					<a href="Productos_Cliente/computadores/all1.html">
+					<img
+						src="Productos_Cliente/computadores/img/all(1).png"
+						alt="producto"
+					/>
+					</a>
+				</figure>
+				<div class="info-product">
+					<h2>All In One LENOVO</h2>
+					<p class="price">$30</p>
+					<button class="btn-add-cart">Añadir al carrito</button>
+				</div>
+			</div>
+			<div class="item" category="HP" data-tags="8-Ram SSD 512_GB Intel">
+				<figure>
+					<a href="Productos_Cliente/computadores/all2.html">
+					<img
+					
+						src="Productos_Cliente/computadores/img/all(2).png"
+						alt="producto"
+					/>
+					</a>
+				</figure>
+				<div class="info-product" id="seccion1">
+					<h2>All in One HP</h2>
+					<p class="price">$40</p>
+					<button class="btn-add-cart">Añadir al carrito</button>
+				</div>
+			</div>
+			<div class="item" category="LENOVO" data-tags="8-Ram SSD 512_GB Intel">
+				<figure>
+					<a href="Productos_Cliente/computadores/all3.html">
+					<img
+						src="Productos_Cliente/computadores/img/all(3).png"
+						alt="producto"
+					/>
+					</a>
+				</figure>
+				<div class="info-product" id="seccion2">
+					<h2>All In One LENOVO</h2>
+					<p class="price">$70</p>
+					<button class="btn-add-cart">Añadir al carrito</button>
+				</div>
+			</div>
+			<div class="item" category="HP" data-tags="8-Ram SSD 512_GB Intel">
+				<figure>
+					<a href="Productos_Cliente/computadores/all4.html">
+					<img
+						src="Productos_Cliente/computadores/img/all(4).png"
+						alt="producto"
+					/>
+					</a>
+				</figure>
+				<div class="info-product" id="seccion3">
+					<h2>All in One HP</h2>
+					<p class="price">$20</p>
+					<button class="btn-add-cart">Añadir al carrito</button>
+				</div>
+			</div>
+			<div class="item" category="HP" data-tags="8-Ram SSD 512_GB Intel">
+				<figure>
+					<a href="Productos_Cliente/computadores/all5.html">
+					<img
+						src="Productos_Cliente/computadores/img/all(5).png"
+						alt="producto"
+					/>
+					</a>
+				</figure>
+				<div class="info-product" id="seccion4">
+					<h2>All in One HP</h2>
+					<p class="price">$20</p>
+					<button class="btn-add-cart">Añadir al carrito</button>
+				</div>
+			</div>
+			<div class="item" category="HP" data-tags="8-Ram SSD 512_GB Intel">
+				<figure>
+					<a href="Productos_Cliente/computadores/all6.html">
+					<img
+						src="Productos_Cliente/computadores/img/all(6).png"
+						alt="producto"
+					/>
+					</a>
+				</figure>
+				<div class="info-product" id="seccion5">
+					<h2>All in One HP</h2>
+					<p class="price">$20</p>
+					<button class="btn-add-cart">Añadir al carrito</button>
+				</div>
+			</div>
+			<div class="item" category="LENOVO" data-tags="8-Ram SSD 512_GB Intel">
+				<figure>
+					<a href="Productos_Cliente/computadores/all7.html">
+					<img
+						src="Productos_Cliente/computadores/img/all(7).png"
+						alt="producto"
+					/>
+					</a>
+				</figure>
+				<div class="info-product" id="seccion6">
+					<h2>All In One LENOVO</h2>
+					<p class="price">$20</p>
+					<button class="btn-add-cart">Añadir al carrito</button>
+				</div>
+			</div>
+			<div class="item" category="LENOVO" data-tags="8-Ram SSD 512_GB Intel">
+				<figure>
+					<a href="Productos_Cliente/computadores/all8.html">
+					<img
+						src="Productos_Cliente/computadores/img/all(8).png"
+						alt="producto"
+					/>
+					</a>
+				</figure>
+				<div class="info-product" id="seccion7">
+					<h2>All In One LENOVO</h2>
+					<p class="price">$20</p>
+					<button class="btn-add-cart">Añadir al carrito</button>
+				</div>
+			</div>
+			<div class="item" category="ASUS" data-tags="8-Ram SSD 512_GB Intel">
+				<figure>
+					<a href="Productos_Cliente/computadores/all9.html">
+					<img
+						src="Productos_Cliente/computadores/img/all(9).png"
+						alt="producto"
+					/>
+					</a>
+				</figure>
+				<div class="info-product" id="seccion8">
+					<h2>All in One ASUS Zen</h2>
+					<p class="price">$20</p>
+					<button class="btn-add-cart">Añadir al carrito</button>
+				</div>
+			</div>
+		</div>
+        </div>
+		<div class="fin"></div>
+
+        <script src="Productos_Cliente/parlantes/index.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/script.js"></script>
+        
+    </body>
+</html>

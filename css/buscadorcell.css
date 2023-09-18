@@ -1,0 +1,109 @@
+#stn-icon-search {
+    position: relative;
+    top: 25px;
+    right: 330px;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: 2px 10px;
+    width: 100%;
+}
+#icon-search {
+    position: absolute;
+    width: 20px; /* Ajusta el ancho según tu imagen */
+    height: auto;
+    color: #ffff
+}
+#stn-icon-search i{
+    font-size: 18px;
+    color: #7777;
+    cursor: pointer;
+    transition: all 400ms;
+}
+#stn-icon-search:hover {
+    filter: invert(50%) }
+
+    @media (max-width: 768px) {
+        #stn-icon-search{
+            position: static;
+            display: block;
+            text-align: right;
+
+           
+
+        }
+    
+    }
+    #icon-search {
+        width: 20px;
+    }
+    #ctn-bars-search {
+        position: absolute;
+        top: -50px;
+       width: 83%;
+    padding: 10px;
+    transition: all 600ms;
+    }
+    #ctn-bars-search input {
+        display: block;
+        width: 410px;
+        margin: auto;
+        padding: 5px;
+        font-size: 18px;
+        outline: 0;}
+
+        #box-search {
+            position: fixed;
+    
+        }
+        #box-search a{
+            text-decoration: none;
+        }
+        ul {
+            list-style: none;
+        }
+        #box-search {
+            position: absolute;
+            top: 50px;
+            right: 42%;
+            transform: translateX(2%);
+            width: 411px;
+            background: #fff;
+            z-index: 8;
+            margin: auto;
+            display: none;
+        }
+        #box-search li a{
+            display: block;
+            width: 410px;
+            color: #7777;
+            padding: 12px 20px;
+        }
+        #box-search li a:hover {
+            color: #582b7c;
+        }
+        #box-search li a img{
+            margin-right: 10px;
+        
+            color: #7777;
+        }
+        #cover-ctn-search {
+            width: 150%;
+            height: 150%;
+            position: fixed;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5) ;
+            display: none;}
+
+            #icon-search img{
+                width: 100%;
+                height: auto;
+                max-width: 50px;
+            }
+            .fixed-search{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+            }

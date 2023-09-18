@@ -1,0 +1,18 @@
+#stn-icon-search {
+    position: relative;
+    top: 20px;
+    right: 100px;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#stn-icon-search i{
+    font-size: 18px;
+    color: #7777;
+    cursor: pointer;
+    transition: all 400ms;
+}
+#stn-icon-search:hover {
+    filter: invert(50%) }

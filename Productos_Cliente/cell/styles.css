@@ -1,0 +1,477 @@
+/* Globales */
+*::after,
+*::before,
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background: #a8ff78;  
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(0, 0%, 0%, 0.541), hsla(0, 0%, 0%, 0.514)), url(img/technology.jpg);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(0, 0%, 0%, 0.514), hsla(0, 0%, 0%, 0.466)), url(img/technology.jpg);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin: 0 auto;
+    max-width: 1200px;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+
+.icon-cart{
+    width: 40px;
+    height: 120px;
+    stroke: #8400ff;
+}
+
+.icon-cart:hover{
+    cursor: pointer;
+}
+
+img{
+    max-width: 100%;
+}
+
+/* Header */
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0 40px 0;
+}
+
+.container-icon{
+    position: relative;
+}
+
+.count-products{
+    
+    position: absolute;
+    top: 55%;
+    right: 0;
+
+    background-color: #000;
+    color: #ffffff;
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    
+}
+
+#contador-productos{
+    font-size: 12px;
+}
+
+.container-cart-products{
+    position: absolute;
+    top: 50px;
+    right: 0;
+
+    background-color: #ffffff;
+    width: 400px;
+    
+    z-index: 1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+    border-radius: 10px;
+  
+    
+}
+
+.cart-product{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+
+}
+
+.info-cart-product{
+    display: flex;
+    justify-content: space-between;
+    flex: 0.8;
+}
+
+.titulo-producto-carrito{
+    font-size: 20px;
+}
+
+.precio-producto-carrito{
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.cantidad-producto-carrito{
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.icon-close{
+    width: 25px;
+    height: 25px;
+}
+
+.icon-close:hover{
+    stroke: red;
+    cursor: pointer;
+}
+
+.cart-total{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    gap: 20px;
+    height: 1px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+    height: 90px;
+    
+}
+
+
+.cart-total h3{
+    font-size: 20px;
+    font-weight: 700;
+    padding: 30px;
+}
+
+.total-pagar{
+    font-size: 20px;
+    font-weight: 900;
+    
+    
+    
+}
+
+.hidden-cart{
+    display: none;
+    height: 900px;
+    
+}
+
+
+
+
+/* Main */
+.container-items{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  
+}
+
+.item{
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.63);
+}
+
+.item:hover{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+}
+
+.item img{
+    width: 80%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    transition: all .5s;
+  
+}
+
+.item figure{
+    overflow: hidden;
+}
+
+.item:hover img{
+    transform: scale(1.2);
+    
+}
+
+.info-product{
+    padding: 15px 30px;
+    line-height: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.price{
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.info-product button{
+    border: none;
+    background: none;
+    background-color: #000;
+    color: #ffffffa6;
+    padding: 15px 10px;
+    cursor: pointer;
+}
+
+.cart-empty{
+    padding: 20px;
+    text-align: center;
+}
+
+
+.hidden{
+    display: none;
+}
+
+
+.head {
+	
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 70px;
+    background: #171717;
+    position: absolute;
+    width: 100%;
+    z-index: 100%;
+}
+.navbar {
+    display: flex;
+    margin-right: 2px;
+	
+ 
+}
+
+.logo {
+    margin-left: 30px;
+   
+    padding: 20px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #ffffff;
+  
+    font-size: 20px;
+    padding: 23px 20px;
+    height: 70px;
+    
+}
+
+.navbar a {
+    display: block;
+    height: 5px;
+    padding: 23px 20px;
+    color: rgb(240, 236, 236);
+    transition: all 500ms ease;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    
+}
+
+.navbar a:hover {
+    background: #582b7c;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar ul {
+    display: flex ;
+    list-style: none;
+}
+
+.navbar .submenu{
+    background: rgb(14, 13, 13);
+    box-shadow: 10px 10px 10x rgba(0, 0, 0, 0.2);
+    display: none;
+}
+.navbar .submenu li a{
+    line-height: 0px;
+}
+.navbar ul li a:hover +ul, .navbar .submenu:hover{
+    display: block;
+    
+}
+
+/* Comparar Productos */
+.Titlecell {
+    
+    font-size: 50px;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    margin-bottom: 20%;
+    position: relative; /* Establece el elemento como posición relativa */
+    top: 80px; /* Desplaza el elemento hacia abajo 20 píxeles desde su posición original */
+    left: 30px; /* Desplaza el elemento hacia la derecha 30 píxeles desde su posición original */
+
+}
+.Titlecell2 {
+    position: relative; /* Establece el elemento como posición relativa */
+    top: 80px; /* Desplaza el elemento hacia abajo 20 píxeles desde su posición original */
+    left: 30px; /* Desplaza el elemento hacia la derecha 30 píxeles desde su posición original */
+}
+
+.content-select select{
+    
+    margin-bottom: 100px;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+.content-select{
+    
+
+	max-width: 250px;
+
+    height: 100%;
+
+}
+.content-select select{
+    
+	display: inline-block;
+	width: 100%;
+	cursor: pointer;
+  	padding: 7px 10px;
+  	height: 42px;
+  	outline: 0; 
+  	border: 0;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: #921616;
+	font-size: 1em;
+	color: rgb(41, 10, 10);
+	font-family: 
+	'Quicksand', sans-serif;
+	border:2px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.25s ease;
+}
+ 
+.content-select select:hover{
+	background: #f1f1f0;
+}
+.content-select i{
+	position: absolute;
+	right: 20px;
+	top: calc(50% - 13px);
+	width: 16px;
+	height: 16px;
+	display: block;
+	border-left:4px solid #2AC176;
+	border-bottom:4px solid #2AC176;
+	transform: rotate(-45deg);
+	transition: all 0.25s ease;
+}
+.content-select:hover i{
+	margin-top: 3px;
+}
+
+#submit {
+    position:  relative;
+    top: 0px;
+    left: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px;
+    margin: 0 40px 20px 0;
+    border: 1px solid rgb(151, 150, 150);
+    background: rgb(198, 200, 214);
+    border-radius: 8px 8px 8px 8px;
+}
+
+#submit:hover {
+    background: #ddd;
+}
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    
+    display: grid;
+    font-family: Avenir, sans-serif;
+    color: #111;
+  }
+  
+  a {
+    
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: auto;
+    padding: 19px 22px;
+    transition: all 0.2s ease;
+    
+  }
+  .cta:before {
+    
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 0px;
+    background: rgba(160, 212, 153, 0.5);
+    width: 2px;
+    height: 56px;
+    transition: all 0.3s ease;
+  }
+  .cta span {
+    
+    position: relative;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 900;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+  .cta svg {
+    
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #111;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+  }
+  .cta:hover:before {
+    width: 100%;
+    background: #ba42ff;
+  }
+  .cta:hover svg {
+    transform: translateX(0);
+  }
+  .cta:active {
+    transform: scale(0.96);
+  }
+
+
+  .boton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+
+}

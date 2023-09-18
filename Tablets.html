@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<body>
+
+	<div class="head">
+	
+		
+		<div class="logo">
+	
+		  <a href="#">TECNOVENTAS</a>
+		</div>
+		<nav class="navbar">
+		  <ul>
+	
+			<li><a href="sesion.html">Cerrar sesion</a></li>
+			<li><a href="inicio.html">Inicio</a></li>
+			<li><a href="#">Productos <i class="icon-abajo2"></i></a>
+				<ul class="submenu">
+					<li><a href="cell.html">
+						Celulares
+					</a></li>
+					<li><a href="Portatiles.html">
+						Portatiles
+					</a></li>
+					<li><a href="Computadores.html">
+						Computadores
+					</a></li>
+					<li><a href="parlantes.html">
+						Parlantes
+					</a></li>
+					<li><a href="Audifonos.html">
+						Audifonos
+					</a></li>
+				</ul>
+			</li>
+	
+	
+		</ul>
+		</nav>
+	
+	
+	
+	  </div>
+
+	  <div id="stn-icon-search">
+		<i class="fa-solid fa-magnifying-glass" ><img src="img/lupa.png" alt="" id="icon-search"></i>
+	</div>
+	<div id="ctn-bars-search">
+		<input type="text" id="inputSearch" placeholder="¿que deseas buscar?">
+	</div>
+	<ul id="box-search">
+		<li><a href="Productos_Cliente/Tablest/Tablet%20TCL%20TAB%208.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >Tablet TCL TAB 8</i></a></li>
+		<li><a href="Productos_Cliente/Tablest/Tablet%20TCL%20TAB%208.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >Tablet ALCATEL 1T</i></a></li>
+		<li><a href="Productos_Cliente/Tablest/Tablet%20LENOVO%20M8.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >Tablet LENOVO M8</i></a></li>
+		<li><a href="Productos_Cliente/Tablest/Tablet%20LENOVO%20M10%20Plus.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >Tablet LENOVO M10 Plus</i></a></li>
+		<li><a href="Productos_Cliente/Tablest/Tablet%20SAMSUNG%20S7Fe.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >Tablet SAMSUNG S7Fe</i></a></li>
+		<li><a href="Productos_Cliente/Tablest/Tablet%20SAMSUNG%20S6.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >Tablet SAMSUNG S6</i></a></li>
+		<li><a href="Productos_Cliente/Tablest/iPad%20Pro%206ta%20Gen.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >iPad Pro 6ta Gen</i></a></li>
+		<li><a href="Productos_Cliente/Tablest/Tablet%20SAMSUNG%20S8%20Ultra.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >Tablet SAMSUNG S8 Ultra</i></a></li>
+		<li><a href="Productos_Cliente/Tablest/Tablet%20SAMSUNG%20Galaxy%20S8.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >Tablet SAMSUNG Galaxy S8</i></a></li>
+	</ul>
+	<div id="cover-ctn-search"></div>
+	<script src="js/scriptbuscador.js"></script>
+	
+	</body>
+	
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Tienda</title>
+		<link rel="stylesheet" href="Productos_Cliente/tablest/styles.css" />
+		<link rel="stylesheet" href="css/fitro.css">
+		<link rel="stylesheet" href="css/buscadortab.css">
+	</head>
+	<body>
+		<header>
+			<h1>Tienda</h1>
+
+			<div class="container-icon">
+				<div class="container-cart-icon">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="icon-cart"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+						/>
+					</svg>
+					<div class="count-products">
+						<span id="contador-productos">0</span>
+					</div>
+				</div>
+
+				<div class="container-cart-products hidden-cart">
+					<div class="row-product hidden">
+						<div class="cart-product">
+							<div class="info-cart-product">
+								<span class="cantidad-producto-carrito">1</span>
+								<p class="titulo-producto-carrito">no nike</p>
+								<span class="precio-producto-carrito">$200</span>
+							</div>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="1.5"
+								stroke="currentColor"
+								class="icon-close"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M6 18L18 6M6 6l12 12"
+								/>
+							</svg>
+						</div>
+					</div>
+
+					<div class="cart-total hidden">
+						<h3>Total:</h3>
+						<span class="total-pagar">$200</span>
+						
+					</div>
+					<p class="cart-empty">El carrito está vacío</p>
+					<div class="hidde">
+					<a href="Compra/compra.html"  class="cta">
+						
+						<span class="boton">Finalizar Compra</span>
+						<svg width="13px" height="10px" viewBox="0 0 13 10">
+						  <path d="M1,5 L11,5"></path>
+						  <polyline points="8 1 12 5 8 9"></polyline>
+						</svg>
+					  </a>
+					</div>
+					
+				</div>
+			
+			
+			
+			</div>
+		</header>
+		<div class="categoria_list">
+			<a href="#" class="category_item" category="all">Todo</a>
+			<a href="#" class="category_item" category="TCL">TCL</a>
+			<a href="#" class="category_item" category="ALCATEL">ALCATEL</a>
+			<a href="#" class="category_item" category="LENOVO">LENOVO</a>
+			<a href="#" class="category_item" category="SAMSUNG">SAMSUNG</a>
+			<a href="#" class="category_item" category="iPad">iPad</a>
+		</div>
+		<div class="pro">
+			<div class="filtro">
+				<div class="h1">FILTRO</div> 
+			<hr class="l1">
+			<div class="h2">Memoria Ram</div>
+			<hr class="l2">
+			<div>
+				<span class="tag">2-Ram</span>
+				<span class="tag">4-Ram</span>
+				<span class="tag">6-Ram</span>
+				<span class="tag">8-Ram</span>
+			</div>  
+			<div class="h2">Almacenamiento</div>
+			<hr class="l2">
+			<div>
+				<span class="tag">32GB</span>
+				<span class="tag">64GB</span>
+				<span class="tag">128GB</span>
+			</div> 
+			<div class="h2">Sistema operativo</div>
+			<hr class="l2">
+			<div>
+				<span class="tag">Android</span>
+				<span class="tag">iPad</span>
+			</div> 
+			<div class="h2">Puerto carga</div>
+			<hr class="l2">
+			<div>
+				<span class="tag">Tipo_C</span>
+				<span class="tag">Micro</span>
+			</div> 
+		</div>
+		<div class="container-items">
+			<div class="item" category="TCL" data-tags="2-Ram 32GB Android Tipo_C">
+				<figure>
+					<a href="Productos_Cliente/Tablest/Tablet TCL TAB 8.html">
+					<img
+						src="https://drive.google.com/uc?export=download&id=1WCcKtINI8gtjmdPwYw8sNHGPqIVN8EBl"
+						alt="producto"
+					/>
+					</a>
+				</figure>
+				<div class="info-product">
+					<h2>Tablet TCL TAB 8 </h2>
+					<p class="price">$80</p>
+					<button class="btn-add-cart">Añadir al carrito</button>
+				</div>
+			</div>
+			<div class="item" category="ALCATEL" data-tags="2-Ram 32GB Android Tipo_C">
+				<figure>
+					<a href="Productos_Cliente/Tablest/Tablet TCL TAB 8.html">
+					<img
+					
+						src="https://drive.google.com/uc?export=download&id=118FHQoQu7OUmCknKTn23EwaHITquMnxj"
+						alt="producto"
+					/>
+					</a>
+				</figure>
+				<div class="info-product">
+					<h2>Tablet ALCATEL 1T </h2>
+					<p class="price">$20</p>
+					<button class="btn-add-cart">Añadir al carrito</button>
+				</div>
+			</div>
+			<div class="item" category="LENOVO" data-tags="2-Ram 32GB Android Tipo_C">
+				<figure>
+					<a href="Productos_Cliente/Tablest/Tablet LENOVO M8.html">
+					<img
+						src="Productos_Cliente/Tablest/Img/Tablet LENOVO 8 Pulgadas M8 2gen LTE Color Gris.png"
+						alt="producto"
+					/>
+					</a>
+				</figure>
+				<div class="info-product">
+					<h2>Tablet LENOVO M8 </h2>
+					<p class="price">$50</p>
+					<button class="btn-add-cart">Añadir al carrito</button>
+				</div>
+			</div>
+			
+			<div class="item" category="LENOVO" data-tags="4-Ram 128GB Android Tipo_C">
+				<figure>
+					<a href="Productos_Cliente/Tablest/Tablet LENOVO M10 Plus.html">
+					<img
+						src="Productos_Cliente/Tablest/Img/Tablet LENOVO 10 Pulgadas M10 Plus Wifi Color Gris.png"
+						alt="producto"
+					/>
+					</a>
+				</figure>
+				<div class="info-product">
+					<h2>Tablet LENOVO M10 Plus  </h2>
+					<p class="price">$90</p>
+					<button class="btn-add-cart">Añadir al carrito</button>
+				</div>
+			</div>
+			<div class="item" category="SAMSUNG" data-tags="6-Ram 128GB Android Tipo_C">
+				<figure>
+					<a href="Productos_Cliente/Tablest/Tablet SAMSUNG S7Fe.html">
+					<img
+						src="Productos_Cliente/Tablest/Img/Tablet SAMSUNG 12.4 Pulgadas S7Fe Wifi Color Plata.png"
+						alt="producto"
+					/>
+					</a>
+				</figure>
+				<div class="info-product">
+					<h2>Tablet SAMSUNG S7Fe </h2>
+					<p class="price">$50</p>
+					<button class="btn-add-cart">Añadir al carrito</button>
+				</div>
+				
+			</div>
+			<div class="item" category="SAMSUNG" data-tags="4-Ram 128GB Android Micro">
+				<figure>
+					<a href="Productos_Cliente/Tablest/Tablet SAMSUNG S6.html">
+					<img
+						src="Productos_Cliente/Tablest/Img/Tablet SAMSUNG 10.3 pulgadas S6 Wifi Color Azul.png"
+						alt="producto"
+					/>
+					</a>
+				</figure>
+				<div class="info-product">
+					<h2>Tablet SAMSUNG S6 </h2>
+					<p class="price">$50</p>
+					<button class="btn-add-cart">Añadir al carrito</button>
+				</div>
+			</div>
+			<div class="item" category="iPad" data-tags="iPad Tipo_C">
+				<figure>
+					<a href="Productos_Cliente/Tablest/iPad Pro 6ta Gen.html">
+					<img
+						src="Productos_Cliente/Tablest/Img/iPad Pro 12.9 pulgadas 2TB 6ta Gen Wifi Gris.png"
+						alt="producto"
+					/>
+					</a>
+				</figure>
+				<div class="info-product">
+					<h2>iPad Pro 6ta Gen </h2>
+					<p class="price">$50</p>
+					<button class="btn-add-cart">Añadir al carrito</button>
+				</div>
+			</div>
+			<div class="item" category="SAMSUNG" data-tags="8-Ram 128GB Android Tipo_C">
+				<figure>
+					<a href="Productos_Cliente/Tablest/Tablet SAMSUNG S8 Ultra.html">
+					<img
+						src="Productos_Cliente/Tablest/Img/Tablet SAMSUNG Galaxy 14.6 Pulgadas S8 Ultra Wifi 5G color Gris.png"
+						alt="producto"
+					/>
+					</a>
+				</figure>
+				<div class="info-product">
+					<h2> Tablet SAMSUNG S8 Ultra </h2>
+					<p class="price">$50</p>
+					<button class="btn-add-cart">Añadir al carrito</button>
+				</div>
+			</div>
+			<div class="item" category="SAMSUNG" data-tags="8-Ram 128GB Android Tipo_C">
+				<figure>
+					<a href="Productos_Cliente/Tablest/Tablet SAMSUNG Galaxy S8.html">
+					<img
+						src="Productos_Cliente/Tablest/Img/Tablet SAMSUNG Galaxy 12.4 Pulgadas S8+ Wifi 5G color Negro.png"
+						alt="producto"
+					/>
+					</a>
+				</figure>
+				<div class="info-product">
+					<h2>Tablet SAMSUNG Galaxy S8</h2>
+					<p class="price">$50</p>
+					<button class="btn-add-cart">Añadir al carrito</button>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="fin"></div>
+
+		<script src="Productos_Cliente/Portatiles/index.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/script.js"></script>
+	</body>
+</html>

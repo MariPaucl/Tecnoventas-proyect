@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+    <head>
+        <script src="https://kit.fontawesome.com/d3ed00feee.js" crossorigin="anonymous"></script>
+        <script>
+            function validarFormulario() {
+                var nombre = document.getElementById("Nombres").value;
+                var email = document.getElementById("email").value;
+                var mensaje = document.getElementById("mensaje").value;
+    
+                if (nombre === "" || email === "" || mensaje === "") {
+                    alert("Cada campo debe ser diligenciado");
+                    return false;
+                }
+            }
+        </script>
+    
+    </head>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ENVIANOS TUS PREGUNTAS</h1>
+        </div>
+        <form id="form" class="form" action="preguntasenvio.php" method="POST">
+            <div class="form-control">
+                <label for="Nombres"></label>
+                <img src="hombre.png"/>
+                <input type="text" placeholder="Nombres" id="Nombres" />
+            </div>
+            <div class="form-control">
+                <label for="email"></label>
+                <img src="correo.png"/>
+                <input type="email" placeholder="Correo Electronico" id="email" />
+            </div>
+            <div class="form-control">
+                <label for="cell"></label>
+                <img src="telefono.png"/>
+                <input type="number" placeholder="Numero de Telefono" id="cell"/>
+            </div>
+            <div class="form-control">
+                <img src="mensaje.png"  width="15px" height="15px" class="mes-img"/>
+                <textarea placeholder="Dudas, sugerencias y preguntas" id="mensaje" rows="4" cols="30"></textarea>
+            </div>
+            <button type="submit" value="Enviar" class="button" onclick="return validarFormulario()">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
+
+        <style>
+    @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Tektur:wght@500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        top: 100px;
+        left: 0px;
+        background: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.75)), url(fondoPreguntas.jpeg);
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: 'Nunito', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+    .container {
+        background-color: #ffffffa2;
+        margin: 25px;
+        border-radius: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        overflow: overlay;
+        width: 550px;
+        max-width: 200%;
+    }
+    .header {
+        padding: 20px 40px;
+        padding-bottom: 0px;
+    }
+
+    .header h1 {
+        text-align: center;
+        color: #491e44;
+        font-size: 40px;
+        font-family: 'Tektur', sans-serif;
+    }
+
+    .form {
+        padding: 30px 40px;
+    }
+    .mes-img{
+        margin-bottom: 85px;
+    }
+    ::placeholder{
+        color: rgba(5, 7, 12, 0.75);
+    }
+    .form-control {
+        margin-bottom: 1px;
+        padding-bottom: 25px;
+        position: relative;
+    }
+
+    .form-control label {
+        display: inline;
+        margin-bottom: 5px;
+    }
+
+    select{
+        font-family: 'Nunito',sans-serif;
+        margin: 5px;
+        color: white;
+        background: #0c03032a;
+        border: 2px solid black;
+        border-radius: 4px;
+        font-size: 15px;
+        width: 440px;
+        padding: 10px;
+        outline: 0;
+    }
+
+    select:focus{
+        border-color: #5b1c51;
+    }
+
+    option{
+        background: black;
+        font-family: 'Nunito', sans-serif;
+    }
+
+    .form-control input {
+        color: white;
+        background:#0c03032a;
+        border: 2px solid black;
+        border-radius: 4px;
+        display: inline;
+        font-family: 'Nunito', sans-serif;
+        font-size: 15px;
+        width: 95%;
+        padding: 10px;
+    }
+
+    .form-control textarea {
+        color: white;
+        background:#0c03032a;
+        border: 2px solid black;
+        border-radius: 4px;
+        display: inline;
+        font-family: 'Nunito', sans-serif;
+        font-size: 15px;
+        width: 95%;
+        padding: 10px;
+    }
+    .form-control textarea:focus {
+        border-color: #5b1c51;
+        outline: none;
+    }
+
+    .form-control input:focus {
+        outline: 0;
+        border-color: #5b1c51;
+    }
+
+    .form button {
+        font-family: 'Tektur', sans-serif;
+        margin-bottom: 10px;
+        border: none;
+        width: 100%;
+        color: white;
+        font-size: 20px;
+        background: #491e44;
+        padding: 15px 20px;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+    </style>

@@ -1,0 +1,91 @@
+<?php
+include('db.php');
+
+if(isset($_GET['codProd'])){
+    $codProd = $_GET['codProd'];
+    $query = "SELECT * FROM productos WHERE codProd = $codProd";
+    $result = mysqli_query($conex, $query);
+    if (mysqli_num_rows($result) == 1){
+        $row = mysqli_fetch_array($result);
+        $codProd = $row['codProd'];
+        $nomProd = $row['nomProd'];
+        $marca = $row['marca'];
+        $precio = $row['precio'];
+        $imagen = $row['imagen'];
+        $estProd = $row['estProd'];
+    }
+}
+
+if(isset($_POST['guardar'])){
+    $codProd = $_GET['codProd'];
+    $nomProd = $_POST['nomProd'];
+    $marca = $_POST['marca'];
+    $precio = $_POST['precio'];
+    $imagen = $_POST['imagen'];
+    $estProd = $_POST['estProd'];
+
+    $query = "UPDATE productos set codProd = '$codProd', nomProd = '$nomProd', marca = '$marca', precio = '$precio', imagen = '$imagen', estProd = '$estProd' WHERE codProd = $codProd";
+    mysqli_query($conex, $query);
+
+    $_SESSION['message'] = 'Producto Actualizado Satisfactoriamente';
+    $_SESSION['message_type'] = 'success';
+
+    header("Location: crud.php");
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/d3ed00feee.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container p-4">
+    <div class="row">
+    <h1 class="text-h1">Actualizar Productos</h1>
+    <div class="col-md-4 mx-auto">
+    <div class="card card-body">
+        <form action="edit.php?codProd=<?php echo $_GET['codProd']; ?>" method="post">
+            <div class="form-group mb-3">
+                <input type="number" name="codProd" value="<?php echo $codProd; ?>" class="form-control" placeholder="Cambiar codigo">
+            </div>
+            <div class="form-group mb-3">
+                <input type="text" name="nomProd" value="<?php echo $nomProd; ?>" class="form-control" placeholder="Cambiar nombre">
+            </div>
+            <div class="form-group mb-3">
+                <input type="text" name="marca" value="<?php echo $marca; ?>" class="form-control" placeholder="Cambiar marca">
+            </div>
+            <div class="form-group mb-3">
+                <input type="number" name="precio" value="<?php echo $precio; ?>" class="form-control" placeholder="Cambiar precio">
+            </div>
+            <div class="form-group mb-3">
+                <input type="file" name="imagen" value="<?php echo $imagen; ?>" class="form-control">
+            </div>
+            <div class="form-group mb-3">
+                <input type="text" name="estProd" value="<?php echo $estProd; ?>" class="form-control" placeholder="Cambiar estado">
+            </div>
+            <button class="btn btn-outline-success btn-lg" type="submit" name="guardar">Guardar</button>
+        </form>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+    .btn{
+        width: 250px;
+    }
+    .text-h1{
+        color:#008040 !important ;
+        padding: 0px 250px;
+        text-align: center;
+        font-family: 'Bebas Neue', sans-serif;
+    }
+</style>
+</body>
+</html>

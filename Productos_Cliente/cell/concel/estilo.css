@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #a8ff78;  
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(0, 0%, 0%, 0.733), hsla(0, 0%, 0%, 0.795)), url(imagenes/technology.jpg);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(0, 0%, 0%, 0.623), hsla(0, 0%, 7%, 0.795)), url(imagenes/technology.jpg);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin: 0;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+}
+.table {
+    width: 45%;
+background-color: rgba(196, 196, 196, 0.87);
+border-radius: 15px;
+}
+.tableO{
+    margin: 0px 20px 10px 20px;
+}
+#table2 {
+    width: 50%;
+}

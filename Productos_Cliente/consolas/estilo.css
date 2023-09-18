@@ -1,0 +1,32 @@
+body {
+    
+    font-family: 'comi', sans-serif;
+    background: #a8ff78;  
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(0, 0%, 0%, 0.705), hsla(0, 0%, 0%, 0.692)), url(https://www.hyperhype.es/wp-content/uploads/2020/02/xbox-one-playstation-4-controllers_0.jpg);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(0, 0%, 0%, 0.671), hsla(0, 0%, 0%, 0.678)), url(https://www.hyperhype.es/wp-content/uploads/2020/02/xbox-one-playstation-4-controllers_0.jpg);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+.table {
+background-color: rgba(196, 196, 196, 0.87);
+border-radius: 2%;
+    
+    
+}
+
+.img {
+    width: 300px;
+    height: 350px;
+}
+
+.img2 {
+    width: 400px;
+    height: 300px;
+}

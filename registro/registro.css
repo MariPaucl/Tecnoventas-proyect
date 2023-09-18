@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+    top: 100px;
+    left: 0px;
+	background: url(tecnoventasfondo.jpg);
+	background-size: cover;
+    background-attachment: fixed;
+	font-family: 'Nunito', sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	margin: 0;
+}
+.link {
+    text-decoration: none;
+    color: #5b1753;
+    font-weight: 600;
+}
+.link:hover{
+    color: white;
+}
+
+p{
+	text-align: center;
+}
+.container {
+	background-color: #ffffff5f;
+	margin: 25px;
+	border-radius: 15px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	overflow: overlay;
+	width: 550px;
+	max-width: 200%;
+}
+.header {
+	padding: 20px 40px;
+	padding-bottom: 0px;
+}
+
+.header h1 {
+    text-align: center;
+    color: #5b1753;
+    font-size: 40px;
+	font-family: 'Tektur', sans-serif;
+}
+
+.form {
+	padding: 30px 40px;
+}
+
+.form-control {
+	margin-bottom: 1px;
+	padding-bottom: 25px;
+	position: relative;
+}
+
+.form-control label {
+	display: inline;
+	margin-bottom: 5px;
+}
+
+select{
+    font-family: 'Nunito',sans-serif;
+    margin: 5px;
+    color: white;
+    background: #0c03032a;
+    border: 2px solid #5b1c51;
+    border-radius: 4px;
+    font-size: 15px;
+    width: 433px;
+    padding: 10px;
+    outline: 0;
+}
+
+select:focus{
+    border-color: #9f3092;
+}
+
+.form-control.success select {
+	border-color: #176a3a;
+}
+
+.form-control.error select {
+	border-color: #a40000;
+}
+
+option{
+    background: black;
+    font-family: 'Nunito', sans-serif;
+}
+
+.form-control input {
+	color: white;
+	background:#0c03032a;
+	border: 2px solid #5b1c51;
+	border-radius: 4px;
+	display: inline;
+	font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    width: 439px;
+    padding: 10px;
+}
+
+
+.form-control input:focus {
+	outline: 0;
+	border-color: #9f3092;
+}
+
+.form-control.success input {
+	border-color: #176a3a;
+}
+
+.form-control.error input {
+	border-color: #a40000;
+}
+
+.form-control i {
+	visibility: hidden;
+	position: absolute;
+	top: 40px;
+	right: 10px;
+}
+
+.form-control.success i.fa-check-circle {
+	color: #176a3a;
+	visibility: visible;
+}
+
+.form-control.error i.fa-exclamation-circle {
+	color: #a40000;
+	visibility: visible;
+}
+
+.form-control small {
+	color: #a40000;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	visibility: hidden;
+	padding-left: 20px;
+	padding-bottom: 3px;
+}
+
+.form-control.error small {
+	visibility: visible;
+}
+
+.btn {
+	font-family: 'Tektur', sans-serif;
+	margin-bottom: 10px;
+    border: none;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    background: #c231b8;
+    padding: 15px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+	margin-top: 15px;
+}
+.btn:hover{
+	background: #5b1c51;
+}
