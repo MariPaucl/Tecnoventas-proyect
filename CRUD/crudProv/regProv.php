@@ -39,7 +39,7 @@
             <input type="text" name="paginaWeb" class="form-control" placeholder="Pagina Web" required>
         </div>
         <div class="form-group p-1">
-            <input type="submit" value="REGISTRAR" class="btn btn-success btn-block" name="save_prov">
+            <input type="submit" value="REGISTRAR" class="btn btn-primary" name="save_prov">
             </div>
     </form>
 </div>
@@ -48,16 +48,16 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
     .btn{
-        width: 250px;
+        width: 365px;
     }
     .text-h1{
-        color:#008040 !important ;
+        color: #ffff !important ;
         padding: 0px 250px;
         text-align: center;
         font-family: 'Bebas Neue', sans-serif;
     }
     body{
-        background-color:#ccf5cb !important ;
+        background-color:#0984ff !important ;
     }
 </style>
 </body>
