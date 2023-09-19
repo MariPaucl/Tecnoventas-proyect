@@ -56,6 +56,9 @@
         text-align: center;
         font-family: 'Bebas Neue', sans-serif;
     }
+    body{
+        background-color:#ccf5cb !important ;
+    }
 </style>
 </body>
 </html>
