@@ -19,10 +19,8 @@ if (isset($_POST['registrar'])) {
         $apellido = trim($_POST['apellido']);
         $email = trim($_POST['email']);
         $password = trim($_POST['password']); // Obtiene la contraseña sin cifrar
-
         // Encripta la contraseña utilizando MD5
         $hashContrasena = md5($password);
-
         $telefono = trim($_POST['telefono']);
         $fecha = trim($_POST['fecha']);
 
