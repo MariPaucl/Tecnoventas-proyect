@@ -1,5 +1,8 @@
-<!--Font Awesome CDN-->
-     <link rel="stylesheet" href="estilo.css"/>
+<!DOCTYPE html>
+<header>
+    <title>Metodo de Compra</title>
+</header>
+<link rel="stylesheet" href="estilo.css"/>
     <div class="container">
         <div class="title">
             <h4>Seleccione <span style="color: #6064b6">El metodo </span> De Pago</h4>
@@ -8,17 +11,15 @@
         <form action="#">
             <input type="radio" name="payment" id="visa">
             <input type="radio" name="payment" id="mastercard">
-            <input type="radio" name="payment" id="paypal">
-            <input type="radio" name="payment" id="AMEX">
 
 
             <div class="category">
                 <label for="visa" class="visaMethod">
                     <div class="imgName">
                         <div class="imgContainer visa">
-                            <img src="https://www.laquinta.com.co/wp-content/uploads/2022/11/logo-pse-300x300-1.png" alt="">
+                            <a href="../FormulariosPago/pagoMercadoPago.php"><img src="../img/mercadoPago.png" alt=""></a>
                         </div>
-                        <span class="name">PSE</span>
+                        <span class="name">Mercado Pago</span>
                     </div>
                     <span class="check"><i class="fa-solid fa-circle-check" style="color: #6064b6;"></i></span>
                 </label>
@@ -26,24 +27,12 @@
                 <label for="mastercard" class="mastercardMethod">
                     <div class="imgName">
                         <div class="imgContainer mastercard">
-                            <img src="https://cdn-icons-png.flaticon.com/512/2036/2036896.png" alt="">
+                            <a href="../FormulariosPago/pagoContraEntrega.php"><img src="../img/contraEntrega.png" alt=""></a>
                         </div>
                         <span class="name">Contra entrega</span>
                     </div>
                     <span class="check"><i class="fa-solid fa-circle-check" style="color: #6064b6;"></i></span>
                 </label>
-
-                <label for="paypal" class="paypalMethod">
-                    <div class="imgName">
-                        <div class="imgContainer paypal">
-                            <img src="https://laruecol.com/wp-content/uploads/2022/08/Efecty-png.png" alt="">
-                        </div>
-                        <span class="name">Efecty</span>
-                    </div>
-                    <span class="check"><i class="fa-solid fa-circle-check" style="color: #6064b6;"></i></span>
-                </label>
-
-                
             </div>
         </form>
     </div>
