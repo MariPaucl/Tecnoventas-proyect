@@ -24,7 +24,7 @@ if (isset($_POST['registrar'])) {
         $telefono = trim($_POST['telefono']);
         $fecha = trim($_POST['fecha']);
 
-        $consulta = "INSERT INTO clientes(tipoId, numId, nomCliente, apeCliente, fechaNac, telefono, correo, contraseña)
+        $consulta = "INSERT INTO clientes(tipoId, numId, nomCliente, apeCliente, fechaNac, telefono, correo, passCliente)
                 VALUES('$tipoId', '$numId', '$nombre', '$apellido', '$fecha', '$telefono', '$email', '$hashContrasena')";
 
         if (mysqli_query($conex, $consulta)) {
