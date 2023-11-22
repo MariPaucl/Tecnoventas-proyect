@@ -18,12 +18,36 @@
                     <p class="texto">Agregar Imagen</p>
                 <input type="file" name="imagen" id="image-file">
                 </div>
+                <input type="number" name="stock" id="stock" placeholder="Stock del Producto">
                 <select name="estado" id="estado">
                     <option value="Disponible">
                         Disponible
                     </option>
                     <option value="Agotado">
                         Agotado
+                    </option>
+                </select>
+                <select name="categoria" id="categoria">
+                    <option value="">
+                        Categoria
+                    </option>
+                    <option value="1">
+                        Celulares
+                    </option>
+                    <option value="2">
+                        Portatiles
+                    </option>
+                    <option value="3">
+                        Computadores
+                    </option>
+                    <option value="4">
+                        Tablets
+                    </option>
+                    <option value="5">
+                        Audifonos
+                    </option>
+                    <option value="6">
+                        Parlantes
                     </option>
                 </select>
             </div>
