@@ -1,15 +1,21 @@
+<?php
+require 'config/conexion.php';
+$db = new Database();
+$con = $db->conectar();
+
+$sql = $con->prepare("SELECT codProd, imagen, nomProd, precio, estProd FROM productos WHERE codigoCat = 1");
+$sql->execute();
+$resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <body>
 
 	<div class="head">
-		
 		<div class="logo">
-	
-		  <a href="#">TECNOVENTAS</a>
+		<a href="#">TECNOVENTAS</a>
 		</div>
 		<nav class="navbar">
-		  <ul>
-	
+		<ul>
 			<li><a href="sesion.html">Cerrar sesion</a></li>
 			<li><a href="inicio.html">Inicio</a></li>
 			<li><a href="#">Productos <i class="icon-abajo2"></i></a>
@@ -26,21 +32,16 @@
 					<li><a href="parlantes.html">
 						Parlantes
 					</a></li>
-	
 					</a></li>
 					<li><a href="audifonos.html">
 						Audifonos
 					</a></li>
 				</ul>
 			</li>
-	
-	
 		</ul>
 		</nav>
 	</div>
 
-
-	
 		<div id="stn-icon-search">
 			<i class="fa-solid fa-magnifying-glass" ><img src="img/lupa.png" alt="" id="icon-search"></i>
 		</div>
@@ -60,8 +61,6 @@
 		</ul>
 		<div id="cover-ctn-search"></div>
 		<script src="js/scriptbuscador.js"></script>
-	  
-	
 	</body>
 <html lang="en">
 	<head>
@@ -75,7 +74,6 @@
 		<link rel="stylesheet" href="Productos_Cliente/cell/styles.css" />
 		<link rel="stylesheet" href="css/fitro.css">
 		<link rel="stylesheet" href="css/buscadorcell.css">
-	
 	</head>
 	<body>
 		<header>
@@ -126,29 +124,22 @@
 							</svg>
 						</div>
 					</div>
-					
 
 					<div class="cart-total hidden">
 						<h3>Total:</h3>
 						<span class="total-pagar">$200</span>
-						
 					</div>
 					<p class="cart-empty">El carrito está vacío</p>
 					<div class="hidde">
 					<a href="Compra/compra.html"  class="cta">
-						
 						<span class="boton">Finalizar Compra</span>
 						<svg width="13px" height="10px" viewBox="0 0 13 10">
-						  <path d="M1,5 L11,5"></path>
-						  <polyline points="8 1 12 5 8 9"></polyline>
+						<path d="M1,5 L11,5"></path>
+						<polyline points="8 1 12 5 8 9"></polyline>
 						</svg>
-					  </a>
+					</a>
 					</div>
-					
 				</div>
-			
-			
-			
 			</div>
 		</header>
 		<div class="categoria_list">
@@ -193,147 +184,24 @@
 				</div>
 			</div>
 		<div class="container-items">
+            <?php foreach($resultado as $row) { ?>
 			<div class="item" category="Redmi" data-tags="4-Ram One 128_GB Snapdragon">
 				<figure>
 					<a href="Productos_Cliente/cell/concel/con_redmi.html">
 					<img
-						src="https://erp.chaomi.com.mx/uploads/7c1a31331-removebg-preview.png"
-						alt="producto"
-					/>
-					</a>
-				</figure>
-			
-				<div class="info-product">
-					<h2>Celular Redmi 9T EUCarbon Gray</h2>
-					<p class="price">$769000</p>
-					<button class="btn-add-cart">Añadir al carrito</button>
-			
-				</div>
-			</div>
-			<div class="item" category="Samsung" data-tags="8-Ram Dual 128_GB Exynos">
-				<figure>
-					<a href="Productos_Cliente/cell/concel/con_Samsung.html">
-					<img
-						src="https://comprasmartphone.com/_next/image?url=https%3A%2F%2Fstorage.comprasmartphone.com%2Fsmartphones%2Fsamsung-galaxy-a12.png&w=256&q=75"
-						alt="producto"
-					/>
-				</a>
-				</figure>
-				
-				<div class="info-product">
-					<h2>Celular Samsung Galaxy A12</h2>
-					<p class="price">$3499000</p>
-					<button class="btn-add-cart">Añadir al carrito</button>
-				</div>
-			</div>
-			<div class="item" category="Xiaomi" data-tags="6-Ram One 128_GB Snapdragon">
-				<figure>
-					<a href="Productos_Cliente/cell/concel/con_Xioami.html">
-					<img
-						src="https://i01.appmifile.com/webfile/globalweb/chenyang/j20s-black!800x800!85.png"
+						src="imagenes/productos/<?php echo$row['imagen']; ?>"
 						alt="producto"
 					/>
 					</a>
 				</figure>
 				<div class="info-product">
-					<h2>Celular Xiaomi Poco X3 PRO
-						Phantom </h2>
-					<p class="price">$1139900</p>
+					<h2><?php echo $row['nomProd']; ?></h2>
+					<p class="price"><?php echo$row['precio'];?></p>
+                    <p class="estado"><?php echo$row['estProd'];?></p>
 					<button class="btn-add-cart">Añadir al carrito</button>
 				</div>
 			</div>
-			
-			<div class="item" category="Samsung" data-tags="6-Ram One 128_GB Exynos">
-				<figure>
-					<a href="Productos_Cliente/cell/concel/con_galaxy_S20.html">
-					<img
-						src="https://storage.comprasmartphone.com/smartphones/samsung-galaxy-s20-fe.png"
-						alt="producto"
-					/>
-					</a>
-				</figure>
-				<div class="info-product">
-					<h2>Samsung Galaxy S20 FE Dual SIM</h2>
-					<p class="price">$3500000</p>
-					<button class="btn-add-cart">Añadir al carrito</button>
-				</div>
-			</div>
-			<div class="item" category="Motorola" data-tags="4-Ram Dual 64_GB Unisoc">
-				<figure>
-					<a href="Productos_Cliente/cell/concel/con_G20.html">
-					<img
-						src="https://cltienemobile.com/wp-content/uploads/2022/05/CHAMALEON-1000x1000px-01.png"
-						alt="producto"
-					/>
-				</a>
-				</figure>
-				<div class="info-product">
-					<h2>Moto G20 Dual SIM</h2>
-					<p class="price">$649999</p>
-					<button class="btn-add-cart">Añadir al carrito</button>
-				</div>
-				
-			</div>
-			<div class="item" category="Motorola" data-tags="4-Ram Dual 128_GB Snapdragon">
-				<figure>
-					<a href="Productos_Cliente/cell/concel/con_G30.html">
-					<img
-						src="https://cdn.shopify.com/s/files/1/0470/7719/5935/files/123123123123-7-1_710x.png?v=1685737339"
-						alt="producto"
-					/>
-				</a>
-				</figure>
-				<div class="info-product">
-					<h2>Moto G30 Dual SIM </h2>
-					<p class="price">$769000</p>
-					<button class="btn-add-cart">Añadir al carrito</button>
-				</div>
-			</div>
-			<div class="item" category="Redmi" data-tags="4-Ram One 128_GB MediaTek">
-				<figure>
-					<a href="Productos_Cliente/cell/concel/con_realme.html">
-					<img
-						src="https://cdn.shopify.com/s/files/1/0240/8470/9453/products/1.realme6_CometBlue_Front_RGB_1000x.png?v=1599749274"
-						alt="producto"
-					/>
-					</a>
-				</figure>
-				<div class="info-product">
-					<h2>Realme 6 Dual SIM</h2>
-					<p class="price">$880000</p>
-					<button class="btn-add-cart">Añadir al carrito</button>
-				</div>
-			</div>
-			<div class="item" category="Samsung" data-tags="4-Ram Dual 128_GB MediaTek">
-				<figure>
-					<a href="Productos_Cliente/cell/concel/con_galaxy_A32.html">
-					<img
-						src="https://storage.comprasmartphone.com/smartphones/samsung-galaxy-a32.png"
-						alt="producto"
-					/>
-					</a>
-				</figure>
-				<div class="info-product">
-					<h2>Samsung Galaxy A32 Dual SIM</h2>
-					<p class="price">$769000</p>
-					<button class="btn-add-cart">Añadir al carrito</button>
-				</div>
-			</div>
-			<div class="item" category="Xiaomi" data-tags="8-Ram One 256_GB Snapdragon">
-				<figure>
-					<a href="Productos_Cliente/cell/concel/con_pocophone.html">
-					<img
-						src="https://celularess.com/wp-content/uploads/2020/12/Xiaomi-Poco-X3-NFC-1024x1024.png"
-						alt="producto"
-					/>
-					</a>
-				</figure>
-				<div class="info-product">
-					<h2>Xiaomi Pocophone Poco X3 Pro Dual SIM</h2>
-					<p class="price">$1139900</p>
-					<button class="btn-add-cart">Añadir al carrito</button>
-				</div>
-			</div>
+            <?php } ?>
 		</div>
 		</div>
 		<div class="fin"></div>
@@ -341,8 +209,5 @@
 		<script src="Productos_Cliente/cell/index.js"></script>
 		<script src="js/jquery.js"></script>
 		<script src="js/script.js"></script>
-        
     </body>
 </html>
-		
-
