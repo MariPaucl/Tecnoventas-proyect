@@ -1,5 +1,5 @@
 <?php
-include("../Productos_Admin/FormProd/conexion.php");
+include("../registro/conexion.php");
 
 if (isset($_POST['guardar'])){
     if(
