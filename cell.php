@@ -144,10 +144,10 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 		</header>
 		<div class="categoria_list">
 			<a href="#" class="category_item" category="all">Todo</a>
-			<a href="#" class="category_item" category="HP">Redmi</a>
-			<a href="#" class="category_item" category="LENOVO">Samsung</a>
-			<a href="#" class="category_item" category="ASUS">Xiaomi</a>
-			<a href="#" class="category_item" category="ASUS">Motorola</a>
+			<a href="#" class="category_item" category="Redmi">Redmi</a>
+			<a href="#" class="category_item" category="Samsung">Samsung</a>
+			<a href="#" class="category_item" category="Xiaomi">Xiaomi</a>
+			<a href="#" class="category_item" category="Motorola">Motorola</a>
 
 		</div>
 		<div class="pro">
