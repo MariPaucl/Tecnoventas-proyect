@@ -16,8 +16,6 @@
                 <option value="TI">T.I.</option>
             </select>
         </div>
-    
- 
 
         <div class="input-contenedor">
             <i class="fas fa-nomusu"></i>
