@@ -37,5 +37,24 @@ class Productos extends Conectar {
             return false;
         }
     }
+    public function get_productos_x_id($codProd){
+        try {
+            $conectar = parent::Conexion();
+            $sql = "SELECT p.nomProd AS nombre_producto, p.marca, p.precio, c.nomCaract AS nombre_caracteristica, ip.valor
+                    FROM Productos p
+                    INNER JOIN InfoProductos ip ON p.codProd = ip.codProd
+                    INNER JOIN Caracteristicas c ON ip.idCaract = c.idCaract
+                    WHERE p.codigoCat = ?";
+
+            $stmt = $conectar->prepare($sql);
+            $stmt->execute([$codProd]);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            // Manejar el error aquí, por ejemplo, registrándolo o devolviendo un valor predeterminado.
+            echo "Error en la consulta: " . $e->getMessage();
+            return array();
+        }
+    }
+
 }
 ?>
