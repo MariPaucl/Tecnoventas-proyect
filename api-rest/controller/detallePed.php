@@ -13,7 +13,7 @@ case "InsertDetalle";
 $resultadoValidacion=$detalleped->validarStock($body["codProd"],$body["cantidadProd"]);
 if ($resultadoValidacion["valido"]) {
     $detalleped->insert_detalleped($body["codPedido"],$body["codProd"], $body["cantidadProd"]);
-    /*$detalleped->restar_cantidad($body["codProd"],$body["cantidadProd"]);*/
+    $detalleped-> update_rest_produc($body["codProd"],$body["cantidadProd"]);
     echo "El detalle del pedido se inserto correctamente";
 } else {
     echo $resultadoValidacion["mensaje"];

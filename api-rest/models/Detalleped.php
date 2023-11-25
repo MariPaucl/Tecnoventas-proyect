@@ -11,13 +11,17 @@ class Detalleped extends Conectar {
         $sql->bindValue(3, $cantidadProd);
         $sql->execute();
     }
-    /*public function restar_cantidad($codProd,$cantidadProd){
-        $cantidad = $cantidadProd;
-        $conectar = parent::conexion();
-        $sql = "UPDATE productos SET stockProd = stockProd - $cantidad WHERE codProd = ?";
-        $stmtCantidad = $conectar->prepare($stmtCantidad);
-        $stmtCantidad->bindValue(1, $codProd);
-        $stmtCantidad->execute();*/
+    public function update_rest_produc($codProd, $cantidadProd){
+        $conectar=parent::conexion();
+        parent::set_names();
+        $sql= "UPDATE productos p
+        SET p.stockProd = p.stockProd - $cantidadProd where codProd=?
+        ";
+        $sql=$conectar ->prepare($sql);
+        $sql->bindValue(1,  $codProd);
+        $sql->execute();
+        return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+    }
 public function validarStock($codProd, $cantidadProd) {
     $conectar = parent::conexion();
     $sql = "SELECT stockProd FROM productos WHERE codProd = ?";
