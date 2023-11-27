@@ -1,9 +1,10 @@
 <?php
+require 'config/config.php';
 require 'config/conexion.php';
 $db = new Database();
 $con = $db->conectar();
 
-$sql = $con->prepare("SELECT codProd, imagen, nomProd, precio, estProd FROM productos WHERE codigoCat = 1");
+$sql = $con->prepare("SELECT codProd, imagen, nomProd, precio, estProd, marca FROM productos WHERE codigoCat = 1");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -49,15 +50,9 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 			<input type="text" id="inputSearch" placeholder="¿que deseas buscar?">
 		</div>
 		<ul id="box-search">
-			<li><a href="Productos_Cliente/cell/concel/con_redmi.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >Celular Redmi 9T EUCarbon Gray</i></a></li>
-			<li><a href="Productos_Cliente/cell/concel/con_Samsung.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >Celular Samsung Galaxy A12 </i></a></li>
-			<li><a href="Productos_Cliente/cell/concel/con_Xioami.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >Celular Xiaomi Poco X3 PRO Phantom</i></a></li>
-			<li><a href="Productos_Cliente/cell/concel/con_galaxy_S20.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >Samsung Galaxy S20 FE Dual SIM</i></a></li>
-			<li><a href="Productos_Cliente/cell/concel/con_G20.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >Moto G20 Dual SIM</i></a></li>
-			<li><a href="Productos_Cliente/cell/concel/con_G30.htm"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >Moto G30 Dual SIM</i></a></li>
-			<li><a href="Productos_Cliente/cell/concel/con_realme.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >ealme 6 Dual SIM</i></a></li>
-			<li><a href="Productos_Cliente/cell/concel/con_galaxy_A32.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >Samsung Galaxy A32 Dual SIM</i></a></li>
-			<li><a href="Productos_Cliente/cell/concel/con_pocophone.html"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" >Xiaomi Pocophone Poco X3 Pro Dual SIM</i></a></li>
+		<?php foreach($resultado as $row) { ?>
+			<li><a href="detailsCel.php?codProd=<?php echo $row['codProd'];?>&token=<?php echo hash_hmac('sha1', $row['codProd'], KEY_TOKEN);?>"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" ><?php echo $row['nomProd']?></i></a></li>
+			<?php } ?>
 		</ul>
 		<div id="cover-ctn-search"></div>
 		<script src="js/scriptbuscador.js"></script>
@@ -143,11 +138,11 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 			</div>
 		</header>
 		<div class="categoria_list">
-			<a href="#" class="category_item" category="all">Todo</a>
-			<a href="#" class="category_item" category="Redmi">Redmi</a>
-			<a href="#" class="category_item" category="Samsung">Samsung</a>
-			<a href="#" class="category_item" category="Xiaomi">Xiaomi</a>
-			<a href="#" class="category_item" category="Motorola">Motorola</a>
+			<a class="category_item" category="all">Todo</a>
+			<a class="category_item" category="Redmi">Redmi</a>
+			<a class="category_item" category="Samsung">Samsung</a>
+			<a class="category_item" category="Xiaomi">Xiaomi</a>
+			<a class="category_item" category="Motorola">Motorola</a>
 
 		</div>
 		<div class="pro">
@@ -185,9 +180,9 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 			</div>
 		<div class="container-items">
             <?php foreach($resultado as $row) { ?>
-			<div class="item" category="Redmi" data-tags="4-Ram One 128_GB Snapdragon">
+			<div class="item" category="<?php echo $row['marca']?>" data-tags="4-Ram One 128_GB Snapdragon">
 				<figure>
-					<a href="Productos_Cliente/cell/concel/con_redmi.html">
+					<a href="detailsCel.php?codProd=<?php echo $row['codProd'];?>&token=<?php echo hash_hmac('sha1', $row['codProd'], KEY_TOKEN);?>">
 					<img
 						src="imagenes/productos/<?php echo$row['imagen']; ?>"
 						alt="producto"
@@ -196,7 +191,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 				</figure>
 				<div class="info-product">
 					<h2><?php echo $row['nomProd']; ?></h2>
-					<p class="price"><?php echo$row['precio'];?></p>
+					<p class="price">$<?php echo$row['precio'];?></p>
                     <p class="estado"><?php echo$row['estProd'];?></p>
 					<button class="btn-add-cart">Añadir al carrito</button>
 				</div>

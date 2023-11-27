@@ -7,12 +7,12 @@ $productos = new Productos();
 
 $body = json_decode(file_get_contents("php://input"), true);
 
-case "GetId":
+switch ($_GET["op"]){
+    case "GetId":
         $datos=$productos->get_productos_x_id($body["codProd"]);
         echo json_encode($datos);
         break;
-        
-switch ($_GET["op"]){
+
     case "ProductoEstado":
             // Verifica si se realiza la acción correctamente
         $actualizacionExitosa = $productos->ProductoEstado($body["codProd"]);
