@@ -11,7 +11,7 @@ if (isset($_POST['numId']) && isset($_POST['password']) && isset($_POST['tipoId'
     $resultado = mysqli_query($conex, $consulta);
 
     if ($resultado && $row = mysqli_fetch_assoc($resultado)) {
-        $contrasena_almacenada = $row['contraseña'];
+        $contrasena_almacenada = $row['passCliente'];
 
         // Verificar si la contraseña ingresada coincide con la almacenada en la base de datos
         if (md5($password) === $contrasena_almacenada) {
