@@ -4,7 +4,7 @@ require 'config/conexion.php';
 $db = new Database();
 $con = $db->conectar();
 
-$sql = $con->prepare("SELECT codProd, imagen, nomProd, precio, estProd, marca FROM productos WHERE codigoCat = 1");
+$sql = $con->prepare("SELECT codProd, imagen, nomProd, precio, estProd, marca FROM productos WHERE codigoCat = 2");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -21,20 +21,20 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 			<li><a href="inicio.html">Inicio</a></li>
 			<li><a href="#">Productos <i class="icon-abajo2"></i></a>
 				<ul class="submenu">
-					<li><a href="Portatiles.php">
-						Portatiles
+					<li><a href="cell.php">
+						Celulares
 					</a></li>
-					<li><a href="Portatiles.php">
+					<li><a href="computadores.php">
 						Computadores
 					</a></li>
-					<li><a href="Tablets.php">
+					<li><a href="Tablets.html">
 						Tablets
 					</a></li>
-					<li><a href="parlantes.php">
+					<li><a href="parlantes.html">
 						Parlantes
 					</a></li>
 					</a></li>
-					<li><a href="audifonos.php">
+					<li><a href="audifonos.html">
 						Audifonos
 					</a></li>
 				</ul>
@@ -51,7 +51,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 		</div>
 		<ul id="box-search">
 		<?php foreach($resultado as $row) { ?>
-			<li><a href="detailsCel.php?codProd=<?php echo $row['codProd'];?>&token=<?php echo hash_hmac('sha1', $row['codProd'], KEY_TOKEN);?>"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" ><?php echo $row['nomProd']?></i></a></li>
+			<li><a href="detailsPort.php?codProd=<?php echo $row['codProd'];?>&token=<?php echo hash_hmac('sha1', $row['codProd'], KEY_TOKEN);?>"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" ><?php echo $row['nomProd']?></i></a></li>
 			<?php } ?>
 		</ul>
 		<div id="cover-ctn-search"></div>
@@ -139,10 +139,10 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 		</header>
 		<div class="categoria_list">
 			<a class="category_item" category="all">Todo</a>
-			<a class="category_item" category="Redmi">Redmi</a>
-			<a class="category_item" category="Samsung">Samsung</a>
-			<a class="category_item" category="Xiaomi">Xiaomi</a>
-			<a class="category_item" category="Motorola">Motorola</a>
+			<a class="category_item" category="Asus">Asus</a>
+			<a class="category_item" category="Acer">Acer</a>
+			<a class="category_item" category="Lenovo">Lenovo</a>
+			<a class="category_item" category="HP">HP</a>
 
 		</div>
 		<div class="pro">
@@ -182,7 +182,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
             <?php foreach($resultado as $row) { ?>
 			<div class="item" category="<?php echo $row['marca']?>" data-tags="4-Ram One 128_GB Snapdragon">
 				<figure>
-					<a href="detailsCel.php?codProd=<?php echo $row['codProd'];?>&token=<?php echo hash_hmac('sha1', $row['codProd'], KEY_TOKEN);?>">
+					<a href="detailsPort.php?codProd=<?php echo $row['codProd'];?>&token=<?php echo hash_hmac('sha1', $row['codProd'], KEY_TOKEN);?>">
 					<img
 						src="imagenes/productos/<?php echo$row['imagen']; ?>"
 						alt="producto"
