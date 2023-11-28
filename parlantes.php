@@ -193,7 +193,17 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 				<div class="info-product">
 					<h2><?php echo $row['nomProd']; ?></h2>
 					<p class="price">$<?php echo$row['precio'];?></p>
-                    <p class="estado"><?php echo$row['estProd'];?></p>
+					<p><?php
+$estado = $row['estProd'];
+
+// Check if the product is available
+if ($estado == 'Agotado') {
+    echo '<p class="estado agotado">Agotado</p>';
+} else {
+    echo '<p class="estado disponible">Disponible</p>';
+}
+?>
+</p>
 					<button class="btn-add-cart">Añadir al carrito</button>
 				</div>
 			</div>

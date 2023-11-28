@@ -13,6 +13,7 @@ if(isset($_GET['codProd'])){
         $precio = $row['precio'];
         $imagen = $row['imagen'];
         $estProd = $row['estProd'];
+        $Stock = $row['stockProd'];
     }
 }
 
@@ -23,8 +24,10 @@ if(isset($_POST['guardar'])){
     $precio = $_POST['precio'];
     $imagen = $_POST['imagen'];
     $estProd = $_POST['estProd'];
+    $Stock = $_POST['stockProd'];
 
-    $query = "UPDATE productos set codProd = '$codProd', nomProd = '$nomProd', marca = '$marca', precio = '$precio', imagen = '$imagen', estProd = '$estProd' WHERE codProd = $codProd";
+
+    $query = "UPDATE productos set codProd = '$codProd', nomProd = '$nomProd', marca = '$marca', precio = '$precio', imagen = '$imagen', estProd = '$estProd', stockProd = $Stock  WHERE codProd = $codProd";
     mysqli_query($conex, $query);
 
     $_SESSION['message'] = 'Producto Actualizado Satisfactoriamente';
@@ -66,6 +69,9 @@ if(isset($_POST['guardar'])){
             </div>
             <div class="form-group mb-3">
                 <input type="text" name="estProd" value="<?php echo $estProd; ?>" class="form-control" placeholder="Cambiar estado">
+            </div>
+            <div class="form-group mb-3">
+                <input type="text" name="stockProd" value="<?php echo $Stock; ?>" class="form-control" placeholder="Cambiar Stock">
             </div>
             <button class="btn btn-outline-success btn-lg" type="submit" name="guardar">Guardar</button>
         </form>

@@ -44,6 +44,7 @@ include("db.php");
     <div class="container p-4">
         <div class="col-sm-12">
 
+
         <?php if(isset($_SESSION['message'])){?>
             <div class="alert alert-<?= $_SESSION['message_type'];?> alert-dismissible fade show" role="alert">
                 <?= $_SESSION['message'] ?>
@@ -59,6 +60,7 @@ include("db.php");
                     <th>Precio</th>
                     <th>Imagen</th>
                     <th>Estado</th>
+                    <th>Cantidad En Stock</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -75,6 +77,7 @@ include("db.php");
                     <td><?php echo $row['precio']?></td>
                     <td><?php echo $row['imagen']?></td>
                     <td><?php echo $row['estProd']?></td>
+                    <td><?php echo $stock = $row['stockProd'];?></td>
                     <td>
                         <a href="edit.php?codProd=<?php echo $row['codProd']?>" class="btn btn-success">
                         <i class="fa-solid fa-pen-to-square" style="color:black;"></i>
@@ -92,7 +95,7 @@ include("db.php");
     </div>
 
 <script>
-    $(document).ready( function () {
+$(document).ready( function () {
     $('#table').DataTable({
         language:{
             "lengthMenu": "Mostrar _MENU_ registros",
@@ -108,7 +111,7 @@ include("db.php");
                 "sNext":"Siguiente",
                 "sPrevious": "Anterior"
             },
-        "sProcessing":"Procesando...",
+            "sProcessing":"Procesando...",
         },
         "columns": [
             null,
@@ -123,22 +126,22 @@ include("db.php");
         dom: 'Bfrtilp',
         buttons:[
             {
-            extend: 'excelHtml5',
-            text: '<i class="fas fa-file-excel"></i>',
-            titleAttr: 'Exportar a Excel',
-            className: 'btn btn-success'
+                extend: 'excelHtml5',
+                text: '<i class="fas fa-file-excel"></i>',
+                titleAttr: 'Exportar a Excel',
+                className: 'btn btn-success'
             },
             {
-            extend: 'pdfHtml5',
-            text: '<i class="fas fa-file-pdf"></i>',
-            titleAttr: 'Exportar a PDF',
-            className: 'btn btn-danger'
+                extend: 'pdfHtml5',
+                text: '<i class="fas fa-file-pdf"></i>',
+                titleAttr: 'Exportar a PDF',
+                className: 'btn btn-danger'
             },
             {
-            extend: 'print',
-            text: '<i class="fas fa-print"></i>',
-            titleAttr: 'Imprimir',
-            className: 'btn btn-info'
+                extend: 'print',
+                text: '<i class="fas fa-print"></i>',
+                titleAttr: 'Imprimir',
+                className: 'btn btn-info'
             },
         ]
     });
@@ -150,4 +153,4 @@ include("db.php");
     }
 </style>
 </body>
-</html>
+</html></html>

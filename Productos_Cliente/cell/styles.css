@@ -194,14 +194,26 @@ img{
     font-size: 18px;
     font-weight: 900;
 }
-.estado{
-    color: #ffff;
-    font-size: 15px;
-    background-color: #2AC176;
+.estado {
+    font-weight: bold;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
     text-align: center;
-    text-transform: uppercase;
+    color: white;
+    
+    /* Agrega cualquier otro estilo común para la clase estado aquí */
 }
 
+.agotado {
+    border: 1px solid red; /* Borde rojo para el estado Agotado */
+    background-color: red;
+}
+
+.disponible {
+    border: 1px solid green; /* Borde verde para el estado Disponible */
+    background-color: green; /* Texto verde para el estado Disponible */
+}
 .info-product button{
     border: none;
     background: none;

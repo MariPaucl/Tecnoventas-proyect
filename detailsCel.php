@@ -77,7 +77,14 @@ if($id == '' || $token == ''){
         <td align="center"><font size="9" color="black" face="Concert One"><center><b> Precio</b></font><p>
             <font size="6" color="black" face="Cherry Bomb One">$<?php echo $precio;?></center></font><p><p><p>
               
-                 <h4>Unidades: <?php echo $stock ?> Disponibles <p>
+            <?php
+    if ($stock > 0) {
+        echo "Unidades: $stock Disponibles";
+    } else {
+        echo "Producto agotado.";
+    }
+    ?><br>
+</h4>     
                      <i class="fa-solid fa-truck fa-bounce" style="color: #060b13;"></i>  Envios a todo el pais <br>
                      <i class="fa-solid fa-shield-halved fa-beat" style="color: #060b13;"></i> Recibe el producto que esperabas <br>
                       o te devolvemos tu dinero <p>
