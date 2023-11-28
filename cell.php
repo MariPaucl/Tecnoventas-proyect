@@ -4,7 +4,9 @@ require 'config/conexion.php';
 $db = new Database();
 $con = $db->conectar();
 
-$sql = $con->prepare("SELECT codProd, imagen, nomProd, precio, estProd, marca FROM productos WHERE codigoCat = 1");
+$sql = $con->prepare("SELECT p.codProd, p.imagen, p.nomProd, p.precio, p.estProd, p.marca, GROUP_CONCAT(i.valor SEPARATOR ' ') AS valores 
+FROM productos p INNER JOIN infoproductos i ON p.codProd = i.codProd WHERE p.codigoCat = 1 
+GROUP BY p.codProd, p.imagen, p.nomProd, p.precio, p.estProd, p.marca");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -152,9 +154,9 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 				<div class="h2">Memoria Ram</div>
 				<hr class="l2">
 				<div>
-					<span class="tag">4-Ram</span>
-					<span class="tag">6-Ram</span>
-					<span class="tag">8-Ram</span>
+					<span class="tag">4GB</span>
+					<span class="tag">6GB</span>
+					<span class="tag">8GB</span>
 				</div>
 				<div class="h2">Tipo SIM</div>
 				<hr class="l2">
@@ -165,9 +167,9 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 				<div class="h2">Almacenamiento</div>
 				<hr class="l2">
 				<div>
-					<span class="tag">64_GB</span>
-					<span class="tag">128_GB</span>
-					<span class="tag">256_GB</span>
+					<span class="tag">64GB</span>
+					<span class="tag">128GB</span>
+					<span class="tag">256GB</span>
 				</div>
 				<div class="h2">Procesador</div>
 				<hr class="l2">
@@ -180,7 +182,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 			</div>
 		<div class="container-items">
             <?php foreach($resultado as $row) { ?>
-			<div class="item" category="<?php echo $row['marca']?>" data-tags="4-Ram One 128_GB Snapdragon">
+			<div class="item" category="<?php echo $row['marca']?>" data-tags="<?php echo $row['valores']?>">
 				<figure>
 					<a href="detailsCel.php?codProd=<?php echo $row['codProd'];?>&token=<?php echo hash_hmac('sha1', $row['codProd'], KEY_TOKEN);?>">
 					<img
