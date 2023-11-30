@@ -35,13 +35,19 @@ if (isset($_POST['numId']) && isset($_POST['password']) && isset($_POST['tipoId'
 $conex->close();
 ?>
 <style>
-    /* Estilos para mensajes de error */
+/* Estilos para mensajes de error */
 .mensaje-error {
-    color: #ff0000; /* Color rojo para el texto */
-    font-weight: bold; /* Texto en negrita */
-    margin-bottom: 10px; /* Espacio inferior para separar mensajes */
-    position: relative; /* O absolute, fixed, etc., según tus necesidades */
-  top: 210px; /* Mueve el texto 20px hacia abajo desde su posición original */
-  left: -0px; /* Mueve el texto 30px hacia la derecha desde su posición original */
+    color: #ff0000;
+    /* Color rojo para el texto */
+    font-weight: bold;
+    /* Texto en negrita */
+    margin-bottom: 10px;
+    /* Espacio inferior para separar mensajes */
+    position: relative;
+    /* O absolute, fixed, etc., según tus necesidades */
+    top: 210px;
+    /* Mueve el texto 20px hacia abajo desde su posición original */
+    left: -0px;
+    /* Mueve el texto 30px hacia la derecha desde su posición original */
 }
 </style>

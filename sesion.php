@@ -30,10 +30,11 @@
         </div>
 
         <input type="submit" value="Iniciar sesión" class="button" href="inicio.html">
-    
+
         <p>¿No tienes cuenta? <a class="link" href="registro.php">Regístrate</a></p>
     </div>
 </form>
+
 </html>
 
 <?php

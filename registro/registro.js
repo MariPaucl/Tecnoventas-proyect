@@ -9,6 +9,7 @@ const cell = document.getElementById('cell');
 const fecha = document.getElementById('fecha');
 
 function validarForm() {
+
     const seleccion    = tipoId.value.trim();
 	var emailValue     = email.value.trim();
 	var passwordValue  = password.value.trim();
@@ -17,6 +18,12 @@ function validarForm() {
 	var ApellidosValue = Apellidos.value.trim();
 	var cellValue      = cell.value.trim();
 	var fechaValue     = fecha.value.trim();
+	var response       = grecaptcha.getResponse();
+
+    if (response.length === 0) {
+        alert("Por favor, completa el captcha.");
+        return false; // Detiene el envío del formulario
+    }
 
     if (seleccion === ''){
         setErrorFor(tipoId, 'Debe seleccionar un tipo de documento');
@@ -78,7 +85,6 @@ function validarForm() {
 	}
 	alert ('Te has registrado correctamente');
 	return true;
-}
 
 function setErrorFor(input, message) {
 	const formControl = input.parentElement;
@@ -112,4 +118,12 @@ function verifyAge(){
     else{
 		return true;
 	}
+    
 }
+
+}
+
+
+
+
+
