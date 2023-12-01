@@ -16,18 +16,18 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="head">
         <div class="logo">
-            <a href="#">TECNOVENTAS</a>
+            <a>TECNOVENTAS</a>
         </div>
         <nav class="navbar">
             <ul>
-                <li><a href="index.html">Cerrar sesion</a></li>
+                <li><a href="sesion.php">Cerrar sesion</a></li>
                 <li><a href="inicio.html">Inicio</a></li>
-                <li><a href="#">Productos <i class="icon-abajo2"></i></a>
+                <li><a>Productos <i class="icon-abajo2"></i></a>
                     <ul class="submenu">
                         <li><a href="Portatiles.php">
                                 Portatiles
                             </a></li>
-                        <li><a href="Portatiles.php">
+                        <li><a href="computadores.php">
                                 Computadores
                             </a></li>
                         <li><a href="Tablets.php">
@@ -37,10 +37,11 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                                 Parlantes
                             </a></li>
                         </a>
-                </li>
-                <li><a href="audifonos.php">
-                        Audifonos
-                    </a></li>
+                        </li>
+                        <li><a href="audifonos.php">
+                                Audifonos
+                        </a>
+                    </li>
             </ul>
             </li>
             </ul>

@@ -13,13 +13,13 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 	<div class="head">
 		<div class="logo">
-		<a href="#">TECNOVENTAS</a>
+		<a>TECNOVENTAS</a>
 		</div>
 		<nav class="navbar">
 		<ul>
-			<li><a href="sesion.html">Cerrar sesion</a></li>
+			<li><a href="sesion.php">Cerrar sesion</a></li>
 			<li><a href="inicio.html">Inicio</a></li>
-			<li><a href="#">Productos <i class="icon-abajo2"></i></a>
+			<li><a>Productos <i class="icon-abajo2"></i></a>
 				<ul class="submenu">
 					<li><a href="cell.php">
 						Celulares

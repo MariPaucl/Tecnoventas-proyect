@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="registro/registro1.css">
+    <link rel="stylesheet" href="registro/registro.css">
 
 
     <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
@@ -53,7 +53,7 @@
             <div class="form-control">
                 <label for="Apellidos"></label>
                 <img src="registro/persona.png" />
-                <input maxlength="20" minlength="1" oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');"
+                <input maxlength="20" minlength="1" oninput="this.value = this.value.replace(/[^A-Za-z-ñ]/g, '');"
                     type="text" placeholder="Apelido" id="Apellidos" name="apellido" />
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
@@ -93,11 +93,10 @@
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
-
-
+<center>
             <div class="form-checkbox">
                 <div class="g-recaptcha" data-sitekey="6Le2ubkoAAAAALzMy_9dhRDX5PGyeVzbRkaPszuM"></div>
-            </div>
+            </div><br>
 
             <div class="form-checkbox">
                 <input type="checkbox" class="checkTC" id="checkTC" required="" />
@@ -110,19 +109,11 @@
             <p>¿Ya tienes cuenta? <a class="link" href="sesion.php">Inicia Sesión</a></p>
         </form>
     </div>
-
-
-
-
-
     <script src="registro/registro.js"></script>
-    <?php
-include("registro/registrar.php");
 
+<?php
+    include("registro/registrar.php");
 ?>
     <script src="https://kit.fontawesome.com/d3ed00feee.js" crossorigin="anonymous"></script>
 </body>
-
-
-
 </html>

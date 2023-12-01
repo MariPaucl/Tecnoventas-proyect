@@ -32,6 +32,7 @@
         <input type="submit" value="Iniciar sesión" class="button" href="inicio.html">
 
         <p>¿No tienes cuenta? <a class="link" href="registro.php">Regístrate</a></p>
+        <p>¿Eres Administrador? <a class="link" href="sesionAdmin.php">Inicia sesión aquí</a></p>
     </div>
 </form>
 

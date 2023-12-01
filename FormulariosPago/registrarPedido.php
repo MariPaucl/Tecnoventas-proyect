@@ -21,7 +21,7 @@ if (isset($_POST['guardar'])){
 
         if ($resultado){
             $mensaje = "Los datos son válidos. Puedes continuar con la compra";
-            echo "<script>alert('$mensaje');</script>";
+            echo "<script>alert('$mensaje'); window.location.href = 'seguridadPed.php';</script>";
         }else{
             echo "Ha ocurrido un error " . mysqli_error($conex);
         }
