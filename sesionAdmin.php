@@ -19,7 +19,7 @@
             <input type="password" id="pass" name="password" placeholder="Contraseña">
         </div>
 
-        <input type="submit" value="Iniciar sesión" class="button" href="inicio.html">
+        <input type="submit" value="Iniciar sesión" class="button" href="Administrador.html">
     </div>
 </form>
 </html>
@@ -38,14 +38,17 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         $contrasena_almacenada = $row['passAdmin'];
 
         // Verificar si la contraseña ingresada coincide con la almacenada en la base de datos
-        if (/*md5(*/$passAdmin/*)*/ === $contrasena_almacenada) {
+        if (md5($passAdmin) === $contrasena_almacenada) {
             // Inicio de sesión exitoso, redirigir al usuario a la página de inicio
             session_start();
             $_SESSION['admin'] = $row['idAdmin']; // Almacena el id del admin en la sesión
-            header("Location: Administrador.html");
+            $success = "Has iniciado sesion como admin";
+            echo "<script>alert('$success');</script>";
+            echo "<script>window.location.href='Administrador.html';</script>";
+            exit();
         } else {
             // Mensaje de contraseña incorrecta con estilo CSS
-            echo '<div class="mensaje-error"><p>Contraseña incorrecta</div>';
+            echo '<div class="mensaje-error"><p>Contraseña incorrecta.</div>';
         }
     } else {
         // Mensaje de número de documento o tipo de documento no encontrados con estilo CSS

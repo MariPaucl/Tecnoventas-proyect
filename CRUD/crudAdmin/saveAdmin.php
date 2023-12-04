@@ -2,12 +2,12 @@
 include("db.php");
 
 if (isset($_POST['saveAdmin']));{
-    $nomAdmin = $_POST['nomAdmin'];
-    $apeAdmin = $_POST['apeAdmin'];
-    $cargo = $_POST['cargo'];
-    $estado = $_POST['estado'];
-    $correoAdmin = $_POST['correoAdmin'];
-    $passAdmin = $_POST['passAdmin'];
+    $nomAdmin = trim($_POST['nomAdmin']);
+    $apeAdmin = trim($_POST['apeAdmin']);
+    $cargo = trim($_POST['cargo']);
+    $estado = trim($_POST['estado']);
+    $correoAdmin = trim($_POST['correoAdmin']);
+    $passAdmin = trim($_POST['passAdmin']);
     $hashPass = md5($passAdmin);
 
     $query = "INSERT INTO administradores(nomAdmin, apeAdmin, cargo, estado, correoAdmin, passAdmin) VALUES
