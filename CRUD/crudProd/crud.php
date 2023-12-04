@@ -60,7 +60,7 @@ include("db.php");
                     <th>Precio</th>
                     <th>Imagen</th>
                     <th>Estado</th>
-                    <th>Cantidad En Stock</th>
+                    <th>Stock</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -75,7 +75,7 @@ include("db.php");
                     <td><?php echo $row['nomProd']?></td>
                     <td><?php echo $row['marca']?></td>
                     <td><?php echo $row['precio']?></td>
-                    <td><?php echo $row['imagen']?></td>
+                    <td><img src="../../imagenes/productos/<?php echo $row['imagen'] ?>" alt="<?php echo $row['imagen']?>" width="50"></td>
                     <td><?php echo $row['estProd']?></td>
                     <td><?php echo $stock = $row['stockProd'];?></td>
                     <td>
@@ -120,6 +120,7 @@ $(document).ready( function () {
             null,
             null,
             null,
+            null,
             null
         ],
         responsive: "true",
@@ -153,4 +154,4 @@ $(document).ready( function () {
     }
 </style>
 </body>
-</html></html>
+</html>

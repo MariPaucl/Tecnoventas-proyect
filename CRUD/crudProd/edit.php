@@ -26,8 +26,20 @@ if(isset($_POST['guardar'])){
     $estProd = $_POST['estProd'];
     $Stock = $_POST['stockProd'];
 
+    if ($_FILES['imagen']['name']) {
+        $imagen = $_FILES['imagen']['name'];
+        $ruta = "../../imagenes/productos/" . $imagen;
+        move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta);
+    }
+    if (!isset($imagen) || empty($imagen)) {
+        $query = "SELECT imagen FROM productos WHERE codProd = $codProd";
+        $resultado = mysqli_query($conex, $query);
+        $row = mysqli_fetch_array($resultado);
+        $imagen = $row['imagen'];
+    }
 
-    $query = "UPDATE productos set codProd = '$codProd', nomProd = '$nomProd', marca = '$marca', precio = '$precio', imagen = '$imagen', estProd = '$estProd', stockProd = $Stock  WHERE codProd = $codProd";
+
+    $query = "UPDATE productos set codProd = '$codProd', nomProd = '$nomProd', marca = '$marca', precio = '$precio', imagen = '$imagen', estProd = '$estProd', stockProd = $Stock WHERE codProd = $codProd";
     mysqli_query($conex, $query);
 
     $_SESSION['message'] = 'Producto Actualizado Satisfactoriamente';
@@ -53,7 +65,7 @@ if(isset($_POST['guardar'])){
     <div class="card card-body">
         <form action="edit.php?codProd=<?php echo $_GET['codProd']; ?>" method="post">
             <div class="form-group mb-3">
-                <input type="number" name="codProd" value="<?php echo $codProd; ?>" class="form-control" placeholder="Cambiar codigo">
+                <input type="hidden" name="codProd" value="<?php echo $codProd; ?>" class="form-control" placeholder="Cambiar codigo">
             </div>
             <div class="form-group mb-3">
                 <input type="text" name="nomProd" value="<?php echo $nomProd; ?>" class="form-control" placeholder="Cambiar nombre">
@@ -65,10 +77,14 @@ if(isset($_POST['guardar'])){
                 <input type="number" name="precio" value="<?php echo $precio; ?>" class="form-control" placeholder="Cambiar precio">
             </div>
             <div class="form-group mb-3">
-                <input type="file" name="imagen" value="<?php echo $imagen; ?>" class="form-control">
+            <input type="file" name="imagen" class="form-control"><br>
+            <img src="../../imagenes/productos/<?php echo $imagen; ?>" width="100"><br>
             </div>
             <div class="form-group mb-3">
-                <input type="text" name="estProd" value="<?php echo $estProd; ?>" class="form-control" placeholder="Cambiar estado">
+                <select name="estProd" class="form-control">
+                    <option value="Disponible" <?php if ($estProd == 'Disponible') echo 'selected'; ?>>Disponible</option>
+                    <option value="Agotado" <?php if ($estProd == 'Agotado') echo 'selected'; ?>>Agotado</option>
+                </select>
             </div>
             <div class="form-group mb-3">
                 <input type="text" name="stockProd" value="<?php echo $Stock; ?>" class="form-control" placeholder="Cambiar Stock">
