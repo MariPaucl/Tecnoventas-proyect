@@ -95,7 +95,7 @@
             </div>
 <center>
             <div class="form-checkbox">
-                <div class="g-recaptcha" data-sitekey="6Le2ubkoAAAAALzMy_9dhRDX5PGyeVzbRkaPszuM"></div>
+                <div class="g-recaptcha" data-sitekey="6Lfc8yUpAAAAAN-QfvBzvLk9B7I9zCOcSdhNQr-s"></div>
             </div><br>
 
             <div class="form-checkbox">
@@ -109,10 +109,11 @@
             <p>¿Ya tienes cuenta? <a class="link" href="sesion.php">Inicia Sesión</a></p>
         </form>
     </div>
+
     <script src="registro/registro.js"></script>
 
-<?php
-    include("registro/registrar.php");
+    <?php
+include("registro/registrar.php");
 ?>
     <script src="https://kit.fontawesome.com/d3ed00feee.js" crossorigin="anonymous"></script>
 </body>

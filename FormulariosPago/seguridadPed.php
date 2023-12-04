@@ -3,7 +3,7 @@ if (isset($_POST['continuar'])){
 
     $ip = $_SERVER['REMOTE_ADDR'];
     $captcha = $_POST['g-recaptcha-response'];
-    $secretkey = "6Lfkzh8pAAAAAIXhrvpS-uOMiGKKVW89VuOk75w6";
+    $secretkey = "6LcE-CUpAAAAAI6kQdxbrbB6pAY9qxxUAGfDMa2F";
 
     $respuesta = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretkey&response=$captcha&remoteip=$ip");
 
@@ -27,7 +27,7 @@ if (isset($_POST['continuar'])){
     <form method="POST">
     <h1>Verifica el ReCAPTCHA</h1>
         <div>
-            <div class="g-recaptcha" data-sitekey="6Lfkzh8pAAAAAEv6XJcFgHvb79yOlh-w1Slx_hNO" >
+            <div class="g-recaptcha" data-sitekey="6LcE-CUpAAAAAE7fG1uU9ehSWmbiiaL6pmqrmx4V" >
             </div>
             <br/>
         <input type="submit" name="continuar" value="Continuar">
