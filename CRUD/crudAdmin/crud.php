@@ -6,7 +6,7 @@ include("db.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Clientes</title>
+    <title>Administradores</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css" rel="stylesheet">
@@ -28,16 +28,21 @@ include("db.php");
 <nav class="navbar navbar-expand navbar-dark bg-dark">
         <div class="container-fluid">
         <ul class="navbar-nav">
-        <a class="navbar-brand">CLIENTES</a>
+        <a href="registerAdmin.php" class="navbar-brand">REGISTRAR ADMIN</a>
         <li class="nav-item">
         <a class="nav-link active" href="../crudProd/crud.php">Productos</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link disabled">Clientes</a>
+        <a class="nav-link disabled">Administradores</a>
         </li>
         <li class="nav-item">
         <a class="nav-link active" href="../crudProv/crud.php">Proveedores</a>
         </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="../../Administrador.html">Inicio</a>
+            </li>
         </ul>
         </div>
         </nav>
@@ -54,36 +59,32 @@ include("db.php");
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Numero ID</th>
-                    <th>Tipo ID</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
-                    <th>Fecha Nacimiento</th>
-                    <th>Telefono</th>
+                    <th>Cargo</th>
+                    <th>Estado</th>
                     <th>Correo</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                $query = "SELECT * FROM clientes";
+                $query = "SELECT * FROM administradores";
                 $result_prod = mysqli_query($conex, $query);
 
                 while($row = mysqli_fetch_array($result_prod)){ ?>
                 <tr>
-                    <td><?php echo $row['idCliente']?></td>
-                    <td><?php echo $row['numId']?></td>
-                    <td><?php echo $row['tipoId']?></td>
-                    <td><?php echo $row['nomCliente']?></td>
-                    <td><?php echo $row['apeCliente']?></td>
-                    <td><?php echo $row['fechaNac']?></td>
-                    <td><?php echo $row['telefono']?></td>
-                    <td><?php echo $row['correo']?></td>
+                    <td><?php echo $row['idAdmin']?></td>
+                    <td><?php echo $row['nomAdmin']?></td>
+                    <td><?php echo $row['apeAdmin']?></td>
+                    <td><?php echo $row['cargo']?></td>
+                    <td><?php echo $row['estado']?></td>
+                    <td><?php echo $row['correoAdmin']?></td>
                     <td>
-                        <a href="edit.php?idCliente=<?php echo $row['idCliente']?>" class="btn btn-success">
+                        <a href="edit.php?idAdmin=<?php echo $row['idAdmin']?>" class="btn btn-success">
                         <i class="fa-solid fa-pen-to-square" style="color:black;"></i>
                         </a>
-                        <a href="delete.php?idCliente=<?php echo $row['idCliente']?>" class="btn btn-danger">
+                        <a href="delete.php?idAdmin=<?php echo $row['idAdmin']?>" class="btn btn-danger">
                         <i class="fa-solid fa-trash" style="color:black;"></i>
                         </a>
                     </td>
@@ -120,9 +121,7 @@ include("db.php");
             null,
             null,
             null,
-            null,
-            null,
-            null,
+            null
         ],
         responsive: "true",
         dom: 'Bfrtilp',

@@ -60,7 +60,7 @@ if(isset($_POST['guardar'])){
     <div class="card card-body">
         <form action="edit.php?idProv=<?php echo $_GET['idProv']; ?>" method="post">
             <div class="form-group mb-3">
-                <input type="hidden" name="idProv" value="<?php echo $idProv; ?>" class="form-control" placeholder="Cambiar ID">
+                <input type="number" name="idProv" value="<?php echo $idProv; ?>" class="form-control" placeholder="Cambiar ID">
             </div>
             <div class="form-group mb-3">
                 <input type="text" name="NIT" value="<?php echo $NIT; ?>" class="form-control" placeholder="Cambiar NIT">
@@ -97,7 +97,7 @@ if(isset($_POST['guardar'])){
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
     .btn{
-        width: 100%;
+        width: 250px;
     }
     .text-h1{
         color:#008040 !important ;

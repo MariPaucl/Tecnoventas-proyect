@@ -48,16 +48,16 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
     .btn{
-        width: 365px;
+        width: 100%;
     }
     .text-h1{
-        color: #ffff !important ;
+        color: #0080ff !important ;
         padding: 0px 250px;
         text-align: center;
         font-family: 'Bebas Neue', sans-serif;
     }
     body{
-        background-color:#0984ff !important ;
+        background-color:#ffff !important ;
     }
 </style>
 </body>

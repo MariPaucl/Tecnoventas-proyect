@@ -33,11 +33,16 @@ include("db.php");
         <a class="nav-link active" href="../crudProd/crud.php">Productos</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link active" href="../crudC/crud.php">Clientes</a>
+        <a class="nav-link active" href="../crudAdmin/crud.php">Administradores</a>
         </li>
         <li class="nav-item">
         <a class="nav-link disabled">Proveedores</a>
         </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="../../Administrador.html">Inicio</a>
+            </li>
         </ul>
         </div>
         </nav>
