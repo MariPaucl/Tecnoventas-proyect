@@ -23,6 +23,10 @@ if($id == '' || $token == ''){
             $precio = $row['precio'];
             $imagen = $row['imagen'];
             $stock = $row['stockProd'];
+
+            $sql = $con->prepare("SELECT c.nomCaract, ip.valor FROM caracteristicas c JOIN infoProductos ip ON c.idCaract = ip.idCaract WHERE ip.codProd = ?");
+            $sql->execute([$id]);
+            $caracteristicas = $sql->fetchAll(PDO::FETCH_ASSOC);
         }
     }else{
         echo 'Error al procesar la petición';
@@ -35,7 +39,34 @@ if($id == '' || $token == ''){
 <style>
         @import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
-  </style>
+
+                /* Estilos para la tabla de características */
+.tableO {
+    width: 50%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    margin-inline-start: 300px;
+    border-radius: 25px;
+}
+
+.tableO th, .tableO td {
+    padding: 8px;
+    padding-inline: 10px;
+}
+
+.tableO th {
+    font-size: 17px;
+    text-align: left;
+}
+
+.tableO tr{
+    background-color: rgb(166, 166, 166, 0.87);
+}
+
+.tableO tr:nth-child(even) {
+    background-color: rgba(196, 196, 196, 0.87);
+}
+</style>
 <script src="https://kit.fontawesome.com/d3ed00feee.js" crossorigin="anonymous"></script>
 
         <font size="5" color="white" face="Concert One"><b><h1><?php echo $nombre; ?></h1></b></font><p>
@@ -67,101 +98,10 @@ if($id == '' || $token == ''){
             
         <font size="6" color="white" face="Concert One"><b> Caracteristicas del producto</b></font><p>
             <table class="tableO" width="45%" align="left" cellpadding="9" cellspacing="0">
-            <tr bgcolor="silver" >
-                <th>Marca</th>
-                <td>Motorola</td>
-            </tr>
+            <?php foreach ($caracteristicas as $caracteristica) { ?>
             <tr bgcolor="darkgray">
-
-                <th>Modelo</th>
-                <td>G20 Dual SIM</td>
-
+                <th><?php echo $caracteristica['nomCaract']; ?></th>
+                <td><?php echo $caracteristica['valor']; ?></td>
             </tr>
-            
-            <tr bgcolor="silver">
-                <th>Procesador</th>
-                <td>Unisoc T700</td>
-
-            </tr>
-            <tr bgcolor="darkgray">
-                <th>Almacenamiento</th>
-                <td>64 GB</td>
-            </tr>
-            <tr bgcolor="silver">
-                <th>Conectividad</th>
-                <td>conector USB</td>
-            </tr>
-            <tr bgcolor="darkgray">
-                <th>Pantalla</th>
-                <td>Max Vision</td>
-            </tr>
-            <tr bgcolor="silver">
-                <th>Sistema Operativo</th>
-                <td>Android</td>
-            </tr>
-            <tr bgcolor="darkgray">
-                <th>Giroscopio</th>
-                <td>Si</td>
-            </tr>
-            
-            <tr bgcolor="silver">  
-                <th>GPU/CPU</th>
-                <td>850 GHz</td>
-            </tr>
-            
-            <tr bgcolor="darkgray">
-                <th>Conexion de carga</th>
-                <td>USB-C</td>
-            </tr>
-            <tr bgcolor="silver">
-                <th>Seguridad</th>
-                <td>lector de huella digital</td>
-            </tr>
-            <table class="tableO" width="45%" align="rigth" cellpadding="9" cellspacing="0"> 
-            <tr bgcolor="darkgray">
-                <th>Color</th>
-                <td>Gris</td>
-            </tr>
-            <tr bgcolor="silver">
-                <th>Duracion de bateria</th>
-                <td>26 días en espera</td>
-            </tr>
-            <tr bgcolor="darkgray">
-                <th>Resolucion de imagen</th>
-                <td>720 px x 1600 px</td>
-            </tr>
-            <tr bgcolor="silver">
-                <th>Garantia de fabrica</th>
-                <td>8 meses</td>
-            </tr>
-            <tr bgcolor="darkgray">
-                <th>Nucleos</th>
-                <td>8</td>
-            </tr>
-            <tr bgcolor="silver">
-                <th>Dimenciones</th>
-                <td>165.2 mm x 75.7 mm x 9.1 mm</td>
-            </tr>
-            <tr bgcolor="darkgray">
-                <th>Peso</th>
-                <td>200 g</td>
-            </tr>
-            <tr bgcolor="silver">
-                <th>Red</th>
-                <td>4G/LTE</td>
-            </tr>
-            <tr bgcolor="darkgray">
-                <th>Verion del sitema operativo</th>
-                <td>11</td>
-            </tr>
-            <tr bgcolor="silver">
-                <th>Resolucion de la camara</th>
-                <td>cámara trasera 48 Mpx <br>
-                cámara frontal 13 Mpx
-                </td>
-            </tr>
-            <tr bgcolor="darkgray">
-                <th>RAM</th>
-                <td>4 GB</td>
-            </tr>
+            <?php } ?>
         </table><p>

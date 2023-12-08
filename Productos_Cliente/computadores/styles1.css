@@ -38,7 +38,7 @@ img {
 }
 
 /* Header */
-.header {
+header {
     display: flex;
     justify-content: space-between;
     padding: 30px 0 40px 0;
@@ -54,7 +54,7 @@ img {
     right: 0;
 
     background-color: #000;
-    color: #ffffff;
+    color: #fff;
     width: 25px;
     height: 25px;
 
@@ -72,11 +72,13 @@ img {
     position: absolute;
     top: 50px;
     right: 0;
-    background-color: #ffffff;
+
+    background-color: #fff;
     width: 400px;
-    z-index: 5;
+    z-index: 1;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
     border-radius: 10px;
+
 }
 
 .cart-product {
@@ -84,6 +86,7 @@ img {
     align-items: center;
     justify-content: space-between;
     padding: 30px;
+
     border-bottom: 1px solid rgba(0, 0, 0, 0.20);
 
 }
@@ -125,31 +128,20 @@ img {
     align-items: center;
     padding: 20px 0;
     gap: 20px;
-    height: 1px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.20);
-    height: 90px;
-
 }
-
 
 .cart-total h3 {
     font-size: 20px;
     font-weight: 700;
-    padding: 30px;
 }
 
 .total-pagar {
     font-size: 20px;
     font-weight: 900;
-
-
-
 }
 
 .hidden-cart {
     display: none;
-    height: 900px;
-
 }
 
 
@@ -160,22 +152,36 @@ img {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    max-width: 1200px;
+
+
 
 }
 
 .item {
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.63);
+    max-width: 1200px;
 }
 
 .item:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+
 }
 
 .item img {
+    width: 85%;
+    height: 250px;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
     transition: all .5s;
+
+
+}
+
+.item figure {
+    overflow: hidden;
+
 }
 
 .item:hover img {
@@ -189,35 +195,13 @@ img {
     display: flex;
     flex-direction: column;
     gap: 10px;
+
 }
 
 .price {
     font-size: 18px;
     font-weight: 900;
-}
 
-.estado {
-    font-weight: bold;
-    display: inline-block;
-    padding: 5px;
-    border-radius: 5px;
-    text-align: center;
-    color: white;
-
-    /* Agrega cualquier otro estilo común para la clase estado aquí */
-}
-
-.agotado {
-    border: 1px solid red;
-    /* Borde rojo para el estado Agotado */
-    background-color: red;
-}
-
-.disponible {
-    border: 1px solid rgb(128, 0, 122);
-    /* Borde verde para el estado Disponible */
-    background-color: green;
-    /* Texto verde para el estado Disponible */
 }
 
 .info-product button {
@@ -227,16 +211,19 @@ img {
     color: #ffffffa6;
     padding: 15px 10px;
     cursor: pointer;
+
 }
 
 .cart-empty {
     padding: 20px;
     text-align: center;
+
 }
 
 
 .hidden {
     display: none;
+
 }
 
 
@@ -249,7 +236,7 @@ img {
     background: #171717;
     position: absolute;
     width: 100%;
-    z-index: 2;
+    z-index: 100%;
 }
 
 .navbar {
@@ -267,7 +254,7 @@ img {
 
 .logo a {
     text-decoration: none;
-    color: #ffffff;
+    color: #fff;
 
     font-size: 20px;
     padding: 23px 20px;
@@ -284,7 +271,6 @@ img {
     text-decoration: none;
     text-transform: uppercase;
     font-size: 20px;
-
 }
 
 .navbar a:hover {
@@ -315,10 +301,7 @@ img {
 .navbar ul li a:hover+ul,
 .navbar .submenu:hover {
     display: block;
-
 }
-
-/*Estilo de los botones para comparar productos */
 
 #submit:hover {
     background: #ddd;
@@ -412,66 +395,4 @@ a {
     align-items: center;
 
 
-
-}
-
-.navv {
-    --c: rgb(122, 0, 204);
-    color: var(--c);
-    font-size: 16px;
-    border: 0.3em solid var(--c);
-    border-radius: 0.5em;
-    width: 12em;
-    height: 3em;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-family: sans-serif;
-    letter-spacing: 0.1em;
-    text-align: center;
-    line-height: 3em;
-    position: relative;
-    overflow: hidden;
-    z-index: 0;
-    transition: 0.5s;
-    left: 50px;
-    margin: 5%;
-
-
-}
-
-nav ul a span {
-    position: absolute;
-    width: 20%;
-    height: 100%;
-    background-color: var(--c);
-    transform: translateY(100%);
-    border-radius: 90%;
-    left: calc((var(--n) - 1) * 25%);
-    transition: 0.5s;
-    transition-delay: calc((var(--n) - 1) * 0.1s);
-    z-index: -2;
-}
-
-nav ul a:hover {
-    color: rgb(255, 255, 255);
-}
-
-nav ul a:hover span {
-    transform: translateY(0) scale(2);
-}
-
-nav ul a span:nth-child(1) {
-    --n: 1;
-}
-
-nav ul a span:nth-child(2) {
-    --n: 2;
-}
-
-nav ul a span:nth-child(3) {
-    --n: 3;
-}
-
-nav ul a span:nth-child(4) {
-    --n: 4;
 }

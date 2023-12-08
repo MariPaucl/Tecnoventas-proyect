@@ -11,6 +11,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <div class="head" id="siteHeader">
 <script src="Productos_Cliente/cell/index.js"></script>
+		<script src="Productos_Cliente/parlantes/ComparacionParlantes.js"></script>
 		<script src="js/jquery.js"></script>
 		<script src="js/script.js"></script>
         <script src="js/indexcell.js"></script>
@@ -96,7 +97,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 			<a class="category_item" category="JBL">JBL</a>
 			<a class="category_item" category="Sonos">Sonos</a>
 			<a class="category_item" category="LG">LG</a>
-			<a class="category_item" category="Kaley">Kaley</a>
+			<a class="category_item" category="Kalley">Kalley</a>
 		</div>
 		<div class="pro">
 			<div class="filtro">
@@ -134,6 +135,14 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 		<div class="container-items">
             <?php foreach($resultado as $row) { ?>
 			<div class="item" category="<?php echo $row['marca']?>" data-tags="4-Ram One 128_GB Snapdragon">
+			
+				    <div>
+					    <nav class="navv">
+						<ul>
+						<a href="#" onclick="comparar('<?php echo $row['nomProd']?>')">Comparar
+						<span></span><span></span><span></span><span></span>
+                    </div>
+					
 				<figure>
 					<a href="detailsPar.php?codProd=<?php echo $row['codProd'];?>&token=<?php echo hash_hmac('sha1', $row['codProd'], KEY_TOKEN);?>">
 					<img

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-12-2023 a las 03:45:55
+-- Tiempo de generación: 08-12-2023 a las 22:03:23
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.0.25
 
@@ -44,7 +44,8 @@ CREATE TABLE `administradores` (
 INSERT INTO `administradores` (`idAdmin`, `nomAdmin`, `apeAdmin`, `cargo`, `estado`, `correoAdmin`, `passAdmin`) VALUES
 (1, 'Milena', 'Cortez', 'Programador', 'Activo', 'malienacortez@mail.com', 'AdminMile2023'),
 (2, 'Mario', 'Perdomo', 'Programador', 'Activo', 'marioperdomo@gmail.com', 'MarioProgram2'),
-(3, 'Jeison', 'Mendoza', 'Desarrollador', 'Activo', 'jeisonalejandro33@mail.com', 'Je1s0nDesarrolla');
+(3, 'Jeison', 'Mendoza', 'Desarrollador', 'Activo', 'jeisonalejandro33@mail.com', 'Je1s0nDesarrolla'),
+(6, 'Santiago', 'Ortega', 'Programador', 'Activo', 'santy@gmail.com', '202cb962ac59075b964b07152d234b70');
 
 -- --------------------------------------------------------
 
@@ -1322,50 +1323,50 @@ INSERT INTO `productos` (`codProd`, `idAdmin`, `nomProd`, `marca`, `precio`, `es
 (11, 1, 'Tablet Samsung A8', 'Samsung', 799900, 'Disponible', 20, 'tabletsamsungA8.png', 4),
 (12, 2, 'Audifonos Sony In Ear WFC700N', 'Sony', 290000, 'Disponible', 10, 'audifonosSonyInEarWFC700N.png', 5),
 (13, 2, 'Parlante Sonos Era 300', 'Sonos', 590000, 'Disponible', 15, 'parlanteSonosEra300.png', 6),
-(15, 1, 'Samsung Galaxy S20 FE Dual SIM', 'samsung', 2055000, 'Disponible', 20, 'samsung-galaxy-s20-fe.png', 1),
+(15, 1, 'Samsung Galaxy S20 FE Dual SIM', 'Samsung', 2055000, 'Disponible', 20, 'samsung-galaxy-s20-fe.png', 1),
 (16, 1, 'Moto G20 Dual SIM', 'Motorola', 649999, 'Disponible', 16, 'motorola g20.png', 1),
 (17, 3, 'Realme 6', 'Realme', 880000, 'Disponible', 10, '1.realme6_CometBlue_Front_RGB_1000x.webp', 1),
 (18, 2, 'Samsung Galaxy A32', 'Samsung', 919900, 'Disponible', 20, 'samsung-galaxy-a32.png', 1),
 (19, 3, 'Xiaomi Poco X3 Pro', 'Xiaomi', 1139900, 'Disponible', 20, 'xiaomi poco pro.png', 1),
 (20, 3, 'Portátil LENOVO IdeaPad 1', 'Lenovo', 1399000, 'Disponible', 22, 'portatil_lenovo.png', 2),
-(21, 1, 'Portátil ACER T36F3', 'ACER', 1999000, 'Disponible', 20, 'Portátil ACER T36F3.png', 2),
-(22, 1, 'Portátil ACER 544K', 'ACER', 1999000, 'Disponible', 15, 'portátil ACER 544K.png', 2),
+(21, 1, 'Portátil ACER T36F3', 'Acer', 1999000, 'Disponible', 20, 'Portátil ACER T36F3.png', 2),
+(22, 1, 'Portátil ACER 544K', 'Acer', 1999000, 'Disponible', 15, 'portátil ACER 544K.png', 2),
 (23, 3, 'Portátil HP Em0006la', 'HP', 1999000, 'Disponible', 25, 'Portátil HP Em0006la.png', 2),
 (24, 2, 'Portátil Gamer LENOVO', 'Lenovo', 3159000, 'Disponible', 15, 'Portátil Gamer LENOVO.png', 2),
-(25, 3, 'Portátil ASUS TUF Gaming', 'ASUS', 3149000, 'Disponible', 33, 'Portátil ASUS TUF Gaming.png', 2),
-(26, 2, 'Portátil Gamer ACER', 'ACER', 7899000, 'Disponible', 12, 'Portátil Gamer ACER.png', 2),
+(25, 3, 'Portátil ASUS TUF Gaming', 'Asus', 3149000, 'Disponible', 33, 'Portátil ASUS TUF Gaming.png', 2),
+(26, 2, 'Portátil Gamer ACER', 'Acer', 7899000, 'Disponible', 12, 'Portátil Gamer ACER.png', 2),
 (33, 2, 'Computador All in One HP dd2006la', 'HP', 1399000, 'Disponible', 12, 'all(6).png', 3),
 (34, 3, 'Computador All in One HP dd2011la', 'HP', 1549000, 'Disponible', 32, 'all(4).png', 3),
-(35, 3, 'Computador All In One LENOVO AIO 3 White', 'LENOVO', 2999000, 'Disponible', 8, 'all(8).png', 3),
-(36, 2, 'Computador All in One ASUS ', 'ASUS', 2899000, 'Disponible', 15, 'ASUS.png', 3),
+(35, 3, 'Computador All In One LENOVO AIO 3 White', 'Lenovo', 2999000, 'Disponible', 8, 'all(8).png', 3),
+(36, 2, 'Computador All in One ASUS ', 'Asus', 2899000, 'Disponible', 15, 'ASUS.png', 3),
 (37, 1, 'Computador All in One HP PAVILION ca0000la', 'HP', 2899000, 'Disponible', 15, 'Computador All in One HP PAVILION.png', 3),
-(38, 2, 'Computador All In One Lenovo', 'LENOVO', 4349000, 'Disponible', 12, 'IO 3 - AMD Ryzen 7.png', 3),
-(39, 2, 'iMac 24 Chip M3 Apple', 'APPLE', 10029000, 'Disponible', 5, 'APPLE.png', 3),
-(40, 1, 'Computador All In One LENOVO Yoga AIO', 'LENOVO', 13999000, 'Disponible', 12, 'e LENOVO Yoga.png', 3),
+(38, 2, 'Computador All In One Lenovo', 'Lenovo', 4349000, 'Disponible', 12, 'IO 3 - AMD Ryzen 7.png', 3),
+(39, 2, 'iMac 24 Chip M3 Apple', 'Apple', 10029000, 'Disponible', 5, 'APPLE.png', 3),
+(40, 1, 'Computador All In One LENOVO Yoga AIO', 'Lenovo', 13999000, 'Disponible', 12, 'e LENOVO Yoga.png', 3),
 (41, 3, 'Tablet TCL TAB 8', 'TCL', 399900, 'Disponible', 12, 'Tablet TCL 8_ Pulgadas TAB.png', 4),
-(42, 3, 'Tablet LENOVO M8', 'LENOVO', 579000, 'Disponible', 19, 'Tablet LENOVO 8 Pulgadas M8 2gen LTE Color Gris.png', 4),
-(43, 1, 'Tablet LENOVO M10 Plus', 'LENOVO', 1299000, 'Disponible', 22, 'Tablet LENOVO 10 Pulgadas M10 Plus Wifi Color Gris.png', 4),
+(42, 3, 'Tablet LENOVO M8', 'Lenovo', 579000, 'Disponible', 19, 'Tablet LENOVO 8 Pulgadas M8 2gen LTE Color Gris.png', 4),
+(43, 1, 'Tablet LENOVO M10 Plus', 'Lenovo', 1299000, 'Disponible', 22, 'Tablet LENOVO 10 Pulgadas M10 Plus Wifi Color Gris.png', 4),
 (44, 1, 'Tablet SAMSUNG S7Fe', 'Samsung', 3199900, 'Disponible', 25, 'Tablet SAMSUNG 12.4 Pulgadas S7Fe Wifi Color Plata.png', 4),
-(45, 1, 'Tablet SAMSUNG S6', 'samsung', 1999900, 'Disponible', 15, 'Tablet SAMSUNG 10.3 pulgadas S6 Wifi Color Azul.png', 4),
-(46, 3, 'iPad Pro 6ta Gen', 'APPLE', 13149000, 'Disponible', 22, 'iPad Pro 12.9 pulgadas 2TB 6ta Gen Wifi Gris.png', 4),
+(45, 1, 'Tablet SAMSUNG S6', 'Samsung', 1999900, 'Disponible', 15, 'Tablet SAMSUNG 10.3 pulgadas S6 Wifi Color Azul.png', 4),
+(46, 3, 'iPad Pro 6ta Gen', 'Apple', 13149000, 'Disponible', 22, 'iPad Pro 12.9 pulgadas 2TB 6ta Gen Wifi Gris.png', 4),
 (47, 2, 'Tablet SAMSUNG Galaxy S8 Ultra', 'Samsung', 6299900, 'Disponible', 12, 'Tablet SAMSUNG Galaxy 14.6 Pulgadas S8 Ultra Wifi 5G color Gris.png', 4),
 (48, 1, 'Tablet SAMSUNG Galaxy S8 Plus', 'Samsung', 5299900, 'Disponible', 15, 'Tablet SAMSUNG Galaxy 12.4 Pulgadas S8+ Wifi 5G color Negro.png', 4),
-(49, 3, 'Parlante BOSE SoundLink Flex', 'BOSE', 599900, 'Disponible', 12, 'Parlante BOSE SoundLink Flex.png', 6),
+(49, 3, 'Parlante BOSE SoundLink Flex', 'Bose', 599900, 'Disponible', 12, 'Parlante BOSE SoundLink Flex.png', 6),
 (50, 2, 'Parlante JBL PARTYBOX', 'JBL', 1199900, 'Disponible', 26, 'Parlante JBL PARTYBOX.png', 6),
-(51, 3, 'KALLEY K-SPK400', 'KALLEY', 1699900, 'Disponible', 15, 'Kalley.png', 6),
-(52, 1, 'Parlante SONOS ERA 100 Blanco', 'SONOS', 1399900, 'Disponible', 4, 'Parlante SONOS ERA 100 Blanco.png', 6),
-(53, 3, 'Parlante BOSE S1 PRO', 'BOSE', 3599900, 'Disponible', 5, 'Parlante BOSE S1 PRO+.png', 6),
+(51, 3, 'KALLEY K-SPK400', 'Kalley', 1699900, 'Disponible', 15, 'Kalley.png', 6),
+(52, 1, 'Parlante SONOS ERA 100 Blanco', 'Sonos', 1399900, 'Disponible', 4, 'Parlante SONOS ERA 100 Blanco.png', 6),
+(53, 3, 'Parlante BOSE S1 PRO', 'Bose', 3599900, 'Disponible', 5, 'Parlante BOSE S1 PRO+.png', 6),
 (54, 3, 'Parlante KALLEY K-SPK50BL2', 'Kalley', 394000, 'Disponible', 5, 'Parlante KALLEY K-SPK50BL2.png', 6),
-(55, 3, 'Parlante KALLEY K-SPK30BL2', 'KALLEY', 399900, 'Disponible', 8, 'Parlante KALLEY K-SPK30BL2.png', 6),
+(55, 3, 'Parlante KALLEY K-SPK30BL2', 'Kalley', 399900, 'Disponible', 8, 'Parlante KALLEY K-SPK30BL2.png', 6),
 (56, 1, 'Parlante LG XBOOM GO XG7QBK', 'LG', 549900, 'Disponible', 18, 'Parlante LG XBOOM GO XG7QBK.png', 6),
-(58, 1, 'Audifonos BOSE In Ear  EarbudsII', 'BOSE', 1799900, 'Disponible', 12, 'Audifonos BOSE In Ear QuietComfort EarbudsII Gris.png', 5),
-(59, 3, 'Audífonos APPLE AirPods Pro 2.ª Generación', 'APPLE', 1229000, 'Disponible', 5, 'Audífonos APPLE AirPods Pro 2.ª Generación.png', 5),
-(60, 2, 'Audífonos PANASONIC In Ear', 'PANASONIC', 14900, 'Disponible', 25, 'Audífonos PANASONIC Alámbricos In Ear RP-HV096P Negro.png', 5),
+(58, 1, 'Audifonos BOSE In Ear EarbudsII', 'Bose', 1799900, 'Disponible', 12, 'Audifonos BOSE In Ear QuietComfort EarbudsII Gris.png', 5),
+(59, 3, 'Audífonos APPLE AirPods Pro 2.ª Generación', 'Apple', 1229000, 'Disponible', 5, 'Audífonos APPLE AirPods Pro 2.ª Generación.png', 5),
+(60, 2, 'Audífonos PANASONIC In Ear', 'Panasonic', 14900, 'Disponible', 25, 'Audífonos PANASONIC Alámbricos In Ear RP-HV096P Negro.png', 5),
 (61, 3, 'Audífonos XIAOMI Alámbricos InEar Basic Plateado', 'Xiaomi', 32900, 'Disponible', 33, 'Audífonos XIAOMI Alámbricos InEar Basic Plateado.png', 5),
-(62, 1, 'Audífonos SONY Alámbricos In Ear', 'SONY', 39900, 'Disponible', 35, 'Audífonos SONY Alámbricos In Ear Manos Libres MDR-EX15AP Blanco.png', 5),
-(63, 1, 'Audífonos de Diadema SONY Inalámbricos Over Ear', 'SONY', 999900, 'Disponible', 5, 'SONY Inalámbricos Bluetooth Over Ear WH-1000XM4.png', 5),
-(64, 1, 'Audífonos de Diadema SONY Inalámbricos  On Ear', 'SONY', 199900, 'Disponible', 35, 'SONY Inalámbricos Bluetooth On Ear WH-CH520.png', 5),
-(65, 3, 'Audífonos de Diadema BOSE Inalámbricos  Over Ear 7', 'BOSE', 1799900, 'Disponible', 5, 'BOSE Inalámbricos Bluetooth Over Ear 700.png', 5);
+(62, 1, 'Audífonos SONY Alámbricos In Ear', 'Sony', 39900, 'Disponible', 35, 'Audífonos SONY Alámbricos In Ear Manos Libres MDR-EX15AP Blanco.png', 5),
+(63, 1, 'Audífonos  SONY Inalámbricos Over Ear', 'Sony', 999900, 'Disponible', 5, 'SONY Inalámbricos Bluetooth Over Ear WH-1000XM4.png', 5),
+(64, 1, 'Audífonos SONY Inalámbricos On Ear', 'Sony', 199900, 'Disponible', 35, 'SONY Inalámbricos Bluetooth On Ear WH-CH520.png', 5),
+(65, 3, 'Audífonos BOSE Inalámbricos Over Ear 7', 'Bose', 1799900, 'Disponible', 5, 'BOSE Inalámbricos Bluetooth Over Ear 700.png', 5);
 
 -- --------------------------------------------------------
 
@@ -1476,7 +1477,7 @@ ALTER TABLE `proveedores`
 -- AUTO_INCREMENT de la tabla `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `caracteristicas`
@@ -1518,7 +1519,7 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `codProd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `codProd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
