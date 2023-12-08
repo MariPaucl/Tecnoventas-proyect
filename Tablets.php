@@ -9,8 +9,17 @@ $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
-<body>
+<div class="head" id="siteHeader">
+<script src="Productos_Cliente/cell/index.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/script.js"></script>
+        <script src="js/indexcell.js"></script>
+		<script src="js/carttab.js"></script>
 
+// SDK MercadoPago.js
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+</div>
+<body>
 	<div class="head">
 		<div class="logo">
 		<a>TECNOVENTAS</a>
@@ -68,76 +77,20 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 		<title>Tienda</title>
 		<link rel="stylesheet" href="Productos_Cliente/cell/styles.css" />
 		<link rel="stylesheet" href="css/fitro.css">
+		<link rel="stylesheet" href="css/estilocar.css">
 		<link rel="stylesheet" href="css/buscadorcell.css">
 	</head>
 	<body>
-		<header>
 			<h1>Tienda</h1>
-
-			<div class="container-icon">
-				<div class="container-cart-icon">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="currentColor"
-						class="icon-cart"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-						/>
-					</svg>
-					<div class="count-products">
-						<span id="contador-productos">0</span>
-					</div>
-				</div>
-
-				<div class="container-cart-products hidden-cart">
-					<div class="row-product hidden">
-						<div class="cart-product">
-							<div class="info-cart-product">
-								<span class="cantidad-producto-carrito">1</span>
-								<p class="titulo-producto-carrito">no nike</p>
-								<span class="precio-producto-carrito">$200</span>
-							</div>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="icon-close"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M6 18L18 6M6 6l12 12"
-								/>
-							</svg>
-						</div>
-					</div>
-
-					<div class="cart-total hidden">
-						<h3>Total:</h3>
-						<span class="total-pagar">$200</span>
-					</div>
-					<p class="cart-empty">El carrito está vacío</p>
-					<div class="hidde">
-					<a href="Compra/compra.html"  class="cta">
-						<span class="boton">Finalizar Compra</span>
-						<svg width="13px" height="10px" viewBox="0 0 13 10">
-						<path d="M1,5 L11,5"></path>
-						<polyline points="8 1 12 5 8 9"></polyline>
-						</svg>
-					</a>
-					</div>
-				</div>
-			</div>
-		</header>
-		<div class="categoria_list">
+			<div calass="card-products-container" >
+            <div class ="card-products" id="shopContent"> </div>
+		</div>
+			<div class="cart-btn" id="cart-btn" >🛒</div>
+			<div >🛒</div>
+			<div >.</div>
+			<div >.</div>
+			<span class="cart-counter" id="cart-counter" >0</span>
+		<div class="categoria_list" style="top: 100px" >
 			<a class="category_item" category="all">Todo</a>
 			<a class="category_item" category="Lenovo">Lenovo</a>
 			<a class="category_item" category="Samsung">Samsung</a>
@@ -209,10 +162,8 @@ if ($estado == 'Agotado') {
             <?php } ?>
 		</div>
 		</div>
+		<div class="modal-overplay" id="modal-overplay"></div>
+		<div class="modal-container" id="modal-container"></div>
 		<div class="fin"></div>
-
-		<script src="Productos_Cliente/cell/index.js"></script>
-		<script src="js/jquery.js"></script>
-		<script src="js/script.js"></script>
     </body>
 </html>

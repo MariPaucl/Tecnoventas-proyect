@@ -1,0 +1,207 @@
+/* Botón del carrito */
+.cart-btn {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  color: white;
+  background-color: #19083a;
+  padding: 40px;
+  border-radius: 50%;
+  height: 50px;
+  width: 60px;
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  line-height: 1;
+  width: 50px;
+  height: 50px;
+}
+
+
+.cart-btn:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+
+/* Capa de fondo del modal */
+.modal-overlay {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+
+/* Contenedor del modal */
+.modal-container {
+  display: none;
+  background-color: #ffff;
+  box-shadow: 0px 3px 6px #00000029;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 1000px;
+  width: 100%;
+  z-index: 1;
+  max-height: 90vh;
+  overflow-y: auto;
+  opacity: 0.9;
+  border-radius: 15px;
+  
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Omitiendo scrollbar */
+.modal-container::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Botón de cierre del modal */
+.modal-close {
+  float: right;
+  cursor: pointer;
+}
+
+
+/* Títulos */
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+/* Cuerpo del modal */
+.modal-body {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+/* Productos */
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+
+/* Imágenes de productos */
+.product-img {
+  margin-right: 10px;
+  width: 200px;
+}
+
+
+/* Información de producto */
+.product-info {
+  flex: 1;
+}
+
+
+.product-info h4 {
+  margin-top: 10%;
+  font-size: 1em;
+}
+
+
+/* Cantidad y precio */
+.quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-right: 4em;
+}
+
+
+/* Botones de cantidad */
+.quantity-btn-decrese,
+.quantity-btn-increse {
+  color: #333333;
+  cursor: pointer;
+  font-size: 16px;
+  width: 28px;
+  font-weight: bold;
+}
+
+
+/* Precio */
+.precio {
+  font-size: 0.8em;
+}
+
+
+/* Botón de eliminar */
+.delete-product {
+  margin-top: 20px;
+  margin-left: 2em;
+  cursor: pointer;
+}
+
+
+/* Pie del modal */
+.modal-footer {
+  text-align: center;
+}
+
+
+/* Total del carrito */
+.total-precio {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+/*Botón finalizar compra*/
+.compra-fin{
+  background-color: black;
+  color: aliceblue;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+
+/* Media query para dispositivos pequeños */
+@media only screen and (max-width: 500px) {
+  .product-img {
+    display: none;
+  }
+  .modal-body {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+.cart-counter{
+  display: none;
+  position: absolute;
+  top: 10%;
+  right: 10px;
+  color: #fff;
+  text-align: center;
+  background-color: #000000;
+  padding: 6px;
+  border-radius: 50%;
+  height: 30px;
+  width:30px;
+  font-size: 15px;
+}
