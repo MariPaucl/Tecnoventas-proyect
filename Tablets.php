@@ -4,8 +4,9 @@ require 'config/conexion.php';
 $db = new Database();
 $con = $db->conectar();
 
-$sql = $con->prepare("SELECT codProd, imagen, nomProd, precio, estProd, marca FROM productos WHERE codigoCat = 4");
-$sql->execute();
+$sql = $con->prepare("SELECT p.codProd, p.imagen, p.nomProd, p.precio, p.estProd, p.marca, GROUP_CONCAT(i.valor SEPARATOR ' ') AS valores 
+FROM productos p INNER JOIN infoproductos i ON p.codProd = i.codProd WHERE p.codigoCat = 4
+GROUP BY p.codProd, p.imagen, p.nomProd, p.precio, p.estProd, p.marca");$sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -82,14 +83,15 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 		<link rel="stylesheet" href="css/buscadorcell.css">
 	</head>
 	<body>
+		<div class="container">
 			<h1>Tienda</h1>
 			<div calass="card-products-container" >
             <div class ="card-products" id="shopContent"> </div>
 		</div>
 			<div class="cart-btn" id="cart-btn" >🛒</div>
-			<div >🛒</div>
-			<div >.</div>
-			<div >.</div>
+			<br>
+			<br>
+			<br>
 			<span class="cart-counter" id="cart-counter" >0</span>
 		<div class="categoria_list" style="top: 100px" >
 			<a class="category_item" category="all">Todo</a>
@@ -106,40 +108,39 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 				<div class="h2">Memoria Ram</div>
 				<hr class="l2">
 				<div>
-					<span class="tag">4-Ram</span>
-					<span class="tag">6-Ram</span>
-					<span class="tag">8-Ram</span>
+					<span class="tag">4GB</span>
+					<span class="tag">2GB</span>
+					<span class="tag">16GB</span>
+					<span class="tag">8GB</span>
 				</div>
-				<div class="h2">Tipo SIM</div>
+				<div class="h2">Velocidad del Procesador</div>
 				<hr class="l2">
 				<div>
-					<span class="tag">Dual</span>
-					<span class="tag">One</span>
+					<span class="tag">2GHz</span>
+					<span class="tag">2.0GHz</span>
 				</div>
 				<div class="h2">Almacenamiento</div>
 				<hr class="l2">
 				<div>
-					<span class="tag">64_GB</span>
-					<span class="tag">128_GB</span>
-					<span class="tag">256_GB</span>
+					<span class="tag">32GB</span>
+					<span class="tag">128GB</span>
+					<span class="tag">256GB</span>
 				</div>
-				<div class="h2">Procesador</div>
+				<div class="h2">Color</div>
 				<hr class="l2">
 				<div>
-					<span class="tag">Snapdragon</span>
-					<span class="tag">Exynos</span>
-					<Span class="tag">Unisoc</Span>
-					<span class="tag">MediaTek</span>
+					<span class="tag">Gris</span>
+					<span class="tag">Negro</span>
+					<Span class="tag">Plateado</Span>
 				</div>
 			</div>
 		<div class="container-items">
             <?php foreach($resultado as $row) { ?>
-			<div class="item" category="<?php echo $row['marca']?>" data-tags="4-Ram One 128_GB Snapdragon">
-						
+			<div class="item" category="<?php echo $row['marca']?>" data-tags="<?php echo $row['valores']?>">
 			        <div>
 					    <nav class="navv">
 						<ul>
-						<a href="#" onclick="comparar('<?php echo $row['nomProd']?>')">Comparar
+						<a onclick="comparar('<?php echo $row['nomProd']?>')">Comparar
 						<span></span><span></span><span></span><span></span>
                     </div>
 
@@ -174,5 +175,6 @@ if ($estado == 'Agotado') {
 		<div class="modal-overplay" id="modal-overplay"></div>
 		<div class="modal-container" id="modal-container"></div>
 		<div class="fin"></div>
+	</div>
     </body>
 </html>

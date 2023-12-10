@@ -9,18 +9,17 @@
         body {
             font-family: "Source Sans Pro SemiBold", cursive, sans-serif;
 
-          
             background: -webkit-linear-gradient(to right, hsla(0, 0%, 42%, 0.541), hsla(0, 0%, 42%, 0.541)), url();
             /* Chrome 10-25, Safari 5.1-6 */
             background: linear-gradient(to right, hsla(0, 0%, 42%, 0.541), hsla(0, 0%, 42%, 0.541)), url();
             /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
         }
-            
 
     h1 {
-        color: #6D00B4; /* Cambia el color del texto a blanco */
-
+        color: #6D00B4;
+        text-transform: uppercase;
+        font-family: sans-serif;
     }
 
         table {

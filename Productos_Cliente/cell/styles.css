@@ -22,6 +22,15 @@ body {
     position: relative;
 }
 
+.container{
+    margin-top: 95px;
+    padding: 15px;
+}
+h1{
+    color: white;
+    text-transform: uppercase;
+    padding-left: 10px;
+}
 
 .icon-cart {
     width: 40px;

@@ -1,11 +1,11 @@
-vc<?php
+<?php
 require 'config/config.php';
 require 'config/conexion.php';
 $db = new Database();
 $con = $db->conectar();
 
 $sql = $con->prepare("SELECT p.codProd, p.imagen, p.nomProd, p.precio, p.estProd, p.marca, GROUP_CONCAT(i.valor SEPARATOR ' ') AS valores 
-FROM productos p INNER JOIN infoproductos i ON p.codProd = i.codProd WHERE p.codigoCat = 1 
+FROM productos p INNER JOIN infoproductos i ON p.codProd = i.codProd WHERE p.codigoCat = 1
 GROUP BY p.codProd, p.imagen, p.nomProd, p.precio, p.estProd, p.marca");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -84,15 +84,15 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 		<link rel="stylesheet" href="css/buscadorcell.css">
 	</head>
 	<body>
-		<header>
+		<div class="container">
 			<h1>Tienda</h1>
 			<div calass="card-products-container" >
             <div class ="card-products" id="shopContent"> </div>
 		</div>
 			<div class="cart-btn" id="cart-btn" >🛒</div>
-			<div >🛒</div>
-			<div >.</div>
-			<div >.</div>
+			<br>
+			<br>
+			<br>
 			<span class="cart-counter" id="cart-counter" >0</span>
 
 
@@ -117,13 +117,15 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                 <span class="tag">6GB</span>
                 <span class="tag">8GB</span>
             </div>
-            <div class="h2">Tipo SIM</div>
+            <div class="h2">Resolucion Camara Frontal</div>
             <hr class="l2">
             <div>
-                <span class="tag">Dual</span>
-                <span class="tag">One</span>
+                <span class="tag">16Mpx</span>
+                <span class="tag">20Mpx</span>
+				<span class="tag">13Mpx</span>
+				<span class="tag">32Mpx</span>
             </div>
-            <div class="h2">Almacenamiento</div>
+            <div class="h2" style="padding-right: 18px;">Almacenamiento</div>
             <hr class="l2">
             <div>
                 <span class="tag">64GB</span>
@@ -146,7 +148,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 			        <div>
 					    <nav class="navv">
 						<ul>
-						<a href="#" onclick="comparar('<?php echo $row['nomProd']?>')">Comparar
+						<a onclick="comparar('<?php echo $row['nomProd']?>')">Comparar
 						<span></span><span></span><span></span><span></span>
                     </div>
 
@@ -181,5 +183,6 @@ if ($estado == 'Agotado') {
 			<div class="modal-overplay" id="modal-overplay"></div>
 			<div class="modal-container" id="modal-container"></div>
 		<div class="fin"></div>
+    </div>
     </body>
 </html>
