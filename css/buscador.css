@@ -8,6 +8,7 @@
     align-items: center;
     background: #582b7c;
     width: 100%;
+    z-index: 2;
 
     }
     #icon-search {
@@ -44,9 +45,10 @@
     #ctn-bars-search {
         position: absolute;
         top: -50px;
-       width: 83%;
-    padding: 10px;
-    transition: all 600ms;
+        width: 83%;
+        padding: 10px;
+        transition: all 600ms;
+        z-index: 2;
     }
     #ctn-bars-search input {
         display: block;
