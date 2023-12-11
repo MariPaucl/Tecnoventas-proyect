@@ -96,7 +96,7 @@ if($id == '' || $token == ''){
             </tr></table>
             <p>
             
-            <div style="text-align: center;">
+       <div style="text-align: center;">
     <font size="6" color="white" face="Concert One"><b> Caracteristicas del producto</b></font>
 </div>
 <div style="text-align: center; clear: both;">

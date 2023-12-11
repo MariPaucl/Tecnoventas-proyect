@@ -89,13 +89,12 @@ if($id == '' || $token == ''){
                      <i class="fa-solid fa-shield-halved fa-beat" style="color: #060b13;"></i> Recibe el producto que esperabas <br>
                       o te devolvemos tu dinero <p>
                         <i class="fa-solid fa-wallet fa-beat" style="color: #060b13;"></i> Distintos metodos de pago <br>
-                        <img src="img/paypal.png" whidth="30" height="30">
+                        <img src="img/mercadoPago.png" whidth="40" height="40">
                         <img src="img/contraEntrega.png" whidth="40" height="40">
                  </h4>
         </td>
             </tr></table>
             <p>
-            
             <div style="text-align: center;">
     <font size="6" color="white" face="Concert One"><b> Caracteristicas del producto</b></font>
 </div>
