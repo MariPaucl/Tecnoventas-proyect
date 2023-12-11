@@ -301,20 +301,3 @@
 
 </body>
 </html>
-
-
-
-                'Precio' => '$399.900',
-                'Resistencia A' => 'N/A',
-                'Caracteristicas Especiales' => 'Integrado Asistente de Voz',
-                'Portabilidad' => 'N/A',
-                'Fuentes De Alimentacion De Energia' => 'Energía Eléctrica',
-                'Color' => 'Negro',
-                'Duracion De la Bateria' => 'NA',
-                'Rango Bluetooth' => '30 Metros',
-                'Opciones De Conectividad' => 'Bluetooth y Wifi',
-                'Conexion' => 'Alambrica',
-                'Ancho/Frente de la Unidad Principal' => '26',
-                'Alto de la Ud Principal' => '16',
-                'Fondo de la Unidad Principal' => '18.5',
-                'Extra' => 'N/A',
