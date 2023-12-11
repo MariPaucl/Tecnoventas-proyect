@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylePago.css">
-    <title>Pago con Mercado Pago</title>
+    <title>Pago con PayPal</title>
 </head>
 <body>
     <div class="container">
         <div class="titulo">
-        <div class="title">Pago con Mercado Pago</div>
-        <img src="https://1000marcas.net/wp-content/uploads/2023/01/Mercado-Pago-Logo.png">
+        <div class="title">Pago con PayPal</div>
+        <img src="../img/paypal.png" height="40px" >
         </div>
         <form action="" method="post">
             <div class="info-cliente">
