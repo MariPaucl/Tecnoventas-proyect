@@ -96,12 +96,16 @@ if($id == '' || $token == ''){
             </tr></table>
             <p>
             
-        <font size="6" color="white" face="Concert One"><b> Caracteristicas del producto</b></font><p>
-            <table class="tableO" width="45%" cellpadding="9" cellspacing="0">
-            <?php foreach ($caracteristicas as $caracteristica) { ?>
-            <tr bgcolor="darkgray">
-                <th><?php echo $caracteristica['nomCaract']; ?></th>
-                <td><?php echo $caracteristica['valor']; ?></td>
-            </tr>
-            <?php } ?>
-        </table><p>
+            <div style="text-align: center;">
+    <font size="6" color="white" face="Concert One"><b> Caracteristicas del producto</b></font>
+</div>
+<div style="text-align: center; clear: both;">
+    <table class="tableO" width="45%" cellpadding="9" cellspacing="0" style="margin: 0 auto;">
+        <?php foreach ($caracteristicas as $caracteristica) { ?>
+        <tr bgcolor="darkgray">
+            <th><?php echo $caracteristica['nomCaract']; ?></th>
+            <td><?php echo $caracteristica['valor']; ?></td>
+        </tr>
+        <?php } ?>
+    </table>
+</div>
