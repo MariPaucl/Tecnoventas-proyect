@@ -19,8 +19,6 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
         <script src="js/indexcell.js"></script>
 		<script src="js/cart.js"></script>
 
-// SDK MercadoPago.js
-<script src="https://sdk.mercadopago.com/js/v2"></script>
 </div>
 <body>
 	<div class="head">
