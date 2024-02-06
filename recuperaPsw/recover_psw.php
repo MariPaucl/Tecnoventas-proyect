@@ -100,7 +100,7 @@
             $mail->Subject="Recupera tu Clave";
             $mail->Body="<b>Querido Cliente</b>
             <h3>Hemos recibido una solicitud para recuperar tu contraseña.</h3>
-            <p>Has click <a href='http://localhost/TecnoPrueba0.1/recuperaPsw/reset_psw.php'>Aquí</a> para cambiar tu contraseña</p>
+            <p>Has click <a href='http://localhost/Tecnoventas/recuperaPsw/reset_psw.php'>Aquí</a> para cambiar tu contraseña</p>
             <br><br>
             <p>Atentamente,</p>
             <b>Tecnoventas</b>";
