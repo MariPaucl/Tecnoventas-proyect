@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="registro/sesion.css">
-<form class="formulario" method="post">
+<title>Inicia Sesion</title>
+<link rel="website icon" type="png" href="imagenes/Tecnoventas.png">
+<form class="formulario" action="sesionAdmin.php" method="post">
     <div class="mensaje-error"></div>
 
     <h1>INICIA SESIÓN COMO ADMINISTRADOR</h1>
@@ -19,7 +21,7 @@
             <input type="password" id="pass" name="password" placeholder="Contraseña">
         </div>
 
-        <input type="submit" value="Iniciar sesión" class="button" href="Administrador.html">
+        <input type="submit" value="Iniciar sesión" class="button">
     </div>
 </form>
 </html>
@@ -36,15 +38,16 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
     if ($resultado && $row = mysqli_fetch_assoc($resultado)) {
         $contrasena_almacenada = $row['passAdmin'];
+        $idAdmin = $row['idAdmin'];
 
         // Verificar si la contraseña ingresada coincide con la almacenada en la base de datos
         if (md5($passAdmin) === $contrasena_almacenada) {
             // Inicio de sesión exitoso, redirigir al usuario a la página de inicio
             session_start();
-            $_SESSION['admin'] = $row['idAdmin']; // Almacena el id del admin en la sesión
+            $_SESSION['sessAdminID'] = $idAdmin; // Almacena el id del admin en la sesión
             $success = "Has iniciado sesion como admin";
             echo "<script>alert('$success');</script>";
-            echo "<script>window.location.href='Administrador.html';</script>";
+            echo "<script>window.location.href='Administrador.php';</script>";
             exit();
         } else {
             // Mensaje de contraseña incorrecta con estilo CSS
@@ -68,7 +71,6 @@ $conex->close();
     font-weight: bold; /* Texto en negrita */
     margin-bottom: 10px; /* Espacio inferior para separar mensajes */
     position: relative; /* O absolute, fixed, etc., según tus necesidades */
-  top: 210px; /* Mueve el texto 20px hacia abajo desde su posición original */
-  left: -0px; /* Mueve el texto 30px hacia la derecha desde su posición original */
+    top: 183px; /* Mueve el texto 20px hacia abajo desde su posición original */
 }
 </style>

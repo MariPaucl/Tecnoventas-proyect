@@ -19,21 +19,35 @@ if (isset($_POST['registrar'])) {
         $apellido = trim($_POST['apellido']);
         $email = trim($_POST['email']);
         $password = trim($_POST['password']); // Obtiene la contraseña sin cifrar
-        // Encripta la contraseña utilizando MD5
-        $hashContrasena = md5($password);
         $telefono = trim($_POST['telefono']);
         $fecha = trim($_POST['fecha']);
 
-        $consulta = "INSERT INTO clientes(tipoId, numId, nomCliente, apeCliente, fechaNac, telefono, correo, passCliente)
-                VALUES('$tipoId', '$numId', '$nombre', '$apellido', '$fecha', '$telefono', '$email', '$hashContrasena')";
-
-        if (mysqli_query($conex, $consulta)) {
-            echo "<script>window.location.href = 'inicio.html';</script>";;
+        $check_query = mysqli_query($conex, "SELECT * FROM clientes WHERE numId ='$numId' OR correo ='$email' OR telefono ='$telefono'");
+        $rowCount = mysqli_num_rows($check_query);
+        if ($rowCount > 0) {
+            ?>
+            <script>
+                alert("Este usuario ya está registrado");
+            </script>
+            <?php
         } else {
-            echo "Error en el registro: " . mysqli_error($conex);
+            // Encripta la contraseña utilizando hash
+            $password_hash = password_hash($password, PASSWORD_BCRYPT);
+
+            $consulta = "INSERT INTO clientes(tipoId, numId, nomCliente, apeCliente, fechaNac, telefono, correo, passCliente)
+                VALUES('$tipoId', '$numId', '$nombre', '$apellido', '$fecha', '$telefono', '$email', '$password_hash')";
+
+            if (mysqli_query($conex, $consulta)) {
+                ?>
+                <script>
+                    alert("Te has registrado correctamente. Ahora inicia sesión");
+                    window.location.href = 'sesion.php';
+                </script>
+                <?php
+            } else {
+                echo "Error en el registro: " . mysqli_error($conex);
+            }
         }
     }
 }
 $conex->close();
-
-?>

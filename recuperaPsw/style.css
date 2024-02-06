@@ -1,0 +1,31 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+body{
+    font-family: 'Raleway', sans-serif !important;
+}
+
+div.justify-content-center{
+    margin: 9%;
+}
+
+div.card-header{
+    background: black;
+    color: white;
+}
+div.form-text{
+    color: #656464;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+input[type="submit"]{
+    background: rgb(46, 1, 82);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: #ceb8ed;
+    cursor: pointer;
+}
+
+input[type="password"], input[type="text"]{
+    margin: 10px;
+}
