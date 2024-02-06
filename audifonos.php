@@ -5,7 +5,7 @@ $db = new Database();
 $con = $db->conectar();
 
 $sql = $con->prepare("SELECT p.codProd, p.imagen, p.nomProd, p.precio, p.estProd, p.marca, p.stockProd, GROUP_CONCAT(i.valor SEPARATOR ' ') AS valores
-FROM productos p INNER JOIN infoproductos i ON p.codProd = i.codProd WHERE p.codigoCat = 1
+FROM productos p INNER JOIN infoproductos i ON p.codProd = i.codProd WHERE p.codigoCat = 5
 GROUP BY p.codProd, p.imagen, p.nomProd, p.precio, p.estProd, p.marca, p.stockProd");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -61,7 +61,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 		</div>
 		<ul id="box-search">
 		<?php foreach($resultado as $row) { ?>
-			<li><a href="detailsCel.php?codProd=<?php echo $row['codProd'];?>&token=<?php echo hash_hmac('sha1', $row['codProd'], KEY_TOKEN);?>"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" ><?php echo $row['nomProd']?></i></a></li>
+			<li><a href="detailsAud?codProd=<?php echo $row['codProd'];?>&token=<?php echo hash_hmac('sha1', $row['codProd'], KEY_TOKEN);?>"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" ><?php echo $row['nomProd']?></i></a></li>
 			<?php } ?>
 		</ul>
 		<div id="cover-ctn-search"></div>
@@ -149,7 +149,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                     </div>
 
 				<figure>
-					<a href="detailsCel.php?codProd=<?php echo $row['codProd'];?>&token=<?php echo hash_hmac('sha1', $row['codProd'], KEY_TOKEN);?>">
+					<a href="detailsAud.php?codProd=<?php echo $row['codProd'];?>&token=<?php echo hash_hmac('sha1', $row['codProd'], KEY_TOKEN);?>">
 					<img
 						src="imagenes/productos/<?php echo$row['imagen']; ?>"
 						alt="producto"
