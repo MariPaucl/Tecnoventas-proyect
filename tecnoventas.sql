@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-12-2023 a las 22:03:23
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.0.25
+-- Tiempo de generación: 05-02-2024 a las 04:26:20
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,7 +45,7 @@ INSERT INTO `administradores` (`idAdmin`, `nomAdmin`, `apeAdmin`, `cargo`, `esta
 (1, 'Milena', 'Cortez', 'Programador', 'Activo', 'malienacortez@mail.com', 'AdminMile2023'),
 (2, 'Mario', 'Perdomo', 'Programador', 'Activo', 'marioperdomo@gmail.com', 'MarioProgram2'),
 (3, 'Jeison', 'Mendoza', 'Desarrollador', 'Activo', 'jeisonalejandro33@mail.com', 'Je1s0nDesarrolla'),
-(6, 'Santiago', 'Ortega', 'Programador', 'Activo', 'santy@gmail.com', '202cb962ac59075b964b07152d234b70');
+(6, 'Paula', 'Carreño', 'Desarrollador', 'Activo', 'mariapau051125@gmail.com', 'd03a9f881a735d32bad6dd9ce091dbf9');
 
 -- --------------------------------------------------------
 
@@ -162,7 +162,7 @@ INSERT INTO `clientes` (`idCliente`, `numId`, `tipoId`, `nomCliente`, `apeClient
 (3, '1067318605', 'CC', 'Daniela', 'Ospina', '1996-07-19', '3108238816', 'daniiiops96.19@hmail.com', 'daniiiops96.19'),
 (4, '1021345619', 'CC', 'Carlos', 'Giraldo', '1900-01-26', '3126249176', 'carlitosgiraldo0016@mail.com', 'carlitosgiraldo0016'),
 (5, '98765432', 'CE', 'Paola', 'Suarez', '2001-11-20', '3402565601', 'paolasuarezzz2011@hmail.com', 'paolasuarezzz2011'),
-(6, '1021313246', 'CC', 'Paula', 'Lopez', '2005-11-23', '3504160020', 'mapis2005@gmail.com', '033efbc62cfb3015ad654b1d499f1ea0');
+(7, '1021313246', 'CC', 'Paula', 'Carreño', '2005-11-25', '3504160019', 'mariapau051125@gmail.com', '$2y$10$wT3smjnKSx2KgY5SIJ4YseecfIOJ7mQCSf5XXgBk3n.JsK9ILxBBC');
 
 -- --------------------------------------------------------
 
@@ -192,7 +192,14 @@ INSERT INTO `detallepedidos` (`idDetalle`, `codPedido`, `codProd`, `cantidadProd
 (8, 5, 9, 1),
 (9, 6, 9, 1),
 (10, 2, 1, 2),
-(11, 3, 2, 20);
+(11, 3, 2, 20),
+(12, 13, 3, 1),
+(13, 14, 18, 1),
+(14, 14, 1, 1),
+(15, 15, 15, 1),
+(16, 16, 18, 2),
+(17, 16, 3, 1),
+(20, 19, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -214,11 +221,11 @@ CREATE TABLE `factura` (
 --
 
 INSERT INTO `factura` (`codFactura`, `idProv`, `codProd`, `fechaFact`, `iva`, `totalFact`) VALUES
-(1, 1, 1, '2022-01-10', '0.19', 773500),
-(2, 3, 5, '2022-01-03', '0.19', 1904000),
-(3, 2, 2, '2022-01-01', '0.19', 546210),
-(4, 1, 4, '2021-02-15', '0.19', 357000),
-(5, 4, 3, '2021-02-10', '0.19', 1910000);
+(1, 1, 1, '2022-01-10', 0.19, 773500),
+(2, 3, 5, '2022-01-03', 0.19, 1904000),
+(3, 2, 2, '2022-01-01', 0.19, 546210),
+(4, 1, 4, '2021-02-15', 0.19, 357000),
+(5, 4, 3, '2021-02-10', 0.19, 1910000);
 
 -- --------------------------------------------------------
 
@@ -1269,26 +1276,32 @@ CREATE TABLE `pedidos` (
   `fechaPedido` date NOT NULL,
   `horaPedido` time NOT NULL,
   `dirPedido` varchar(50) NOT NULL,
-  `totalPedido` double NOT NULL
+  `totalPedido` double NOT NULL,
+  `estadoPedido` varchar(30) NOT NULL DEFAULT 'Por pagar'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `pedidos`
 --
 
-INSERT INTO `pedidos` (`codPedido`, `idCliente`, `fechaPedido`, `horaPedido`, `dirPedido`, `totalPedido`) VALUES
-(1, 1, '2023-11-18', '22:13:39', 'Calle 88C # 23D-10, Castilla, Piso 2', 2819000),
-(2, 5, '2023-11-18', '22:42:00', 'Avenida 66 # 18B-14, San Luis', 1400000),
-(3, 1, '2023-11-18', '22:48:04', 'Carrera 55D # 7B-10, Marsella, Torre 15 Apto 553', 3449000),
-(4, 4, '2023-11-18', '23:00:18', 'Calle 6 # 27D-15, Veredas', 2168900),
-(5, 2, '2023-11-22', '10:43:03', 'Calle 91 # 14C-20, San Mateo', 1999000),
-(6, 2, '2023-11-22', '16:38:06', 'Calle 52D # 11B-20, Santa Isabel, Edificio 3', 1507160),
-(7, 3, '2023-11-24', '11:31:49', 'Calle 87B # 10B-20, San Mateo, Torre 15 Apto 553', 149205),
-(8, 4, '2023-11-29', '11:58:40', 'Calle 88A # 5D-15, Marsella', 1638393),
-(9, 5, '2023-11-29', '12:06:09', 'Calle 61D # 6D-20, Tintal', 1638393),
-(10, 3, '2023-11-29', '14:32:14', 'Calle 23B # 10C-2, Tintal', 882291),
-(11, 3, '2023-11-29', '15:09:01', 'Avenida 61D # 23D-19, Villa', 1424263),
-(12, 4, '2023-11-29', '15:09:37', 'Avenida 61D # 23D-19, Villa', 281917);
+INSERT INTO `pedidos` (`codPedido`, `idCliente`, `fechaPedido`, `horaPedido`, `dirPedido`, `totalPedido`, `estadoPedido`) VALUES
+(1, 1, '2023-11-18', '22:13:39', 'Calle 88C # 23D-10, Castilla, Piso 2', 2819000, 'Por pagar'),
+(2, 5, '2023-11-18', '22:42:00', 'Avenida 66 # 18B-14, San Luis', 1400000, 'Por pagar'),
+(3, 1, '2023-11-18', '22:48:04', 'Carrera 55D # 7B-10, Marsella, Torre 15 Apto 553', 3449000, 'Por pagar'),
+(4, 4, '2023-11-18', '23:00:18', 'Calle 6 # 27D-15, Veredas', 2168900, 'Por pagar'),
+(5, 2, '2023-11-22', '10:43:03', 'Calle 91 # 14C-20, San Mateo', 1999000, 'Por pagar'),
+(6, 2, '2023-11-22', '16:38:06', 'Calle 52D # 11B-20, Santa Isabel, Edificio 3', 1507160, 'Por pagar'),
+(7, 3, '2023-11-24', '11:31:49', 'Calle 87B # 10B-20, San Mateo, Torre 15 Apto 553', 149205, 'Por pagar'),
+(8, 4, '2023-11-29', '11:58:40', 'Calle 88A # 5D-15, Marsella', 1638393, 'Por pagar'),
+(9, 5, '2023-11-29', '12:06:09', 'Calle 61D # 6D-20, Tintal', 1638393, 'Por pagar'),
+(10, 3, '2023-11-29', '14:32:14', 'Calle 23B # 10C-2, Tintal', 882291, 'Por pagar'),
+(11, 3, '2023-11-29', '15:09:01', 'Avenida 61D # 23D-19, Villa', 1424263, 'Por pagar'),
+(12, 4, '2023-11-29', '15:09:37', 'Avenida 61D # 23D-19, Villa', 281917, 'Por pagar'),
+(13, 1, '2024-01-07', '19:46:39', '', 769000, 'Por pagar'),
+(14, 1, '2024-01-07', '20:23:12', 'Avenida 68 # 19C-20, Alcalá', 1689800, 'Por pagar'),
+(15, 7, '2024-01-08', '20:35:07', 'Carrera 88D # 6D-27, Castilla, Torre 16 Apto 554', 2055000, 'Por pagar'),
+(16, 7, '2024-01-09', '14:18:08', 'Carrera 88D # 6D-27, Castilla, Torre 16 Apto 554', 2608800, 'Por pagar'),
+(19, 7, '2024-02-04', '18:10:51', 'Carrera 88D # 6D-27, Castilla, Torre 16 Apto 554', 769900, 'Por enviar');
 
 -- --------------------------------------------------------
 
@@ -1313,9 +1326,9 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`codProd`, `idAdmin`, `nomProd`, `marca`, `precio`, `estProd`, `stockProd`, `imagen`, `codigoCat`) VALUES
-(1, 1, 'Celular Redmi 9T EUCarbon', 'Redmi', 769900, 'Disponible', 11, 'redmicel.png', 1),
+(1, 1, 'Celular Redmi 9T EUCarbon', 'Redmi', 769900, 'Disponible', 10, 'redmicel.png', 1),
 (2, 2, 'Samsung Galaxy A24', 'Samsung', 2050000, 'Agotado', 0, 'samsungA24cel.png', 1),
-(3, 3, 'Moto G30 Dual SIM', 'Motorola', 769000, 'Disponible', 5, 'motorolag30cel.png', 1),
+(3, 3, 'Moto G30 Dual SIM', 'Motorola', 769000, 'Disponible', 2, 'motorolag30cel.png', 1),
 (4, 1, 'Portatil ASUS X415EA', 'Asus', 1399000, 'Disponible', 15, 'asusx415port.png', 2),
 (5, 3, 'Portatil Acer A315', 'Acer', 1299000, 'Disponible', 10, 'acerA315.png', 2),
 (6, 2, 'Celular Xiaomi Poco X3 PRO Phantom', 'Xiaomi', 989900, 'Disponible', 20, 'elular Xiaomi Poco X3 PRO Phantom.png', 1),
@@ -1323,50 +1336,50 @@ INSERT INTO `productos` (`codProd`, `idAdmin`, `nomProd`, `marca`, `precio`, `es
 (11, 1, 'Tablet Samsung A8', 'Samsung', 799900, 'Disponible', 20, 'tabletsamsungA8.png', 4),
 (12, 2, 'Audifonos Sony In Ear WFC700N', 'Sony', 290000, 'Disponible', 10, 'audifonosSonyInEarWFC700N.png', 5),
 (13, 2, 'Parlante Sonos Era 300', 'Sonos', 590000, 'Disponible', 15, 'parlanteSonosEra300.png', 6),
-(15, 1, 'Samsung Galaxy S20 FE Dual SIM', 'Samsung', 2055000, 'Disponible', 20, 'samsung-galaxy-s20-fe.png', 1),
+(15, 1, 'Samsung Galaxy S20 FE Dual SIM', 'samsung', 2055000, 'Disponible', 20, 'samsung-galaxy-s20-fe.png', 1),
 (16, 1, 'Moto G20 Dual SIM', 'Motorola', 649999, 'Disponible', 16, 'motorola g20.png', 1),
 (17, 3, 'Realme 6', 'Realme', 880000, 'Disponible', 10, '1.realme6_CometBlue_Front_RGB_1000x.webp', 1),
 (18, 2, 'Samsung Galaxy A32', 'Samsung', 919900, 'Disponible', 20, 'samsung-galaxy-a32.png', 1),
 (19, 3, 'Xiaomi Poco X3 Pro', 'Xiaomi', 1139900, 'Disponible', 20, 'xiaomi poco pro.png', 1),
 (20, 3, 'Portátil LENOVO IdeaPad 1', 'Lenovo', 1399000, 'Disponible', 22, 'portatil_lenovo.png', 2),
-(21, 1, 'Portátil ACER T36F3', 'Acer', 1999000, 'Disponible', 20, 'Portátil ACER T36F3.png', 2),
-(22, 1, 'Portátil ACER 544K', 'Acer', 1999000, 'Disponible', 15, 'portátil ACER 544K.png', 2),
+(21, 1, 'Portátil ACER T36F3', 'ACER', 1999000, 'Disponible', 20, 'Portátil ACER T36F3.png', 2),
+(22, 1, 'Portátil ACER 544K', 'ACER', 1999000, 'Disponible', 15, 'portátil ACER 544K.png', 2),
 (23, 3, 'Portátil HP Em0006la', 'HP', 1999000, 'Disponible', 25, 'Portátil HP Em0006la.png', 2),
 (24, 2, 'Portátil Gamer LENOVO', 'Lenovo', 3159000, 'Disponible', 15, 'Portátil Gamer LENOVO.png', 2),
-(25, 3, 'Portátil ASUS TUF Gaming', 'Asus', 3149000, 'Disponible', 33, 'Portátil ASUS TUF Gaming.png', 2),
-(26, 2, 'Portátil Gamer ACER', 'Acer', 7899000, 'Disponible', 12, 'Portátil Gamer ACER.png', 2),
+(25, 3, 'Portátil ASUS TUF Gaming', 'ASUS', 3149000, 'Disponible', 33, 'Portátil ASUS TUF Gaming.png', 2),
+(26, 2, 'Portátil Gamer ACER', 'ACER', 7899000, 'Disponible', 12, 'Portátil Gamer ACER.png', 2),
 (33, 2, 'Computador All in One HP dd2006la', 'HP', 1399000, 'Disponible', 12, 'all(6).png', 3),
 (34, 3, 'Computador All in One HP dd2011la', 'HP', 1549000, 'Disponible', 32, 'all(4).png', 3),
-(35, 3, 'Computador All In One LENOVO AIO 3 White', 'Lenovo', 2999000, 'Disponible', 8, 'all(8).png', 3),
-(36, 2, 'Computador All in One ASUS ', 'Asus', 2899000, 'Disponible', 15, 'ASUS.png', 3),
+(35, 3, 'Computador All In One LENOVO AIO 3 White', 'LENOVO', 2999000, 'Disponible', 8, 'all(8).png', 3),
+(36, 2, 'Computador All in One ASUS ', 'ASUS', 2899000, 'Disponible', 15, 'ASUS.png', 3),
 (37, 1, 'Computador All in One HP PAVILION ca0000la', 'HP', 2899000, 'Disponible', 15, 'Computador All in One HP PAVILION.png', 3),
-(38, 2, 'Computador All In One Lenovo', 'Lenovo', 4349000, 'Disponible', 12, 'IO 3 - AMD Ryzen 7.png', 3),
-(39, 2, 'iMac 24 Chip M3 Apple', 'Apple', 10029000, 'Disponible', 5, 'APPLE.png', 3),
-(40, 1, 'Computador All In One LENOVO Yoga AIO', 'Lenovo', 13999000, 'Disponible', 12, 'e LENOVO Yoga.png', 3),
+(38, 2, 'Computador All In One Lenovo', 'LENOVO', 4349000, 'Disponible', 12, 'IO 3 - AMD Ryzen 7.png', 3),
+(39, 2, 'iMac 24 Chip M3 Apple', 'APPLE', 10029000, 'Disponible', 5, 'APPLE.png', 3),
+(40, 1, 'Computador All In One LENOVO Yoga AIO', 'LENOVO', 13999000, 'Disponible', 12, 'e LENOVO Yoga.png', 3),
 (41, 3, 'Tablet TCL TAB 8', 'TCL', 399900, 'Disponible', 12, 'Tablet TCL 8_ Pulgadas TAB.png', 4),
-(42, 3, 'Tablet LENOVO M8', 'Lenovo', 579000, 'Disponible', 19, 'Tablet LENOVO 8 Pulgadas M8 2gen LTE Color Gris.png', 4),
-(43, 1, 'Tablet LENOVO M10 Plus', 'Lenovo', 1299000, 'Disponible', 22, 'Tablet LENOVO 10 Pulgadas M10 Plus Wifi Color Gris.png', 4),
+(42, 3, 'Tablet LENOVO M8', 'LENOVO', 579000, 'Disponible', 19, 'Tablet LENOVO 8 Pulgadas M8 2gen LTE Color Gris.png', 4),
+(43, 1, 'Tablet LENOVO M10 Plus', 'LENOVO', 1299000, 'Disponible', 22, 'Tablet LENOVO 10 Pulgadas M10 Plus Wifi Color Gris.png', 4),
 (44, 1, 'Tablet SAMSUNG S7Fe', 'Samsung', 3199900, 'Disponible', 25, 'Tablet SAMSUNG 12.4 Pulgadas S7Fe Wifi Color Plata.png', 4),
-(45, 1, 'Tablet SAMSUNG S6', 'Samsung', 1999900, 'Disponible', 15, 'Tablet SAMSUNG 10.3 pulgadas S6 Wifi Color Azul.png', 4),
-(46, 3, 'iPad Pro 6ta Gen', 'Apple', 13149000, 'Disponible', 22, 'iPad Pro 12.9 pulgadas 2TB 6ta Gen Wifi Gris.png', 4),
+(45, 1, 'Tablet SAMSUNG S6', 'samsung', 1999900, 'Disponible', 15, 'Tablet SAMSUNG 10.3 pulgadas S6 Wifi Color Azul.png', 4),
+(46, 3, 'iPad Pro 6ta Gen', 'APPLE', 13149000, 'Disponible', 22, 'iPad Pro 12.9 pulgadas 2TB 6ta Gen Wifi Gris.png', 4),
 (47, 2, 'Tablet SAMSUNG Galaxy S8 Ultra', 'Samsung', 6299900, 'Disponible', 12, 'Tablet SAMSUNG Galaxy 14.6 Pulgadas S8 Ultra Wifi 5G color Gris.png', 4),
 (48, 1, 'Tablet SAMSUNG Galaxy S8 Plus', 'Samsung', 5299900, 'Disponible', 15, 'Tablet SAMSUNG Galaxy 12.4 Pulgadas S8+ Wifi 5G color Negro.png', 4),
-(49, 3, 'Parlante BOSE SoundLink Flex', 'Bose', 599900, 'Disponible', 12, 'Parlante BOSE SoundLink Flex.png', 6),
+(49, 3, 'Parlante BOSE SoundLink Flex', 'BOSE', 599900, 'Disponible', 12, 'Parlante BOSE SoundLink Flex.png', 6),
 (50, 2, 'Parlante JBL PARTYBOX', 'JBL', 1199900, 'Disponible', 26, 'Parlante JBL PARTYBOX.png', 6),
-(51, 3, 'KALLEY K-SPK400', 'Kalley', 1699900, 'Disponible', 15, 'Kalley.png', 6),
-(52, 1, 'Parlante SONOS ERA 100 Blanco', 'Sonos', 1399900, 'Disponible', 4, 'Parlante SONOS ERA 100 Blanco.png', 6),
-(53, 3, 'Parlante BOSE S1 PRO', 'Bose', 3599900, 'Disponible', 5, 'Parlante BOSE S1 PRO+.png', 6),
+(51, 3, 'KALLEY K-SPK400', 'KALLEY', 1699900, 'Disponible', 15, 'Kalley.png', 6),
+(52, 1, 'Parlante SONOS ERA 100 Blanco', 'SONOS', 1399900, 'Disponible', 4, 'Parlante SONOS ERA 100 Blanco.png', 6),
+(53, 3, 'Parlante BOSE S1 PRO', 'BOSE', 3599900, 'Disponible', 5, 'Parlante BOSE S1 PRO+.png', 6),
 (54, 3, 'Parlante KALLEY K-SPK50BL2', 'Kalley', 394000, 'Disponible', 5, 'Parlante KALLEY K-SPK50BL2.png', 6),
-(55, 3, 'Parlante KALLEY K-SPK30BL2', 'Kalley', 399900, 'Disponible', 8, 'Parlante KALLEY K-SPK30BL2.png', 6),
+(55, 3, 'Parlante KALLEY K-SPK30BL2', 'KALLEY', 399900, 'Disponible', 8, 'Parlante KALLEY K-SPK30BL2.png', 6),
 (56, 1, 'Parlante LG XBOOM GO XG7QBK', 'LG', 549900, 'Disponible', 18, 'Parlante LG XBOOM GO XG7QBK.png', 6),
-(58, 1, 'Audifonos BOSE In Ear EarbudsII', 'Bose', 1799900, 'Disponible', 12, 'Audifonos BOSE In Ear QuietComfort EarbudsII Gris.png', 5),
-(59, 3, 'Audífonos APPLE AirPods Pro 2.ª Generación', 'Apple', 1229000, 'Disponible', 5, 'Audífonos APPLE AirPods Pro 2.ª Generación.png', 5),
-(60, 2, 'Audífonos PANASONIC In Ear', 'Panasonic', 14900, 'Disponible', 25, 'Audífonos PANASONIC Alámbricos In Ear RP-HV096P Negro.png', 5),
-(61, 3, 'Audífonos XIAOMI Alámbricos InEar Basic Plateado', 'Xiaomi', 32900, 'Disponible', 33, 'Audífonos XIAOMI Alámbricos InEar Basic Plateado.png', 5),
-(62, 1, 'Audífonos SONY Alámbricos In Ear', 'Sony', 39900, 'Disponible', 35, 'Audífonos SONY Alámbricos In Ear Manos Libres MDR-EX15AP Blanco.png', 5),
-(63, 1, 'Audífonos  SONY Inalámbricos Over Ear', 'Sony', 999900, 'Disponible', 5, 'SONY Inalámbricos Bluetooth Over Ear WH-1000XM4.png', 5),
-(64, 1, 'Audífonos SONY Inalámbricos On Ear', 'Sony', 199900, 'Disponible', 35, 'SONY Inalámbricos Bluetooth On Ear WH-CH520.png', 5),
-(65, 3, 'Audífonos BOSE Inalámbricos Over Ear 7', 'Bose', 1799900, 'Disponible', 5, 'BOSE Inalámbricos Bluetooth Over Ear 700.png', 5);
+(58, 1, 'Audifonos BOSE In Ear  EarbudsII', 'BOSE', 1799900, 'Disponible', 12, 'Audifonos BOSE In Ear QuietComfort EarbudsII Gris.png', 5),
+(59, 3, 'Audífonos APPLE AirPods Pro 2.ª Generación', 'APPLE', 1229000, 'Disponible', 5, 'Audífonos APPLE AirPods Pro 2.ª Generación.png', 5),
+(60, 2, 'Audífonos PANASONIC In Ear', 'PANASONIC', 14900, 'Disponible', 24, 'Audífonos PANASONIC Alámbricos In Ear RP-HV096P Negro.png', 5),
+(61, 3, 'Audífonos XIAOMI Alámbricos InEar Basic Plateado', 'Xiaomi', 32900, 'Disponible', 32, 'Audífonos XIAOMI Alámbricos InEar Basic Plateado.png', 5),
+(62, 1, 'Audífonos SONY Alámbricos In Ear', 'SONY', 39900, 'Disponible', 35, 'Audífonos SONY Alámbricos In Ear Manos Libres MDR-EX15AP Blanco.png', 5),
+(63, 1, 'Audífonos de Diadema SONY Inalámbricos Over Ear', 'SONY', 999900, 'Disponible', 5, 'SONY Inalámbricos Bluetooth Over Ear WH-1000XM4.png', 5),
+(64, 1, 'Audífonos de Diadema SONY Inalámbricos  On Ear', 'SONY', 199900, 'Disponible', 35, 'SONY Inalámbricos Bluetooth On Ear WH-CH520.png', 5),
+(65, 3, 'Audífonos de Diadema BOSE Inalámbricos  Over Ear 7', 'BOSE', 1799900, 'Disponible', 5, 'BOSE Inalámbricos Bluetooth Over Ear 700.png', 5);
 
 -- --------------------------------------------------------
 
@@ -1489,13 +1502,13 @@ ALTER TABLE `caracteristicas`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `detallepedidos`
 --
 ALTER TABLE `detallepedidos`
-  MODIFY `idDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `factura`
@@ -1513,13 +1526,13 @@ ALTER TABLE `infoproductos`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `codPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `codPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `codProd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `codProd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
@@ -1535,8 +1548,8 @@ ALTER TABLE `proveedores`
 -- Filtros para la tabla `detallepedidos`
 --
 ALTER TABLE `detallepedidos`
-  ADD CONSTRAINT `detallepedidos_ibfk_1` FOREIGN KEY (`codPedido`) REFERENCES `pedidos` (`codPedido`),
-  ADD CONSTRAINT `detallepedidos_ibfk_2` FOREIGN KEY (`codProd`) REFERENCES `productos` (`codProd`);
+  ADD CONSTRAINT `detallepedidos_ibfk_1` FOREIGN KEY (`codPedido`) REFERENCES `pedidos` (`codPedido`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detallepedidos_ibfk_2` FOREIGN KEY (`codProd`) REFERENCES `productos` (`codProd`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `factura`
@@ -1556,7 +1569,7 @@ ALTER TABLE `infoproductos`
 -- Filtros para la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  ADD CONSTRAINT `pedidos_ibfk_2` FOREIGN KEY (`idCliente`) REFERENCES `clientes` (`idCliente`);
+  ADD CONSTRAINT `pedidos_ibfk_2` FOREIGN KEY (`idCliente`) REFERENCES `clientes` (`idCliente`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `productos`

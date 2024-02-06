@@ -12,6 +12,9 @@ if (isset($_POST['continuar'])){
     if(!$atributos['success']) {
         $message = "Verifica el captcha para continuar";
         echo "<script>alert('$message');</script>";
+    }else {
+        header("Location: detallePedido.php");
+        exit();
     }
 }
 ?>
@@ -21,10 +24,11 @@ if (isset($_POST['continuar'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verifica la casilla</title>
+    <link rel="website icon" type="png" href="../imagenes/Tecnoventas.png">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-    <form method="POST">
+    <form href="seguridadPed.php" method="POST">
     <h1>Verifica el ReCAPTCHA</h1>
         <div>
             <div class="g-recaptcha" data-sitekey="6LcE-CUpAAAAAE7fG1uU9ehSWmbiiaL6pmqrmx4V" >

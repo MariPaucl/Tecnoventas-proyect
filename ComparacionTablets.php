@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados de Comparación</title>
+    <link rel="website icon" type="png" href="imagenes/Tecnoventas.png">
+
     <style>
         body {
             font-family: "Source Sans Pro SemiBold", cursive, sans-serif;

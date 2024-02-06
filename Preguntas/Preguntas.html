@@ -1,13 +1,16 @@
 <!DOCTYPE html>
     <head>
+        <title>Preguntas</title>
+        <link rel="website icon" type="png" href="../imagenes/Tecnoventas.png">
         <script src="https://kit.fontawesome.com/d3ed00feee.js" crossorigin="anonymous"></script>
         <script>
             function validarFormulario() {
                 var nombre = document.getElementById("Nombres").value;
                 var email = document.getElementById("email").value;
+                var asunto = document.getElementById("asunto").value;
                 var mensaje = document.getElementById("mensaje").value;
     
-                if (nombre === "" || email === "" || mensaje === "") {
+                if (nombre === "" || email === "" || asunto === "" || mensaje === "") {
                     alert("Cada campo debe ser diligenciado");
                     return false;
                 }
@@ -21,27 +24,29 @@
         <div class="header">
             <h1>ENVIANOS TUS PREGUNTAS</h1>
         </div>
-        <form id="form" class="form" action="preguntasenvio.php" method="POST">
+        <form id="form" class="form" action="correo.php" method="POST">
             <div class="form-control">
                 <label for="Nombres"></label>
-                <img src="hombre.png"/>
-                <input type="text" placeholder="Nombres" id="Nombres" />
+                <i class="fa fa-user"></i>
+                <input type="text" placeholder="Nombre" name="nombres" id="Nombres" />
             </div>
             <div class="form-control">
                 <label for="email"></label>
-                <img src="correo.png"/>
-                <input type="email" placeholder="Correo Electronico" id="email" />
+                <i class="fa fa-inbox"></i>
+                <input type="email" placeholder="Correo Electronico" name="email" id="email" />
             </div>
             <div class="form-control">
                 <label for="cell"></label>
-                <img src="telefono.png"/>
-                <input type="number" placeholder="Numero de Telefono" id="cell"/>
+                <i class="fa fa-star"></i>
+                <input type="text" placeholder="Asunto" name="asunto" id="asunto"/>
             </div>
             <div class="form-control">
-                <img src="mensaje.png"  width="15px" height="15px" class="mes-img"/>
-                <textarea placeholder="Dudas, sugerencias y preguntas" id="mensaje" rows="4" cols="30"></textarea>
+                <img src="mensaje.png" alt="" width="15px" height="15px" class="mes-img"/>
+                <textarea placeholder="Escribe tus preguntas aqui" name="mensaje" id="mensaje" rows="4" cols="30"></textarea>
             </div>
-            <button type="submit" value="Enviar" class="button" onclick="return validarFormulario()">Enviar</button>
+            <button type="submit" name="enviar" value="Enviar" class="button" onclick="return validarFormulario()">Enviar
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
         </form>
     </div>
 </body>

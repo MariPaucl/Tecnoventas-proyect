@@ -35,7 +35,9 @@ if($id == '' || $token == ''){
 }
 
 ?>
+<link rel="website icon" type="png" href="imagenes/Tecnoventas.png">
 <link rel="stylesheet" href="Productos_Cliente/cell/concel/estilo.css">
+
 <style>
         @import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');

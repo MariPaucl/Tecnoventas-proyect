@@ -7,4 +7,3 @@ session_destroy();
 //Volver al formulario de inicio de sesion
 header("Location: sesionAdmin.php");
 exit(); // Salir después de la redirección
-?>

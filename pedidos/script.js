@@ -42,11 +42,3 @@ document.addEventListener("DOMContentLoaded", function () {
             direccion.value = direccionCompleta;
         }
     });
-
-    document.addEventListener("DOMContentLoaded", function() {
-        let totalInput = document.getElementById("total");
-
-        let precioAleatorio = Math.floor(Math.random() * (2000000 - 100000 + 1)) + 100000;
-
-        totalInput.value = precioAleatorio;
-    });
