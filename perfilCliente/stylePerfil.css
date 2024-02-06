@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ddd7e8;
+}
+
+.wrapper {
+    display: flex;
+    position: relative;
+}
+
+/*Sidebar*/
+.wrapper .sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background: rgb(46, 1, 82);
+    padding: 30px 0;
+}
+
+.wrapper .sidebar a .fa-caret-left {
+    color: white;
+    width: 25px;
+    margin-left: 5px;
+    position: fixed;
+    margin-top: -25px;
+    font-size: 25px;
+}
+
+.wrapper .sidebar h2{
+    color: white;
+    text-align: center;
+    margin: 30px 15px;
+    font-family: 'Poppins';
+    display: flex;
+    font-weight: bold;
+}
+
+.wrapper .sidebar ul{
+    padding-left: 0;
+}
+
+.wrapper .sidebar ul li{
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(0, 0, 0,0.05);
+}
+
+.wrapper .sidebar ul li a{
+    color: #ceb8ed;
+    display: block;
+    text-decoration: none;
+}
+
+.wrapper .sidebar ul li a .fa-solid{
+    width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+    background: black;
+}
+
+.wrapper .sidebar ul li:hover a{
+    color: white;
+}
+
+/*Content*/
+
+.main_content{
+    width: 100%;
+    margin-left: 150px;
+}
+
+div.header{
+    padding: 20px;
+    background: black;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 23px;
+    text-align: center;
+}
+
+#profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+#profile-image {
+    width: 150px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+#user-info {
+    font-size: 16px;
+    text-align: left;
+}
+
+#user-info p {
+    margin: 10px 0;
+}
+
+.row{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+p#name{
+    color:rgb(46, 1, 82);
+    font-size: 20px;
+}
+
+div.user{
+    background: rgb(46, 1, 82);
+    display: flex;
+    justify-content: center;
+
+}
+
+div.info{
+    padding: 20px 5px;
+    color: white;
+}

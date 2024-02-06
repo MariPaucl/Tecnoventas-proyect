@@ -4,19 +4,19 @@ require 'config/conexion.php';
 $db = new Database();
 $con = $db->conectar();
 
-$sql = $con->prepare("SELECT p.codProd, p.imagen, p.nomProd, p.precio, p.estProd, p.marca, GROUP_CONCAT(i.valor SEPARATOR ' ') AS valores 
+$sql = $con->prepare("SELECT p.codProd, p.imagen, p.nomProd, p.precio, p.estProd, p.marca, p.stockProd, GROUP_CONCAT(i.valor SEPARATOR ' ') AS valores 
 FROM productos p INNER JOIN infoproductos i ON p.codProd = i.codProd WHERE p.codigoCat = 2
-GROUP BY p.codProd, p.imagen, p.nomProd, p.precio, p.estProd, p.marca");$sql->execute();
+GROUP BY p.codProd, p.imagen, p.nomProd, p.precio, p.estProd, p.marca, p.stockProd");$sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <div class="head" id="siteHeader">
-<script src="Productos_Cliente/cell/index.js"></script>
-	    <script src="Productos_Cliente/Portatiles/comparacionportatiles.js"></script>
-		<script src="js/jquery.js"></script>
-		<script src="js/script.js"></script>
-        <script src="js/indexcell.js"></script>
-		<script src="js/cartport.js"></script>
+	<script src="https://kit.fontawesome.com/d3ed00feee.js" crossorigin="anonymous"></script>
+	<script src="Productos_Cliente/cell/index.js"></script>
+	<script src="Productos_Cliente/Portatiles/comparacionportatiles.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/script.js"></script>
 
 </div>
 <body>
@@ -26,7 +26,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 		</div>
 		<nav class="navbar">
 		<ul>
-			<li><a href="sesion.php">Cerrar sesion</a></li>
+			<li><a href="cerrarSesion.php">Cerrar sesion</a></li>
 			<li><a href="inicio.html">Inicio</a></li>
 			<li><a>Productos <i class="icon-abajo2"></i></a>
 				<ul class="submenu">
@@ -53,7 +53,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 	</div>
 
 		<div id="stn-icon-search">
-			<i class="fa-solid fa-magnifying-glass" ><img src="img/lupa.png" alt="" id="icon-search"></i>
+			<img src="img/lupa.png" alt="" id="icon-search"></i>
 		</div>
 		<div id="ctn-bars-search">
 			<input type="text" id="inputSearch" placeholder="¿que deseas buscar?">
@@ -75,6 +75,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<title>Tienda</title>
+		<link rel="website icon" type="png" href="imagenes/Tecnoventas.png">
 		<link rel="stylesheet" href="Productos_Cliente/cell/styles.css" />
 		<link rel="stylesheet" href="css/estilocar.css">
 		<link rel="stylesheet" href="css/fitro.css">
@@ -82,15 +83,13 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 	</head>
 	<body>
 		<div class="container">
-			<h1>Tienda</h1>
+		<h1>Tienda</h1>
 			<div calass="card-products-container" >
             <div class ="card-products" id="shopContent"> </div>
 		</div>
-			<div class="cart-btn" id="cart-btn" >🛒</div>
+			<div class="cart-btn" id="cart-btn"><a href="carrito/VerCarta.php" class="cart-link" title="Ver Carrito"><i class="fa fa-shopping-cart"></i></a></div>
 			<br>
 			<br>
-			<br>
-			<span class="cart-counter" id="cart-counter" >0</span>
 
 		<div class="categoria_list" style="top: 100px" >
 			<a class="category_item" category="all">Todo</a>
@@ -166,7 +165,13 @@ if ($estado == 'Agotado') {
 }
 ?>
 </p>
-					<button class="btn-add-cart">Añadir al carrito</button>
+<?php
+					if($row['stockProd'] > 0){
+					echo '<button><a class="btn-add-cart" href="carrito/AccionCarta.php?action=addToCart&codProd=' . $row["codProd"] . '">Añadir al Carrito</a></button>';
+					}else{
+						echo "";
+					}
+					?>
 				</div>
 			</div>
             <?php } ?>

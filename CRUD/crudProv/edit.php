@@ -1,5 +1,5 @@
 <?php
-include('db.php');
+include('../crudProd/db.php');
 
 if(isset($_GET['idProv'])){
     $idProv = $_GET['idProv'];
@@ -36,10 +36,10 @@ if(isset($_POST['guardar'])){
     $query = "UPDATE proveedores set idProv = '$idProv', NIT = '$NIT', nomProv = '$nomProv', correoProv = '$correoProv', nomCont = '$nomCont', apeCont = '$apeCont', direccion = '$direccion', telProv = '$telProv', paginaWeb = '$paginaWeb' WHERE idProv = $idProv";
     mysqli_query($conex, $query);
 
-    $_SESSION['message'] = 'Proveedor Actualizado Satisfactoriamente';
-    $_SESSION['message_type'] = 'success';
-
-    header("Location: crud.php");
+    $message = "Proveedor Actualizado Satisfactoriamente";
+    echo "<script>alert('$message');</script>";
+    echo "<script>window.location.href='crud.php';</script>";
+    exit();
 }
 ?>
 
@@ -49,8 +49,10 @@ if(isset($_POST['guardar'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proveedores</title>
+    <link rel="website icon" type="png" href="../../imagenes/Tecnoventas.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/d3ed00feee.js" crossorigin="anonymous"></script>
+    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
 </head>
 <body>
 <div class="container p-4">
@@ -60,7 +62,7 @@ if(isset($_POST['guardar'])){
     <div class="card card-body">
         <form action="edit.php?idProv=<?php echo $_GET['idProv']; ?>" method="post">
             <div class="form-group mb-3">
-                <input type="number" name="idProv" value="<?php echo $idProv; ?>" class="form-control" placeholder="Cambiar ID">
+                <input type="hidden" name="idProv" value="<?php echo $idProv; ?>" class="form-control" placeholder="Cambiar ID">
             </div>
             <div class="form-group mb-3">
                 <input type="text" name="NIT" value="<?php echo $NIT; ?>" class="form-control" placeholder="Cambiar NIT">

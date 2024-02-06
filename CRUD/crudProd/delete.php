@@ -7,9 +7,9 @@ if(isset($_GET['codProd'])){
     if(!$result){
         die("Error");
     }
-    $_SESSION['message'] = 'Producto Eliminado Satisfactoriamente';
-    $_SESSION['message_type'] = 'danger';
 
-    header("Location: crud.php");
+    $message = "Producto Eliminado Satisfactoriamente";
+    echo "<script>alert('$message');</script>";
+    echo "<script>window.location.href='crud.php';</script>";
+    exit();
 }
-?>

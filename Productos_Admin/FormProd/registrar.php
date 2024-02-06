@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("../../registro/conexion.php");
 
 if (isset($_POST['registrar'])){
@@ -18,21 +19,34 @@ if (isset($_POST['registrar'])){
             $stock = trim($_POST['stock']);
             $estado = trim($_POST['estado']);
             $categoria = trim($_POST['categoria']);
-            $idAdmin = rand(1, 3);
+            $idAdmin = $_SESSION['sessAdminID'];
 
-            $consulta = "INSERT INTO productos(idAdmin, nomProd, marca, precio, estProd, stockProd, imagen, codigoCat)
-            VALUES ('$idAdmin', '$nomProd', '$marca', '$precio', '$estado', '$stock', '$imagen', '$categoria')";
-            $resultado = mysqli_query($conex, $consulta);
-            if($resultado){
+            // Verificar si el producto ya existe
+            $sqlVerificar = "SELECT * FROM productos WHERE nomProd ='$nomProd' OR imagen ='$imagen'";
+            $resultadoVerificar = mysqli_query($conex, $sqlVerificar);
+            if(mysqli_num_rows($resultadoVerificar) > 0){
                 ?>
-                <h3 class="success">El producto se guardo correctamente</h3>
+                <script>
+                    alert("Este producto ya se ha registrado.");
+                </script>
                 <?php
-            }else{
-                ?>
-                <h3 class="error">Ocurrio un error</h3>
-                <?php
+            } else {
+                // Insertar el nuevo producto si no existe
+                $consulta = "INSERT INTO productos(idAdmin, nomProd, marca, precio, estProd, stockProd, imagen, codigoCat)
+                VALUES ('$idAdmin', '$nomProd', '$marca', '$precio', '$estado', '$stock', '$imagen', '$categoria')";
+                $resultado = mysqli_query($conex, $consulta);
+                if($resultado){
+                    ?>
+                    <h3 class="success">El producto se guardo correctamente</h3>
+                    <?php
+                }else{
+                    ?>
+                    <h3 class="error">Ocurrio un error</h3>
+                    <?php
+                }
             }
-        }else{ ?> <h3 class="error">Llena todos los campos</h3><?php }
+        } else { ?>
+            <h3 class="error">Llena todos los campos</h3>
+        <?php
     }
-
-?>
+}

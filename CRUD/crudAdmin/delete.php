@@ -1,5 +1,5 @@
 <?php
-include("db.php");
+include("../crudProd/db.php");
 if(isset($_GET['idAdmin'])){
     $idAdmin = $_GET['idAdmin'];
     $query = "DELETE FROM administradores WHERE idAdmin = $idAdmin";
@@ -7,9 +7,8 @@ if(isset($_GET['idAdmin'])){
     if(!$result){
         die("Error");
     }
-    $_SESSION['message'] = 'Administrador Eliminado Satisfactoriamente';
-    $_SESSION['message_type'] = 'danger';
-
-    header("Location: crud.php");
+    $message = "Administrador Eliminado";
+    echo "<script>alert('$message');</script>";
+    echo "<script>window.location.href='crud.php';</script>";
+    exit();
 }
-?>

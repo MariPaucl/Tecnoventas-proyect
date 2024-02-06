@@ -1,5 +1,5 @@
 <?php
-include("db.php");
+include("../crudProd/db.php");
 if(isset($_GET['idProv'])){
     $idProv = $_GET['idProv'];
     $query = "DELETE FROM proveedores WHERE idProv = $idProv";
@@ -7,9 +7,8 @@ if(isset($_GET['idProv'])){
     if(!$result){
         die("Error");
     }
-    $_SESSION['message'] = 'Proveedor Eliminado Satisfactoriamente';
-    $_SESSION['message_type'] = 'danger';
-
-    header("Location: crud.php");
+    $message = "Proveedor Eliminado Satisfactoriamente";
+    echo "<script>alert('$message');</script>";
+    echo "<script>window.location.href='crud.php';</script>";
+    exit();
 }
-?>

@@ -6,7 +6,7 @@ include("../crudProd/db.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Proveedores</title>
+    <title>CRUD Pedidos</title>
     <link rel="website icon" type="png" href="../../imagenes/Tecnoventas.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
@@ -26,10 +26,10 @@ include("../crudProd/db.php");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
+<nav class="navbar navbar-expand navbar-dark bg-dark">
         <div class="container-fluid">
         <ul class="navbar-nav">
-        <a href="regProv.php" class="navbar-brand">REGISTRAR PROVEEDOR</a>
+        <a class="navbar-brand">PEDIDOS</a>
         <li class="nav-item">
         <a class="nav-link active" href="../crudProd/crud.php">Productos</a>
         </li>
@@ -37,13 +37,13 @@ include("../crudProd/db.php");
         <a class="nav-link active" href="../crudAdmin/crud.php">Administradores</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link disabled">Proveedores</a>
+        <a class="nav-link active" href="../crudProv/crud.php">Proveedores</a>
         </li>
         <li class="nav-item">
         <a class="nav-link active" href="../crudClien/crud.php">Clientes</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link active" href="../crudPed/crud.php">Pedidos</a>
+        <a class="nav-link disabled">Pedidos</a>
         </li>
         </ul>
         <ul class="navbar-nav">
@@ -53,61 +53,52 @@ include("../crudProd/db.php");
         </ul>
         </div>
         </nav>
-    <div class="container">
     <div class="container p-4">
-    <div class="col-sm-12">
-    <div class="row">
-    <div class="table-responsive">
+        <div class="col-sm-12">
         <table id="table" class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Prov ID</th>
-                    <th>NIT</th>
-                    <th>Nombre Proveedor</th>
-                    <th>Correo</th>
-                    <th>Nombre Contacto</th>
-                    <th>Apellido Contacto</th>
-                    <th>Dirección</th>
-                    <th>Telefono</th>
-                    <th>Pagina Web</th>
+                    <th>Código</th>
+                    <th>Id Cliente</th>
+                    <th>Nombre Cliente</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Direccion</th>
+                    <th>Total</th>
+                    <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                $query = "SELECT * FROM proveedores";
+                $query = "SELECT * FROM pedidos INNER JOIN clientes ON pedidos.idCliente = clientes.idCliente";
                 $result_prod = mysqli_query($conex, $query);
 
                 while($row = mysqli_fetch_array($result_prod)){ ?>
                 <tr>
-                    <td><?php echo $row['idProv']?></td>
-                    <td><?php echo $row['NIT']?></td>
-                    <td><?php echo $row['nomProv']?></td>
-                    <td><?php echo $row['correoProv']?></td>
-                    <td><?php echo $row['nomCont']?></td>
-                    <td><?php echo $row['apeCont']?></td>
-                    <td><?php echo $row['direccion']?></td>
-                    <td><?php echo $row['telProv']?></td>
-                    <td><?php echo $row['paginaWeb']?></td>
-                    <td>
-                        <a href="edit.php?idProv=<?php echo $row['idProv']?>" class="btn btn-success">
+                    <td><?php echo $row['codPedido']?></td>
+                    <td><?php echo $row['idCliente']?></td>
+                    <td><?php echo $row['nomCliente'], ' ', $row['apeCliente']?></td>
+                    <td><?php echo $row['fechaPedido']?></td>
+                    <td><?php echo $row['horaPedido'] ?></td>
+                    <td><?php echo $row['dirPedido'] ?></td>
+                    <td><?php echo $row['totalPedido']?></td>
+                    <td><?php echo $stock = $row['estadoPedido'];?></td>
+                    <td class="text-center">
+                        <a href="edit.php?codPedido=<?php echo $row['codPedido']?>" class="btn btn-success">
                         <i class="fa-solid fa-pen-to-square" style="color:black;"></i>
-                        </a>
-                        <a href="delete.php?idProv=<?php echo $row['idProv']?>" class="btn btn-danger">
-                        <i class="fa-solid fa-trash" style="color:black;"></i>
                         </a>
                     </td>
                 </tr>
                 <?php } ?>
+
             </tbody>
         </table>
+        </div>
     </div>
-    </div>
-    </div>
-    </div>
-    </div>
+
 <script>
-    $(document).ready( function () {
+$(document).ready( function () {
     $('#table').DataTable({
         language:{
             "lengthMenu": "Mostrar _MENU_ registros",
@@ -123,10 +114,9 @@ include("../crudProd/db.php");
                 "sNext":"Siguiente",
                 "sPrevious": "Anterior"
             },
-        "sProcessing":"Procesando...",
+            "sProcessing":"Procesando...",
         },
         "columns": [
-            null,
             null,
             null,
             null,
@@ -141,33 +131,30 @@ include("../crudProd/db.php");
         dom: 'Bfrtilp',
         buttons:[
             {
-            extend: 'excelHtml5',
-            text: '<i class="fas fa-file-excel"></i>',
-            titleAttr: 'Exportar a Excel',
-            className: 'btn btn-success'
+                extend: 'excelHtml5',
+                text: '<i class="fas fa-file-excel"></i>',
+                titleAttr: 'Exportar a Excel',
+                className: 'btn btn-success'
             },
             {
-            extend: 'pdfHtml5',
-            text: '<i class="fas fa-file-pdf"></i>',
-            titleAttr: 'Exportar a PDF',
-            className: 'btn btn-danger'
+                extend: 'pdfHtml5',
+                text: '<i class="fas fa-file-pdf"></i>',
+                titleAttr: 'Exportar a PDF',
+                className: 'btn btn-danger'
             },
             {
-            extend: 'print',
-            text: '<i class="fas fa-print"></i>',
-            titleAttr: 'Imprimir',
-            className: 'btn btn-info'
+                extend: 'print',
+                text: '<i class="fas fa-print"></i>',
+                titleAttr: 'Imprimir',
+                className: 'btn btn-info'
             },
         ]
     });
 });
 </script>
 <style>
-.btn-group {
+    .btn-group {
         margin-bottom: 7px;
-    }
-    a{
-        margin: 5px;
     }
 </style>
 </body>

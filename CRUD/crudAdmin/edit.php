@@ -1,5 +1,5 @@
 <?php
-include('db.php');
+include('../crudProd/db.php');
 
 if(isset($_GET['idAdmin'])){
     $idAdmin = $_GET['idAdmin'];
@@ -27,10 +27,10 @@ if(isset($_POST['guardar'])){
     $query = "UPDATE administradores set idAdmin = '$idAdmin', nomAdmin = '$nomAdmin', apeAdmin = '$apeAdmin', cargo = '$cargo', estado = '$estado', correoAdmin = '$correoAdmin' WHERE idAdmin = $idAdmin";
     mysqli_query($conex, $query);
 
-    $_SESSION['message'] = 'Administrador Actualizado Satisfactoriamente';
-    $_SESSION['message_type'] = 'success';
-
-    header("Location: crud.php");
+    $message = "Administrador Actualizado Satisfactoriamente";
+    echo "<script>alert('$message');</script>";
+    echo "<script>window.location.href='crud.php';</script>";
+    exit();
 }
 ?>
 <!DOCTYPE html>
@@ -39,6 +39,7 @@ if(isset($_POST['guardar'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administradores</title>
+    <link rel="website icon" type="png" href="../../imagenes/Tecnoventas.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/d3ed00feee.js" crossorigin="anonymous"></script>
 </head>

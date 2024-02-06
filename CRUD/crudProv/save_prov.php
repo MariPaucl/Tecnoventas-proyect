@@ -1,5 +1,5 @@
 <?php
-include("db.php");
+include("../crudProd/db.php");
 
 if (isset($_POST['save_prov']));{
     $NIT = $_POST['NIT'];
@@ -18,9 +18,8 @@ if (isset($_POST['save_prov']));{
         die("Error");
     }
 
-    $_SESSION['message'] = 'Proveedor guardado satisfactoriamente';
-    $_SESSION['message_type'] = 'success';
-
-    header("Location: crud.php");
+    $message = "Proveedor Guardado Satisfactoriamente";
+    echo "<script>alert('$message');</script>";
+    echo "<script>window.location.href='crud.php';</script>";
+    exit();
 }
-?>

@@ -7,6 +7,7 @@ include("db.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD Productos</title>
+    <link rel="website icon" type="png" href="../../imagenes/Tecnoventas.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css" rel="stylesheet">
@@ -38,24 +39,22 @@ include("db.php");
         <li class="nav-item">
         <a class="nav-link active" href="../crudProv/crud.php">Proveedores</a>
         </li>
+        <li class="nav-item">
+        <a class="nav-link active" href="../crudClien/crud.php">Clientes</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link active" href="../crudPed/crud.php">Pedidos</a>
+        </li>
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active" href="../../Administrador.html">Inicio</a>
+                <a class="nav-link active" href="../../Administrador.php">Inicio</a>
             </li>
         </ul>
         </div>
         </nav>
     <div class="container p-4">
         <div class="col-sm-12">
-
-
-        <?php if(isset($_SESSION['message'])){?>
-            <div class="alert alert-<?= $_SESSION['message_type'];?> alert-dismissible fade show" role="alert">
-                <?= $_SESSION['message'] ?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-            <?php session_unset();} ?>
         <table id="table" class="table table-bordered">
             <thead>
                 <tr>
@@ -156,6 +155,9 @@ $(document).ready( function () {
 <style>
     .btn-group {
         margin-bottom: 7px;
+    }
+    a{
+        margin: 5px;
     }
 </style>
 </body>

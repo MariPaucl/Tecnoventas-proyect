@@ -1,5 +1,5 @@
 <?php
-include("db.php");
+include("../crudProd/db.php");
 
 if (isset($_POST['saveAdmin']));{
     $nomAdmin = trim($_POST['nomAdmin']);
@@ -17,9 +17,8 @@ if (isset($_POST['saveAdmin']));{
         die("Error");
     }
 
-    $_SESSION['message'] = 'El administrador se ha registrado correctamente';
-    $_SESSION['message_type'] = 'success';
-
-    header("Location: crud.php");
+    $message = "El administrador se ha registrado Satisfactoriamente";
+    echo "<script>alert('$message');</script>";
+    echo "<script>window.location.href='crud.php';</script>";
+    exit();
 }
-?>
