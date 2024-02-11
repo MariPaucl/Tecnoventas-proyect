@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 require 'conexion.php';
 
 if (!isset($_REQUEST['id'])) {
@@ -7,6 +7,11 @@ if (!isset($_REQUEST['id'])) {
 
 $query = $db->query("SELECT * FROM pedidos WHERE codPedido = " . $_REQUEST['id']);
 $pedidoRow = $query->fetch_assoc();
+
+$COP = $_SESSION['totalCarrito'];
+$USD = $COP / 4000;
+
+$_SESSION['USD'] = $USD;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,13 +69,15 @@ $pedidoRow = $query->fetch_assoc();
         <h5 class="card-title">¡El Pedido se ha registrado exitósamente!</h5>
         <p class="card-text">El ID de tu Pedido es <?php echo $_GET['id']; ?></p>
         <p class="card-text">El estado de tu pedido es <strong><?php echo $pedidoRow['estadoPedido']; ?></strong></p>
+        <p class="card-text">El monto a pagar en COP es <strong><?php echo $COP;?></strong></p>
+        <p class="card-text">El monto a pagar en USD es <strong><?php echo $USD;?></p>
       </div>
       <div class="card-footer">
-        <a href="../Compra/compra.html" class="btn btn-success">Ir a Pagar <i class="fa-solid fa-chevron-right"></i></a>
+        <a href="../Compra/compra.php" class="btn btn-success">Ir a Pagar <i class="fa-solid fa-chevron-right"></i></a>
       </div>
   </div>
   </div>
-  <?php session_start();
+  <?php
   $pedidoId = $_GET['id'];
   $_SESSION['idPedido'] = $pedidoId;
   ?>

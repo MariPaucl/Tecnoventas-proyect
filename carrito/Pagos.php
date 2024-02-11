@@ -17,6 +17,10 @@ if(isset($_SESSION['sessCustomerID'])) {
 // get customer details by session customer ID
 $query = $db->query("SELECT * FROM clientes WHERE idCliente = " . $_SESSION['sessCustomerID']);
 $custRow = $query->fetch_assoc();
+
+$iva = $cart->total()*0.20; //IVA es el 20% del total de la compra
+$total = $cart->total()+ $iva;
+$_SESSION['totalCarrito'] = $total;
 }
 ?>
 <!DOCTYPE html>
@@ -85,13 +89,15 @@ $custRow = $query->fetch_assoc();
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Producto</th>
                             <th>Precio</th>
+                            <th>IVA</th>
                             <th>Cantidad</th>
                             <th>Sub total</th>
                         </tr>
                     </thead>
-                    <tbody>
+<tbody>
                         <?php
                         if ($cart->total_items() > 0) {
                             //get cart items from session
@@ -99,8 +105,10 @@ $custRow = $query->fetch_assoc();
                             foreach ($cartItems as $item) {
                         ?>
                                 <tr>
+                                    <td><?= $item['codProd'] ?></td>
                                     <td><?php echo $item["nomProd"]; ?></td>
                                     <td><?php echo '$' . $item["precio"];?></td>
+                                    <td>20%</td>
                                     <td><?php echo $item["qty"]; ?></td>
                                     <td><?php echo '$' . $item["subtotal"];?></td>
                                 </tr>
@@ -116,12 +124,14 @@ $custRow = $query->fetch_assoc();
                         <tr>
                             <td colspan="3"></td>
                             <?php if ($cart->total_items() > 0) { ?>
-                                <td class="text-center"><strong>Total <?php echo '$' . $cart->total();?></strong></td>
+                                <td class="text-center"><strong>Subtotal <?php echo '$' . $cart->total();?></strong></td>
+                                <td class="text-center"><strong>20% IVA <?php echo '$' . $iva;?></strong></td>
+                                <td class="text-center"><strong>Total <?php echo '$' . $total;?></strong></td>
                             <?php } ?>
                         </tr>
                     </tfoot>
                 </table>
-                <div class="shipAddr">
+                      <div class="shipAddr">
                     <h4>Detalles de envío</h4>
                     <p><?php echo $custRow['nomCliente'], ' ', $custRow['apeCliente']; ?></p>
                     <p><?php echo $custRow['correo']; ?></p>
@@ -161,7 +171,7 @@ $custRow = $query->fetch_assoc();
                 </div>
                 </div>
                 <div class="footBtn">
-                    <a href="cell.php" class="btn btn-dark"><i class="fa-solid fa-chevron-left"></i> Continue Comprando</a>
+                    <a href="../cell.php" class="btn btn-dark"><i class="fa-solid fa-chevron-left"></i> Continue Comprando</a>
                     <button type="submit" class="btn btn-success orderBtn">Realizar pedido <i class="fa-solid fa-chevron-right"></i></button>                </div>
                 </form>
             </div>
