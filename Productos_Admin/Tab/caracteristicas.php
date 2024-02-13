@@ -66,7 +66,8 @@ if($id == '' || $token == ''){
             <?php } ?>
         </tbody>
     </table>
-    <a class="btn btn-outline-secondary" style="margin-bottom: 10px;" href="editCaract.php?codProd=<?php echo $codProd;?>" role="button">Editar caracteristicas</a>
+    <a class="btn btn-outline-secondary" style="margin-bottom: 10px;" href="tab.php" role="button">< Regresar</a>
+    <a class="btn btn-outline-secondary" style="margin-bottom: 10px;" href="editCaract.php?codProd=<?php echo $codProd;?>" role="button">Editar caracteristicas ></a>
     </center>
 </body>
 </html>
