@@ -62,8 +62,8 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
     // Si hay suficiente stock, proceder con la inserción del pedido
     if ($haySuficienteStock) {
 
-        $iva = $cart->total() * 0.20; 
-        $total = $cart->total() + $iva; 
+        $iva = $cart->total() * 0.20;
+        $total = $cart->total() + $iva;
 
     // Inserta el pedido en la base de datos con la dirección
     $insertOrder = $db->query("INSERT INTO pedidos (idCliente, fechaPedido, horaPedido, dirPedido, totalPedido) VALUES ('".$_SESSION['sessCustomerID']."', '".date("Y-m-d")."', '".date("H:i:s")."', '".$direccion."', '".$total."')");

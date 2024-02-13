@@ -36,8 +36,15 @@ if (isset($_POST['registrar'])){
                 VALUES ('$idAdmin', '$nomProd', '$marca', '$precio', '$estado', '$stock', '$imagen', '$categoria')";
                 $resultado = mysqli_query($conex, $consulta);
                 if($resultado){
+                    // Obtener el codProd del producto registrado
+                    $codProd = mysqli_insert_id($conex);
+                    // Almacenar en la variable de sesión
+                    $_SESSION['codProd'] = $codProd;
                     ?>
-                    <h3 class="success">El producto se guardo correctamente</h3>
+                    <script>
+                        alert("Producto registrado satisfactoriamente.");
+                        window.location.href = "../caracteristicas/celulares.php";
+                    </script>
                     <?php
                 }else{
                     ?>
