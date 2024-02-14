@@ -102,7 +102,7 @@ if (mysqli_query($conex, $sql_caracteristicas)) {
 ?>
 <script>
     alert("Por favor, completa todos los campos.");
-    window.location.href = "comp.php";
+    window.location.href = "regComp.php";
 </script>
 <?php
 }
