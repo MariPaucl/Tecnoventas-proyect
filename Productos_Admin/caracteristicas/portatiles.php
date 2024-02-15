@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Celulares</title>
+    <title>Portatiles</title>
     <link rel="website icon" type="png" href="../../imagenes/Tecnoventas.png">
     <link rel="stylesheet" href="../style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -15,10 +15,10 @@
         <ul class="navbar-nav">
         <a class="navbar-brand">PRODUCTOS</a>
         <li class="nav-item">
-        <a class="nav-link disabled">Celulares</a>
+        <a class="nav-link active" href="celulares.php">Celulares</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link active" href="portatiles.php">Portatiles</a>
+        <a class="nav-link disabled">Portatiles</a>
         </li>
         <li class="nav-item">
         <a class="nav-link active" href="comp.php">Computadores</a>
@@ -113,7 +113,7 @@
                 <label for="marTarV" class="form-label">Marca Procesador</label>
                 <textarea class="form-control" id="MarcaProcesador" name="MarcaProcesador" rows="2" required></textarea>
             </div>
- 
+
             <div class="mb-3">
                 <label for="verSis" class="form-label">Procesador</label>
                 <textarea class="form-control" id="Procesador" name="Procesador" rows="2" required></textarea>
@@ -156,7 +156,7 @@
                 <label for="OpConec" class="form-label">Color</label>
                 <textarea class="form-control" id="Color" name="Color" rows="2" required></textarea>
             </div>
-            
+
             <button type="submit" name="guardar" class="btn btn-primary">Guardar</button>
             </form>
         </div>

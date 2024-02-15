@@ -16,8 +16,8 @@ if (isset($_POST['guardar'])){
         strlen($_POST['AnchoCm']) >= 1 &&
         strlen($_POST['AltoCm']) >= 1 &&
         strlen($_POST['FondoCm']) >= 1 &&
-        strlen($_POST['Extra']) >= 1 
-       
+        strlen($_POST['Extra']) >= 1
+
         ){
 // Obtener los datos del formulario
 $Resist = $_POST['Resist'];
@@ -39,30 +39,19 @@ $Extra = $_POST['Extra'];
 
     // Insertar las características del producto en la tabla 'InfoProductos'
     $sql_caracteristicas = "INSERT INTO infoproductos (codProd, idCaract, valor) VALUES
-                            ('$codProd',38 , '$ResCam'),
-                            ('$codProd', 46, '$PuertoHDMI'),
-                            ('$codProd', 39, '$NLAN'),
-                            ('$codProd', 37, '$NUSB'),
-                            ('$codProd', 14 , '$NAUDIO'),
-                            ('$codProd',22 , '$TipPuer'),
-                            ('$codProd',40 , '$NiUso'),
-                            ('$codProd', 41, '$caracEs'),
-                            ('$codProd',42 , '$TamPa'),
-                            ('$codProd',43 , '$MeRam'),
-                            ('$codProd',44 , '$TipDis'),
-                            ('$codProd', 45, '$CapDis'),
-                            ('$codProd', 47, '$MarPro'),
-                            ('$codProd', 32, '$Proce'),
-                            ('$codProd', 33, '$modPro'),
-                            ('$codProd', 34 , '$marTarV'),
-                            ('$codProd', 6, '$SisOp'),
-                            ('$codProd', 7, '$verSis'),
-                            ('$codProd', 8, '$NuProc'),
-                            ('$codProd', 21, '$VelProc'),
-                            ('$codProd', 37, '$FuEner'),
-                            ('$codProd',14 , '$color'),
-                            ('$codProd', 41, '$OpConec')
-                            ";
+                            ('$codProd', 38, '$Resist'),
+                            ('$codProd', 46, '$CaracterEspecial'),
+                            ('$codProd', 39, '$Portabili'),
+                            ('$codProd', 37, '$FAE'),
+                            ('$codProd', 14, '$Color'),
+                            ('$codProd', 22, '$DuraBateri'),
+                            ('$codProd', 40, '$Bluetooth'),
+                            ('$codProd', 41, '$Conectividad'),
+                            ('$codProd', 42, '$Conexion'),
+                            ('$codProd', 43, '$AnchoCm'),
+                            ('$codProd', 44, '$AltoCm'),
+                            ('$codProd', 45, '$FondoCm'),
+                            ('$codProd', 47, '$Extra')";
 
 // Ejecutar la consulta SQL
 if (mysqli_query($conex, $sql_caracteristicas)) {
@@ -80,7 +69,7 @@ if (mysqli_query($conex, $sql_caracteristicas)) {
 ?>
 <script>
     alert("Por favor, completa todos los campos.");
-    window.location.href = "comp.php";
+    window.location.href = "parlantes.php";
 </script>
 <?php
 }

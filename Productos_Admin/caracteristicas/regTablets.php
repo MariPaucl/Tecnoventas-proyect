@@ -20,7 +20,7 @@ if (isset($_POST['guardar'])){
         strlen($_POST['tamañoPa']) >= 1 &&
         strlen($_POST['FuentesEnergia']) >= 1 &&
         strlen($_POST['color']) >= 1 &&
-        strlen($_POST['Extra']) >= 1 &&
+        strlen($_POST['Extra']) >= 1
         ){
 // Obtener los datos del formulario
 $memoriaInt = $_POST['memoriaInt'];
@@ -80,7 +80,7 @@ if (mysqli_query($conex, $sql_caracteristicas)) {
 ?>
 <script>
     alert("Por favor, completa todos los campos.");
-    window.location.href = "celulares.php";
+    window.location.href = "tablets.php";
 </script>
 <?php
 }

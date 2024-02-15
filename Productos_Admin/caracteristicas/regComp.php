@@ -27,7 +27,7 @@ if (isset($_POST['guardar'])){
         strlen($_POST['VelProc']) >= 1 &&
         strlen($_POST['FuEner']) >= 1 &&
         strlen($_POST['color']) >= 1 &&
-        strlen($_POST['OpConec']) >= 1 
+        strlen($_POST['OpConec']) >= 1
         ){
 // Obtener los datos del formulario
 $ResCam = $_POST['ResCam'];
@@ -102,7 +102,7 @@ if (mysqli_query($conex, $sql_caracteristicas)) {
 ?>
 <script>
     alert("Por favor, completa todos los campos.");
-    window.location.href = "regComp.php";
+    window.location.href = "comp.php";
 </script>
 <?php
 }

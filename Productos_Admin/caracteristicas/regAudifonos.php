@@ -9,7 +9,7 @@ if (isset($_POST['guardar'])){
         strlen($_POST['duracionBateria']) >= 1 &&
         strlen($_POST['conexion']) >= 1 &&
         strlen($_POST['color']) >= 1 &&
-        strlen($_POST['longitudCable']) >= 1 &&
+        strlen($_POST['longitudCable']) >= 1
         ){
 // Obtener los datos del formulario
 $resistencia = $_POST['resistencia'];
@@ -47,7 +47,7 @@ if (mysqli_query($conex, $sql_caracteristicas)) {
 ?>
 <script>
     alert("Por favor, completa todos los campos.");
-    window.location.href = "celulares.php";
+    window.location.href = "audifonos.php";
 </script>
 <?php
 }

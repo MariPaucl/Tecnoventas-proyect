@@ -4,7 +4,7 @@ include('../../registro/conexion.php');
 
 if (isset($_POST['guardar'])){
     if(
-        strlen($_POST['DuracionBateria']) >= 1 &&                      
+        strlen($_POST['DuracionBateria']) >= 1 &&
         strlen($_POST['OpcionesConectividad']) >= 1 &&
         strlen($_POST['ResolucionCamaraWeb']) >= 1 &&
         strlen($_POST['NoPuertosHDMI']) >= 1 &&
@@ -30,7 +30,7 @@ if (isset($_POST['guardar'])){
         strlen($_POST['NoPuertosHDMI']) >= 1 &&
         strlen($_POST['VelocidadDelProcesador']) >= 1 &&
         strlen($_POST['FuenteAlimentacion']) >= 1 &&
-        strlen($_POST['Color']) >= 1 
+        strlen($_POST['Color']) >= 1
         ){
 // Obtener los datos del formulario
 $DuracionBateria = $_POST['DuracionBateria'];
@@ -110,7 +110,7 @@ if (mysqli_query($conex, $sql_caracteristicas)) {
 ?>
 <script>
     alert("Por favor, completa todos los campos.");
-    window.location.href = "regPortatiles.php";
+    window.location.href = "portatiles.php";
 </script>
 <?php
 }

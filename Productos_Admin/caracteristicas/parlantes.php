@@ -96,7 +96,7 @@
                 <label for="CapDis" class="form-label">Extra</label>
                 <textarea class="form-control" id="Extra" name="Extra" rows="2" required></textarea>
             </div>
-                       
+
                 <button type="submit" name="guardar" class="btn btn-primary">Guardar</button>
             </form>
         </div>
