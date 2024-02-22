@@ -129,9 +129,9 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 				<div class="h2">Rango Bluetooth</div>
 				<hr class="l2">
 				<div>
-					<span class="tag">30 Metros</span>
-					<span class="tag">10 Metros</span>
-					<span class="tag">9 Metros</span>
+					<span class="tag">30Metros</span>
+					<span class="tag">10Metros</span>
+					<span class="tag">9Metros</span>
 				</div>
 			</div>
 		<div class="container-items">

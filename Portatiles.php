@@ -123,24 +123,24 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 				<div class="h2">Capadidad de Disco</div>
 				<hr class="l2">
 				<div>
-					<span class="tag">256 GB</span>
+					<span class="tag">256GB</span>
 					<span class="tag">1TB</span>
-					<span class="tag">512 GB</span>
+					<span class="tag">512GB</span>
 				</div>
 				<div class="h2">Procesador</div>
 				<hr class="l2">
 				<div>
-					<span class="tag">Intel Core I3</span>
-					<span class="tag">AMD Athlon</span>
-					<span class="tag">Intel Core I5</span>
-					<span class="tag">AMD R3</span>
+					<span class="tag">IntelCoreI3</span>
+					<span class="tag">AMDAthlon</span>
+					<span class="tag">IntelCoreI5</span>
+					<span class="tag">AMDR3</span>
 				</div>
 				<div class="h2">Nivel de uso</div>
 				<hr class="l2">
 				<div>
 					<span class="tag">Medio</span>
 					<span class="tag">Esencial</span>
-					<Span class="tag">avanzado</Span>
+					<Span class="tag">Avanzado</Span>
 				</div>
 			</div>
 		<div class="container-items">

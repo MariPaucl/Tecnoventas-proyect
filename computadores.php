@@ -137,13 +137,13 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 				<div class="h2">Procesador</div>
 				<hr class="l2">
 				<div>
-					<span class="tag">AMD R5</span>
-					<span class="tag">Intel Celeron</span>
-					<Span class="tag">Intel Pentium</Span>
-					<span class="tag">Intel Core i5</span>
-					<span class="tag">AMD R7</span>
-					<span class="tag">Apple M3</span>
-					<span class="tag">Intel Core I9</span>
+					<span class="tag">AMDR5</span>
+					<span class="tag">IntelCeleron</span>
+					<Span class="tag">IntelPentium</Span>
+					<span class="tag">IntelCorei5</span>
+					<span class="tag">AMDR7</span>
+					<span class="tag">AppleM3</span>
+					<span class="tag">IntelCoreI9</span>
 				</div>
 			</div>
 		<div class="container-items">
