@@ -350,6 +350,7 @@ a {
 
     text-decoration: none;
     color: inherit;
+    cursor: url(../../img/cursor.png), auto;
 }
 
 .cta {
