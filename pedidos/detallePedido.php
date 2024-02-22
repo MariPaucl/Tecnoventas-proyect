@@ -44,7 +44,7 @@ $resultDetalle = mysqli_query($conex, $queryDetalle);
                 <th></th>
                 <th scope="col">Producto</th>
                 <th scope="col">Cantidad</th>
-                <th scope="col">Precio</th>
+                <th scope="col">Precio + IVA 20%</th>
             </tr>
         </thead>
         <tbody>

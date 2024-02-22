@@ -64,7 +64,7 @@ if(isset($_POST["enviar"])){
                     <tr>
                         <th>Producto</th>
                         <th>Cantidad</th>
-                        <th>Precio</th>
+                        <th>Precio + IVA 20%</th>
                     </tr>
                 </thead>
                 <tbody>
