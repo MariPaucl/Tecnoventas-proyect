@@ -5,55 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados de Comparación</title>
-    <link rel="website icon" type="png" href="imagenes/Tecnoventas.png">
-
-    <style>
-        body {
-            font-family: "Source Sans Pro SemiBold", cursive, sans-serif;
-
-            background: -webkit-linear-gradient(to right, hsla(0, 0%, 42%, 0.541), hsla(0, 0%, 42%, 0.541)), url();
-            /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, hsla(0, 0%, 42%, 0.541), hsla(0, 0%, 42%, 0.541)), url();
-            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        }
-
-
-    h1 {
-        color: #6D00B4;
-        text-transform: uppercase;
-        font-family: sans-serif;
-    }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            background-color: #B7B7B7;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 2px solid aqua; /* Cambia el color del borde de la tabla */
-        }
-
-        th, td {
-            /* Cambia el color del borde de la cuadrícula a morado */
-            padding: 8px;
-            text-align: left;
-            border: 2px solid purple; /* Cambia el color del borde de las celdas */
-        }
-
-        th {
-            background-color: #E1E1E1;
-        }
-
-        img {
-            max-width: 100px; /* Ajusta el ancho máximo de la imagen según tus necesidades */
-            height: auto;
-        }
-    </style>
+     <link rel="website icon" type="png" href="imagenes/Tecnoventas.png">
+     <link rel="stylesheet" href="css/styleCompara.css">
 </head>
 <body>
 
-    <h1>Resultados de Comparación</h1>
-
+<main class="table">
+    <section class="table_head">
+    <h1>Resultados de Comparación <img src="img/balanza.gif" alt=""></h1>
+    </section>
+    <section class="table_body">
     <?php
         // Definir un array asociativo con las características de los productos (incluyendo URLs de imágenes)
         $caracteristicas = array(
@@ -394,6 +355,7 @@
             echo "<p>No se han seleccionado productos para comparar.</p>";
         }
     ?>
-
+</section>
+</main>
 </body>
 </html>
