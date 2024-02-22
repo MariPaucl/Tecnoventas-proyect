@@ -10,14 +10,14 @@
 <body>
     <div class="form-container">
         <h2>Registro Productos</h2>
-        <form id="registroForm" method="post">
+        <form method="post">
             <div class="form-group">
                 <input type="text" name="nomProd" id="nomProd" placeholder="Nombre Producto">
                 <input type="text" name="marca" id="marca" placeholder="Marca">
                 <input type="number" name="precio" id="precio" placeholder="Precio">
                 <div class="image">
                     <p class="texto">Agregar Imagen</p>
-                    <input type="file" name="imagen" id="image-file">
+                <input type="file" name="imagen" id="image-file">
                 </div>
                 <input type="number" name="stock" id="stock" placeholder="Stock del Producto">
                 <select name="estado" id="estado">
@@ -32,66 +32,33 @@
                     <option value="">
                         Categoria
                     </option>
-                    <option value="celulares">
+                    <option value="1">
                         Celulares
                     </option>
-                    <option value="portatiles">
+                    <option value="2">
                         Portatiles
                     </option>
-                    <option value="computadores">
+                    <option value="3">
                         Computadores
                     </option>
-                    <option value="tablets">
+                    <option value="4">
                         Tablets
                     </option>
-                    <option value="audifonos">
+                    <option value="5">
                         Audifonos
                     </option>
-                    <option value="parlantes">
+                    <option value="6">
                         Parlantes
                     </option>
                 </select>
             </div>
-            <input type="submit" name="registrar" value="Guardar" class="btn">
+                <input type="submit" name="registrar" value="Guardar" class="btn">
         </form>
     </div>
 
-    <script>
-        // Captura el envío del formulario
-        document.getElementById("registroForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Evita que el formulario se envíe automáticamente
 
-            var categoria = document.getElementById("categoria").value; // Obtiene el valor de la categoría seleccionada
-
-            if (categoria === "") {
-                alert("Por favor, selecciona una categoría.");
-            } else {
-                // Redirige a la página correspondiente según la categoría seleccionada
-                switch (categoria) {
-                    case "celulares":
-                        window.location.href = "../../Productos_Admin/caracteristicas/celulares.php";
-                        break;
-                    case "portatiles":
-                        window.location.href = "../../Productos_Admin/caracteristicas/portatiles.php";
-                        break;
-                    case "computadores":
-                        window.location.href = "../../Productos_Admin/caracteristicas/comp.php";
-                        break;
-                    case "tablets":
-                        window.location.href = "../../Productos_Admin/caracteristicas/tablets.php";
-                        break;
-                    case "audifonos":
-                        window.location.href = "../../Productos_Admin/caracteristicas/audifonos.php";
-                        break;
-                    case "parlantes":
-                        window.location.href = "../../Productos_Admin/caracteristicas/parlantes.php";
-                        break;
-                    default:
-                        alert("Categoría no válida.");
-                        break;
-                }
-            }
-        });
-    </script>
+    <?php
+    include("registrar.php");
+    ?>
 </body>
 </html>
