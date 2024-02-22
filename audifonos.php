@@ -14,10 +14,11 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 <div class="head" id="siteHeader">
 <script src="https://kit.fontawesome.com/d3ed00feee.js" crossorigin="anonymous"></script>
 <script src="Productos_Cliente/cell/index.js"></script>
-<script src="Productos_Cliente/cell/comparacioncell1.js"></script>
+<script src="Productos_Cliente/audifonos/ComparacionAudifonos.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/script.js"></script>
+<script src="js/modalVideo.js"></script>
 
 </div>
 <body>
@@ -44,8 +45,8 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 						Parlantes
 					</a></li>
 					</a></li>
-					<li><a href="audifonos.php">
-						Audifonos
+					<li><a href="cell.php">
+						Celulares
 					</a></li>
 				</ul>
 			</li>
@@ -81,6 +82,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 		<link rel="stylesheet" href="css/fitro.css">
 		<link rel="stylesheet" href="css/estilocar.css">
 		<link rel="stylesheet" href="css/buscadorcell.css">
+		<link rel="stylesheet" href="css/modalVideo.css">
 	</head>
 	<body>
 		<div class="container">
@@ -88,55 +90,45 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 			<div calass="card-products-container" >
             <div class ="card-products" id="shopContent"> </div>
 		</div>
+		<div class="play" id="play" title="Como comparar productos?"><i class="fa fa-question"></i></div>
+		<div class="popup-modal">
+		<iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/6OzwYDlfm74" frameborders="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<div class="btn-cerrar">
+				<span class="x1"></span>
+				<span class="x2"></span>
+			</div>
+		</div>
 			<div class="cart-btn" id="cart-btn"><a href="carrito/VerCarta.php" class="cart-link" title="Ver Carrito"><i class="fa fa-shopping-cart"></i></a></div>
 			<br>
 			<br>
-
 		<div class="categoria_list" style="top: 100px" >
-
 			<a class="category_item" category="all">Todo</a>
-			<a class="category_item" category="Redmi">Redmi</a>
-			<a class="category_item" category="Samsung">Samsung</a>
+			<a class="category_item" category="Panasonic">Panasonic</a>
 			<a class="category_item" category="Xiaomi">Xiaomi</a>
-			<a class="category_item" category="Motorola">Motorola</a>
-				<a class="category_item" category="Realme">Realme</a>
+			<a class="category_item" category="Sony">Sony</a>
+			<a class="category_item" category="Bose">Bose</a>
+			<a class="category_item" category="Apple">Apple</a>
 
 		</div>
 		<div class="pro">
-        <div class="filtro">
-            <div class="h1">Filtro</div>
-            <hr class="l1">
-            <div class="h2">Memoria Ram</div>
-            <hr class="l2">
-            <div>
-                <span class="tag">4GB</span>
-                <span class="tag">6GB</span>
-                <span class="tag">8GB</span>
-            </div>
-            <div class="h2">Resolucion Camara Frontal</div>
-            <hr class="l2">
-            <div>
-                <span class="tag">16Mpx</span>
-                <span class="tag">20Mpx</span>
-				<span class="tag">13Mpx</span>
-				<span class="tag">32Mpx</span>
-            </div>
-            <div class="h2" style="padding-right: 18px;">Almacenamiento</div>
-            <hr class="l2">
-            <div>
-                <span class="tag">64GB</span>
-                <span class="tag">128GB</span>
-                <span class="tag">256GB</span>
-            </div>
-            <div class="h2">Procesador</div>
-            <hr class="l2">
-            <div>
-                <span class="tag">Snapdragon</span>
-                <span class="tag">Exynos</span>
-                <Span class="tag">Unisoc</Span>
-                <span class="tag">MediaTek</span>
-            </div>
-        </div>
+			<div class="filtro">
+				<div class="h1">Filtro</div>
+				<hr class="l1">
+				<div class="h2">Color</div>
+				<hr class="l2">
+				<div>
+					<span class="tag">Negro</span>
+					<span class="tag">Grey</span>
+					<span class="tag">Blanco</span>
+					<span class="tag">Plateado</span>
+				</div>
+				<div class="h2">Conexion</div>
+				<hr class="l2">
+				<div>
+					<span class="tag">Inalambrica</span>
+					<span class="tag">Alambrica</span>
+				</div>
+			</div>
 		<div class="container-items">
             <?php foreach($resultado as $row) { ?>
 			<div class="item" category="<?php echo $row['marca']?>" data-tags="<?php echo $row['valores']?>">

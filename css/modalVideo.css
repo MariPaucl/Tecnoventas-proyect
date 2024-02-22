@@ -1,0 +1,71 @@
+.play {
+    position: absolute;
+    top: 80px;
+    right: 120px;
+    color: white;
+    background-color: #19083a;
+    padding: 40px;
+    border-radius: 50%;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    line-height: 1;
+    width: 50px;
+    height: 50px;
+}
+
+.play:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.popup-modal{
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.803);
+    transition: .5s;
+    display: none;
+    top: 20%;
+    left: 10%;
+}
+
+.popup-modal iframe{
+    display: none;
+    width: 75%;
+    height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-cerrar{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+}
+
+.btn-cerrar .x1:first-child .x2:first-child{
+    margin-top:0px;
+}
+
+.x1{
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: azure;
+    margin-top: 7px;
+    transform: translateY(10px) rotate(45deg);
+}
+.x2{
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: azure;
+    margin-top: 7px;
+    transform: translateX(0) rotate(-45deg);
+}

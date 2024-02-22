@@ -17,6 +17,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="js/jquery.js"></script>
 	<script src="js/script.js"></script>
+	<script src="js/modalVideo.js"></script>
 
 </div>
 <body>
@@ -80,12 +81,21 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 		<link rel="stylesheet" href="css/estilocar.css">
 		<link rel="stylesheet" href="css/fitro.css">
 		<link rel="stylesheet" href="css/buscadorcell.css">
+		<link rel="stylesheet" href="css/modalVideo.css">
 	</head>
 	<body>
 		<div class="container">
 		<h1>Tienda</h1>
 			<div calass="card-products-container" >
             <div class ="card-products" id="shopContent"> </div>
+		</div>
+		<div class="play" id="play" title="Como comparar productos?"><i class="fa fa-question"></i></div>
+		<div class="popup-modal">
+		<iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/6OzwYDlfm74" frameborders="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<div class="btn-cerrar">
+				<span class="x1"></span>
+				<span class="x2"></span>
+			</div>
 		</div>
 			<div class="cart-btn" id="cart-btn"><a href="carrito/VerCarta.php" class="cart-link" title="Ver Carrito"><i class="fa fa-shopping-cart"></i></a></div>
 			<br>
