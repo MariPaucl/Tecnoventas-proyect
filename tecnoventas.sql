@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-02-2024 a las 04:26:20
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 23-02-2024 a las 15:51:24
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,7 +45,13 @@ INSERT INTO `administradores` (`idAdmin`, `nomAdmin`, `apeAdmin`, `cargo`, `esta
 (1, 'Milena', 'Cortez', 'Programador', 'Activo', 'malienacortez@mail.com', 'AdminMile2023'),
 (2, 'Mario', 'Perdomo', 'Programador', 'Activo', 'marioperdomo@gmail.com', 'MarioProgram2'),
 (3, 'Jeison', 'Mendoza', 'Desarrollador', 'Activo', 'jeisonalejandro33@mail.com', 'Je1s0nDesarrolla'),
-(6, 'Paula', 'Carreño', 'Desarrollador', 'Activo', 'mariapau051125@gmail.com', 'd03a9f881a735d32bad6dd9ce091dbf9');
+(6, 'Paula', 'Carreño', 'Desarrollador', 'Activo', 'mariapau051125@gmail.com', 'd03a9f881a735d32bad6dd9ce091dbf9'),
+(7, 'Santiago Andrés', 'Ortega Carbonell', 'Admin', 'Activo', 'santiago.ortega488@gmail.com', '2e791d8943eb071e2b1ec985cd825117'),
+(8, 'william', 'Marin', 'Administrador', 'Activo', 'williamcamargo909@gmail.com', '25f9e794323b453885f5181f1b624d0b'),
+(9, 'Lisbeth', 'Piñeros', 'Administrador', 'Activo', 'lizbethpineros41@gmail.com', '7bfbffcbc493f249c77955ea01b9d6bc'),
+(10, 'Diego', 'Penagos', 'Administrador', 'Activo', 'dypc.890@gmail.com', '795b3e9401f019db56c2b9343d3cb374'),
+(11, 'Sofia', 'Alvarado', 'Administrador', 'Activo', 'sofiaaax2005@gmail.com', '52ac1f808faf491d077e03ee113a945f'),
+(12, 'Edwin', 'Marin', 'Ing', 'Activo', 'edwinmarin@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b');
 
 -- --------------------------------------------------------
 
@@ -162,7 +168,11 @@ INSERT INTO `clientes` (`idCliente`, `numId`, `tipoId`, `nomCliente`, `apeClient
 (3, '1067318605', 'CC', 'Daniela', 'Ospina', '1996-07-19', '3108238816', 'daniiiops96.19@hmail.com', 'daniiiops96.19'),
 (4, '1021345619', 'CC', 'Carlos', 'Giraldo', '1900-01-26', '3126249176', 'carlitosgiraldo0016@mail.com', 'carlitosgiraldo0016'),
 (5, '98765432', 'CE', 'Paola', 'Suarez', '2001-11-20', '3402565601', 'paolasuarezzz2011@hmail.com', 'paolasuarezzz2011'),
-(7, '1021313246', 'CC', 'Paula', 'Carreño', '2005-11-25', '3504160019', 'mariapau051125@gmail.com', '$2y$10$wT3smjnKSx2KgY5SIJ4YseecfIOJ7mQCSf5XXgBk3n.JsK9ILxBBC');
+(7, '1021313246', 'CC', 'Maria', 'Carreño', '2004-11-25', '3504160019', 'mariapau051125@gmail.com', '$2y$10$RqDvXu4iTGRswL.gdyMn/u/wsm0.VQP5Qm2TNFLqWnX8Jm2VGHgNO'),
+(17, '1112149558', 'CC', 'Sofia', 'Alvarado', '2005-12-19', '3209962922', 'sofiaaax2005@gmail.com', '$2y$10$yqcnel6sJaX.VI2V.a8x3.go2RmtwZCxAimouzCNi3q7iYR4l32oi'),
+(18, '1023368224', 'CC', 'Diego', 'Penagos', '2005-03-25', '3015429064', 'dypc.890@gmail.com', '$2y$10$xToBOq8yAIez1b/YOoFC4.kegOyi3MPCUjuJPbOPqxl5DrOIZY2Wi'),
+(19, '1014661233', 'CC', 'Lisbeth', 'Piñeros', '2005-12-01', '3154340136', 'lizbethpineros41@gmail.com', '$2y$10$hvHLAFh5Kx/MzzE/qPOLe.pQ2/oi6n3NO.W2oCRoSlRY6QdMB.v3q'),
+(20, '1139424645', 'CC', 'Santiago Andrés', 'Ortega Carbonell', '2005-11-05', '3028642617', 'santiago.ortega488@gmail.com', '$2y$10$f6VSaswEje995e/p/klsAOXcbIbSSr4PpE5WALMJyWcgN75BeP2t2');
 
 -- --------------------------------------------------------
 
@@ -199,7 +209,8 @@ INSERT INTO `detallepedidos` (`idDetalle`, `codPedido`, `codProd`, `cantidadProd
 (15, 15, 15, 1),
 (16, 16, 18, 2),
 (17, 16, 3, 1),
-(20, 19, 1, 1);
+(20, 19, 1, 1),
+(21, 20, 66, 5);
 
 -- --------------------------------------------------------
 
@@ -221,11 +232,11 @@ CREATE TABLE `factura` (
 --
 
 INSERT INTO `factura` (`codFactura`, `idProv`, `codProd`, `fechaFact`, `iva`, `totalFact`) VALUES
-(1, 1, 1, '2022-01-10', 0.19, 773500),
-(2, 3, 5, '2022-01-03', 0.19, 1904000),
-(3, 2, 2, '2022-01-01', 0.19, 546210),
-(4, 1, 4, '2021-02-15', 0.19, 357000),
-(5, 4, 3, '2021-02-10', 0.19, 1910000);
+(1, 1, 1, '2022-01-10', '0.19', 773500),
+(2, 3, 5, '2022-01-03', '0.19', 1904000),
+(3, 2, 2, '2022-01-01', '0.19', 546210),
+(4, 1, 4, '2021-02-15', '0.19', 357000),
+(5, 4, 3, '2021-02-10', '0.19', 1910000);
 
 -- --------------------------------------------------------
 
@@ -495,9 +506,9 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (327, 4, 11, '14  Pulgadas'),
 (328, 4, 2, '4GB'),
 (329, 4, 30, 'Disco Estado Solido (SSD)'),
-(330, 4, 31, '256 GB'),
+(330, 4, 31, '256GB'),
 (331, 4, 5, 'INTEL'),
-(332, 4, 32, 'Intel Core I3'),
+(332, 4, 32, 'IntelCoreI3'),
 (333, 4, 33, 'i3 1115G4 '),
 (334, 4, 34, 'NA'),
 (335, 4, 6, 'Windows'),
@@ -524,7 +535,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (383, 5, 30, 'Disco Duro (HDD)'),
 (384, 5, 31, ' 1TB'),
 (385, 5, 5, 'INTEL'),
-(386, 5, 32, 'Intel Core I3'),
+(386, 5, 32, 'IntelCoreI3'),
 (387, 5, 33, ' I3 1005G1'),
 (388, 5, 34, 'NA'),
 (389, 5, 6, 'Windows'),
@@ -549,9 +560,9 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (435, 20, 11, '14  Pulgadas'),
 (436, 20, 2, '8GB'),
 (437, 20, 30, 'Disco Estado Solido (SSD)'),
-(438, 20, 31, '256 GB'),
+(438, 20, 31, '256GB'),
 (439, 20, 5, 'AMD'),
-(440, 20, 32, 'AMD Athlon'),
+(440, 20, 32, 'AMDAthlon'),
 (441, 20, 33, 'AMD Athlon Silver'),
 (442, 20, 34, 'NA'),
 (443, 20, 6, 'Windows'),
@@ -570,15 +581,15 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (483, 21, 27, 'N/A'),
 (484, 21, 28, '1 Puerto'),
 (485, 21, 29, 'Puerto HDMI\nPuerto USB\nPuerto USB 3.2\nPuerto USB Tipo C\nSalida de Audífonos\nSalida de Parlantes'),
-(486, 21, 36, 'avanzado'),
+(486, 21, 36, 'Avanzado'),
 (487, 21, 46, 'Cámara WEB Integrada, Lector de Huella'),
 (488, 21, 10, 'HD'),
 (489, 21, 11, '15,6 Pulgadas'),
 (490, 21, 2, '8GB'),
 (491, 21, 30, 'Disco Estado Solido (SSD)'),
-(492, 21, 31, '512 GB'),
+(492, 21, 31, '512GB'),
 (493, 21, 5, 'INTEL'),
-(494, 21, 32, 'Intel Core I3'),
+(494, 21, 32, 'IntelCoreI3'),
 (495, 21, 33, 'Intel Core i3 N305 '),
 (496, 21, 34, 'NA'),
 (497, 21, 6, 'Windows'),
@@ -597,15 +608,15 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (510, 22, 27, 'N/A'),
 (511, 22, 28, '1 Puerto'),
 (512, 22, 29, 'Puerto HDMI 2.1\nPuerto LAN/Ethernet\nPuerto USB 3.2\nSalida de Audífonos\nSalida de Parlantes'),
-(513, 22, 36, 'avanzado'),
+(513, 22, 36, 'Avanzado'),
 (514, 22, 46, 'Cámara WEB Integrada, Lector de Huella'),
 (515, 22, 10, 'Full HD'),
 (516, 22, 11, '15.6  Pulgadas'),
 (517, 22, 2, '8GB'),
 (518, 22, 30, 'Disco Estado Solido (SSD)'),
-(519, 22, 31, '512 GB'),
+(519, 22, 31, '512GB'),
 (520, 22, 5, 'INTEL'),
-(521, 22, 32, 'Intel Core I5 '),
+(521, 22, 32, 'IntelCoreI5'),
 (522, 22, 33, 'Intel Core i5 1235U '),
 (523, 22, 34, 'NA'),
 (524, 22, 6, 'Windows'),
@@ -624,15 +635,15 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (537, 23, 27, '1 Puerto'),
 (538, 23, 28, '1 Puerto'),
 (539, 23, 29, 'Entrada Tarjeta SD\nPuerto HDMI\nPuerto USB\nPuerto USB Tipo C\nSalida de Audífonos'),
-(540, 23, 36, 'avanzado'),
+(540, 23, 36, 'Avanzado'),
 (541, 23, 46, 'Cámara WEB Integrada, Lector de Huella'),
 (542, 23, 10, 'Full HD'),
 (543, 23, 11, '14  Pulgadas'),
 (544, 23, 2, '8GB'),
 (545, 23, 30, 'Disco Estado Solido (SSD)'),
-(546, 23, 31, '512 GB'),
+(546, 23, 31, '512GB'),
 (547, 23, 5, 'AMD'),
-(548, 23, 32, 'AMD R3'),
+(548, 23, 32, 'AMDR3'),
 (549, 23, 33, 'AMD R3 7320U '),
 (550, 23, 34, 'NA'),
 (551, 23, 6, 'Windows'),
@@ -657,9 +668,9 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (570, 24, 11, '15,6  Pulgadas'),
 (571, 24, 2, '8GB'),
 (572, 24, 30, 'Disco Estado Solido (SSD)'),
-(573, 24, 31, '512 GB'),
+(573, 24, 31, '512GB'),
 (574, 24, 5, 'INTEL'),
-(575, 24, 32, 'Intel Core I5'),
+(575, 24, 32, 'IntelCoreI5'),
 (576, 24, 33, 'Intel Core I5 11320H'),
 (577, 24, 34, 'GeForce® GTX 1650'),
 (578, 24, 6, 'Windows'),
@@ -684,9 +695,9 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (597, 25, 11, '15,6  Pulgadas'),
 (598, 25, 2, '8GB'),
 (599, 25, 30, 'Disco Estado Solido (SSD)'),
-(600, 25, 31, '512 GB'),
+(600, 25, 31, '512GB'),
 (601, 25, 5, 'INTEL'),
-(602, 25, 32, 'Intel Core I5'),
+(602, 25, 32, 'IntelCoreI5'),
 (603, 25, 33, 'Intel Core i5 10300H'),
 (604, 25, 34, 'GeForce® GTX 1650'),
 (605, 25, 6, 'Windows'),
@@ -711,9 +722,9 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (624, 26, 11, '16  Pulgadas'),
 (625, 26, 2, '16GB'),
 (626, 26, 30, 'Disco Estado Solido (SSD)'),
-(627, 26, 31, '1 TB'),
+(627, 26, 31, '1TB'),
 (628, 26, 5, 'INTEL'),
-(629, 26, 32, 'Intel Core I5'),
+(629, 26, 32, 'IntelCoreI5'),
 (630, 26, 33, 'Intel Core I5 13500H'),
 (631, 26, 34, 'GeForce® RTX 4050'),
 (632, 26, 6, 'Windows'),
@@ -737,7 +748,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (650, 9, 30, 'Disco Estado Solido (SSD)'),
 (651, 9, 31, '1TB'),
 (652, 9, 5, 'AMD'),
-(653, 9, 32, 'AMD R5'),
+(653, 9, 32, 'AMDR5'),
 (654, 9, 33, '7530U'),
 (655, 9, 34, 'NA'),
 (656, 9, 6, 'Windows'),
@@ -761,7 +772,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (674, 33, 30, 'Disco Estado Solido (SSD)'),
 (675, 33, 31, '256GB'),
 (676, 33, 5, 'Intel'),
-(677, 33, 32, 'Intel Celeron '),
+(677, 33, 32, 'IntelCeleron'),
 (678, 33, 33, 'Intel Celeron J4025 '),
 (679, 33, 34, 'NA'),
 (680, 33, 6, 'Windows'),
@@ -785,7 +796,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (698, 34, 30, 'Disco Estado Solido (SSD)'),
 (699, 34, 31, '256GB'),
 (700, 34, 5, 'Intel'),
-(701, 34, 32, 'Intel Pentium'),
+(701, 34, 32, 'IntelPentium'),
 (702, 34, 33, 'Silver J5040 '),
 (703, 34, 34, 'NA'),
 (704, 34, 6, 'Windows'),
@@ -809,7 +820,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (722, 35, 30, 'Disco Estado Solido (SSD)'),
 (723, 35, 31, '512GB'),
 (724, 35, 5, 'Intel '),
-(725, 35, 32, 'Intel Core i5'),
+(725, 35, 32, 'IntelCoreI5'),
 (726, 35, 33, '12450H '),
 (727, 35, 34, 'NA'),
 (728, 35, 6, 'Windows'),
@@ -833,7 +844,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (746, 36, 30, 'Disco Estado Solido (SSD)'),
 (747, 36, 31, '512GB'),
 (748, 36, 5, 'INTEL '),
-(749, 36, 32, 'Intel Core I5 '),
+(749, 36, 32, 'IntelCoreI5'),
 (750, 36, 33, 'Ci5 1235U '),
 (751, 36, 34, 'NA'),
 (752, 36, 6, 'Windows'),
@@ -857,7 +868,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (794, 37, 30, 'Disco Estado Solido (SSD)'),
 (795, 37, 31, '512GB'),
 (796, 37, 5, 'AMD'),
-(797, 37, 32, 'AMD R5'),
+(797, 37, 32, 'AMDR5'),
 (798, 37, 33, 'AMD Ryzen™ 5 5500U '),
 (799, 37, 34, 'NA'),
 (800, 37, 6, 'Windows'),
@@ -881,7 +892,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (842, 38, 30, 'Hibrido TB + SSD '),
 (843, 38, 31, 'HDD 1 TB + SSD 512 GB '),
 (844, 38, 5, 'AMD'),
-(845, 38, 32, 'AMD R7'),
+(845, 38, 32, 'AMDR7'),
 (846, 38, 33, '7730U '),
 (847, 38, 34, 'NA'),
 (848, 38, 6, 'Windows'),
@@ -905,7 +916,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (866, 39, 30, 'Disco Estado Solido (SSD)'),
 (867, 39, 31, '512GB'),
 (868, 39, 5, 'Apple '),
-(869, 39, 32, 'Apple M3 '),
+(869, 39, 32, 'AppleM3'),
 (870, 39, 33, 'Apple M3 '),
 (871, 39, 34, 'NA'),
 (872, 39, 6, 'MacOs '),
@@ -929,7 +940,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (890, 40, 30, 'Disco Estado Solido (SSD)'),
 (891, 40, 31, '1TB'),
 (892, 40, 5, 'INTEL '),
-(893, 40, 32, 'Intel Core I9'),
+(893, 40, 32, 'IntelCoreI9'),
 (894, 40, 33, '13900H '),
 (895, 40, 34, 'GeForce® RTX 4050 '),
 (896, 40, 6, 'Windows'),
@@ -1098,7 +1109,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (1089, 13, 37, 'Energía Eléctrica'),
 (1090, 13, 14, 'Negro'),
 (1091, 13, 22, 'NA'),
-(1092, 13, 40, '30 Metros'),
+(1092, 13, 40, '30Metros'),
 (1093, 13, 41, 'Bluetooth y Wifi'),
 (1094, 13, 42, 'Alambrica'),
 (1095, 13, 43, '26'),
@@ -1111,7 +1122,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (1115, 49, 37, 'Energía Eléctrica'),
 (1116, 49, 14, 'Negro'),
 (1117, 49, 22, '12  Horas Aproximadas'),
-(1118, 49, 40, '10 Metros'),
+(1118, 49, 40, '10Metros'),
 (1119, 49, 41, 'Bluetooth'),
 (1120, 49, 42, 'Inalámbrica '),
 (1121, 49, 43, '9.04'),
@@ -1124,7 +1135,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (1128, 50, 37, 'Batería Recargable Interna \nEnergía Eléctrica '),
 (1129, 50, 14, 'Negro'),
 (1130, 50, 22, '6  Horas Aproximadas'),
-(1131, 50, 40, '10 Metros'),
+(1131, 50, 40, '10Metros'),
 (1132, 50, 41, 'Bluetooth,\nEntradas de guitarra '),
 (1133, 50, 42, 'Inalámbrica '),
 (1134, 50, 43, '32.6 '),
@@ -1137,7 +1148,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (1141, 51, 37, 'Energía Eléctrica'),
 (1142, 51, 14, 'Negro'),
 (1143, 51, 22, 'N/A'),
-(1144, 51, 40, '10 Metros'),
+(1144, 51, 40, '10Metros'),
 (1145, 51, 41, 'Bluetooth'),
 (1146, 51, 42, 'Alambrica'),
 (1147, 51, 43, '45'),
@@ -1150,7 +1161,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (1154, 52, 37, 'Energía Eléctrica'),
 (1155, 52, 14, 'Blanco '),
 (1156, 52, 22, 'N/A'),
-(1157, 52, 40, '30 Metros'),
+(1157, 52, 40, '30Metros'),
 (1158, 52, 41, 'Bluetooth y Wifi'),
 (1159, 52, 42, 'Alambrica'),
 (1160, 52, 43, '12'),
@@ -1163,7 +1174,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (1167, 53, 37, 'Batería Recargable Interna \nEnergía Eléctrica '),
 (1168, 53, 14, 'Negro'),
 (1169, 53, 22, '11  Horas Aproximadas'),
-(1170, 53, 40, '9 Metros'),
+(1170, 53, 40, '9Metros'),
 (1171, 53, 41, 'Bluetooth y Wifi'),
 (1172, 53, 42, 'Inalámbrica '),
 (1173, 53, 43, '23.8'),
@@ -1176,7 +1187,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (1180, 54, 37, 'Batería Recargable Interna '),
 (1181, 54, 14, 'Negro'),
 (1182, 54, 22, '4  Horas Aproximadas'),
-(1183, 54, 40, '10 Metros'),
+(1183, 54, 40, '10Metros'),
 (1184, 54, 41, 'Bluetooth'),
 (1185, 54, 42, 'Inalámbrica '),
 (1186, 54, 43, '24'),
@@ -1189,7 +1200,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (1193, 55, 37, 'Batería Recargable Interna '),
 (1194, 55, 14, 'Negro'),
 (1195, 55, 22, 'NA'),
-(1196, 55, 40, '10  Metros'),
+(1196, 55, 40, '10Metros'),
 (1197, 55, 41, 'Bluetooth '),
 (1198, 55, 42, 'Inalámbrica '),
 (1199, 55, 43, '25.2 '),
@@ -1202,7 +1213,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (1206, 56, 37, 'Batería Recargable Interna '),
 (1207, 56, 14, 'Negro'),
 (1208, 56, 22, '24  Horas Aproximadas'),
-(1209, 56, 40, '10 Metros'),
+(1209, 56, 40, '10Metros'),
 (1210, 56, 41, 'Bluetooth '),
 (1211, 56, 42, 'Inalámbrica '),
 (1212, 56, 43, '32'),
@@ -1211,7 +1222,7 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (1215, 56, 47, 'N/A'),
 (1216, 12, 38, 'Salpicaduras'),
 (1217, 12, 41, 'Bluetooth'),
-(1218, 12, 22, '20 Horas Aprx'),
+(1218, 12, 22, '30 Horas Aprox'),
 (1219, 12, 42, 'Inalambrica'),
 (1220, 12, 14, 'Negro'),
 (1221, 12, 15, 'N/A'),
@@ -1262,7 +1273,33 @@ INSERT INTO `infoproductos` (`idInfo`, `codProd`, `idCaract`, `valor`) VALUES
 (1266, 65, 22, '20 Horas Aprx'),
 (1267, 65, 42, 'Inalambrica'),
 (1268, 65, 14, 'Negro'),
-(1269, 65, 15, 'NA');
+(1269, 65, 15, 'NA'),
+(1270, 66, 16, '5G'),
+(1271, 66, 13, 'Si'),
+(1272, 66, 29, 'Tipo C'),
+(1273, 66, 3, '13Mpx'),
+(1274, 66, 17, '2'),
+(1275, 66, 4, '50Mpx'),
+(1276, 66, 18, '2Mpx, 8Mpx'),
+(1277, 66, 20, 'No'),
+(1278, 66, 19, 'Si'),
+(1279, 66, 1, '256GB'),
+(1280, 66, 2, '8G'),
+(1281, 66, 5, 'Snapdragon'),
+(1282, 66, 6, 'Android'),
+(1283, 66, 7, 'Android 13'),
+(1284, 66, 8, '8'),
+(1285, 66, 21, '2.5Ghz'),
+(1286, 66, 9, 'Amoled'),
+(1287, 66, 10, 'Full HD'),
+(1288, 66, 11, '11'),
+(1289, 66, 12, '5000'),
+(1290, 66, 38, 'Agua'),
+(1291, 66, 41, 'aaaa'),
+(1292, 66, 47, 'Cable'),
+(1293, 66, 46, 'NA'),
+(1294, 66, 37, 'qweere'),
+(1295, 66, 14, 'Negro');
 
 -- --------------------------------------------------------
 
@@ -1277,7 +1314,7 @@ CREATE TABLE `pedidos` (
   `horaPedido` time NOT NULL,
   `dirPedido` varchar(50) NOT NULL,
   `totalPedido` double NOT NULL,
-  `estadoPedido` varchar(30) NOT NULL DEFAULT 'Por pagar'
+  `estadoPedido` varchar(30) NOT NULL DEFAULT 'Pagado'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
@@ -1301,7 +1338,8 @@ INSERT INTO `pedidos` (`codPedido`, `idCliente`, `fechaPedido`, `horaPedido`, `d
 (14, 1, '2024-01-07', '20:23:12', 'Avenida 68 # 19C-20, Alcalá', 1689800, 'Por pagar'),
 (15, 7, '2024-01-08', '20:35:07', 'Carrera 88D # 6D-27, Castilla, Torre 16 Apto 554', 2055000, 'Por pagar'),
 (16, 7, '2024-01-09', '14:18:08', 'Carrera 88D # 6D-27, Castilla, Torre 16 Apto 554', 2608800, 'Por pagar'),
-(19, 7, '2024-02-04', '18:10:51', 'Carrera 88D # 6D-27, Castilla, Torre 16 Apto 554', 769900, 'Por enviar');
+(19, 7, '2024-02-04', '18:10:51', 'Carrera 88D # 6D-27, Castilla, Torre 16 Apto 554', 769900, 'Por enviar'),
+(20, 7, '2024-02-23', '08:27:32', 'Carrera 88D # 6C-20, Castilla', 600000, 'Pagado');
 
 -- --------------------------------------------------------
 
@@ -1372,14 +1410,15 @@ INSERT INTO `productos` (`codProd`, `idAdmin`, `nomProd`, `marca`, `precio`, `es
 (54, 3, 'Parlante KALLEY K-SPK50BL2', 'Kalley', 394000, 'Disponible', 5, 'Parlante KALLEY K-SPK50BL2.png', 6),
 (55, 3, 'Parlante KALLEY K-SPK30BL2', 'KALLEY', 399900, 'Disponible', 8, 'Parlante KALLEY K-SPK30BL2.png', 6),
 (56, 1, 'Parlante LG XBOOM GO XG7QBK', 'LG', 549900, 'Disponible', 18, 'Parlante LG XBOOM GO XG7QBK.png', 6),
-(58, 1, 'Audifonos BOSE In Ear  EarbudsII', 'BOSE', 1799900, 'Disponible', 12, 'Audifonos BOSE In Ear QuietComfort EarbudsII Gris.png', 5),
-(59, 3, 'Audífonos APPLE AirPods Pro 2.ª Generación', 'APPLE', 1229000, 'Disponible', 5, 'Audífonos APPLE AirPods Pro 2.ª Generación.png', 5),
-(60, 2, 'Audífonos PANASONIC In Ear', 'PANASONIC', 14900, 'Disponible', 24, 'Audífonos PANASONIC Alámbricos In Ear RP-HV096P Negro.png', 5),
+(58, 1, 'Audifonos BOSE In Ear EarbudsII', 'Bose', 1799900, 'Disponible', 12, 'Audifonos BOSE In Ear QuietComfort EarbudsII Gris.png', 5),
+(59, 3, 'Audífonos APPLE AirPods Pro 2.ª Generación', 'Apple', 1229000, 'Disponible', 5, 'Audífonos APPLE AirPods Pro 2.ª Generación.png', 5),
+(60, 2, 'Audífonos PANASONIC In Ear', 'Panasonic', 14900, 'Disponible', 24, 'Audífonos PANASONIC Alámbricos In Ear RP-HV096P Negro.png', 5),
 (61, 3, 'Audífonos XIAOMI Alámbricos InEar Basic Plateado', 'Xiaomi', 32900, 'Disponible', 32, 'Audífonos XIAOMI Alámbricos InEar Basic Plateado.png', 5),
-(62, 1, 'Audífonos SONY Alámbricos In Ear', 'SONY', 39900, 'Disponible', 35, 'Audífonos SONY Alámbricos In Ear Manos Libres MDR-EX15AP Blanco.png', 5),
-(63, 1, 'Audífonos de Diadema SONY Inalámbricos Over Ear', 'SONY', 999900, 'Disponible', 5, 'SONY Inalámbricos Bluetooth Over Ear WH-1000XM4.png', 5),
-(64, 1, 'Audífonos de Diadema SONY Inalámbricos  On Ear', 'SONY', 199900, 'Disponible', 35, 'SONY Inalámbricos Bluetooth On Ear WH-CH520.png', 5),
-(65, 3, 'Audífonos de Diadema BOSE Inalámbricos  Over Ear 7', 'BOSE', 1799900, 'Disponible', 5, 'BOSE Inalámbricos Bluetooth Over Ear 700.png', 5);
+(62, 1, 'Audífonos SONY Alámbricos In Ear', 'Sony', 39900, 'Disponible', 35, 'Audífonos SONY Alámbricos In Ear Manos Libres MDR-EX15AP Blanco.png', 5),
+(63, 1, 'Audífonos de Diadema SONY Inalámbricos OverEar', 'Sony', 999900, 'Disponible', 5, 'SONY Inalámbricos Bluetooth Over Ear WH-1000XM4.png', 5),
+(64, 1, 'Audífonos de Diadema SONY Inalámbricos OnEar', 'Sony', 199900, 'Disponible', 35, 'SONY Inalámbricos Bluetooth On Ear WH-CH520.png', 5),
+(65, 3, 'Audífonos de Diadema BOSE Inalámbricos OverEar 700', 'Bose', 1799900, 'Disponible', 5, 'BOSE Inalámbricos Bluetooth Over Ear 700.png', 5),
+(66, 12, 'Movil 1', 'Samsungs', 100000, 'Disponible', 995, 'movil1.png', 1);
 
 -- --------------------------------------------------------
 
@@ -1490,7 +1529,7 @@ ALTER TABLE `proveedores`
 -- AUTO_INCREMENT de la tabla `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `caracteristicas`
@@ -1502,13 +1541,13 @@ ALTER TABLE `caracteristicas`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `detallepedidos`
 --
 ALTER TABLE `detallepedidos`
-  MODIFY `idDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `idDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `factura`
@@ -1520,19 +1559,19 @@ ALTER TABLE `factura`
 -- AUTO_INCREMENT de la tabla `infoproductos`
 --
 ALTER TABLE `infoproductos`
-  MODIFY `idInfo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1270;
+  MODIFY `idInfo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1296;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `codPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `codPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `codProd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `codProd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
@@ -1562,7 +1601,7 @@ ALTER TABLE `factura`
 -- Filtros para la tabla `infoproductos`
 --
 ALTER TABLE `infoproductos`
-  ADD CONSTRAINT `infoproductos_ibfk_1` FOREIGN KEY (`codProd`) REFERENCES `productos` (`codProd`),
+  ADD CONSTRAINT `infoproductos_ibfk_1` FOREIGN KEY (`codProd`) REFERENCES `productos` (`codProd`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `infoproductos_ibfk_2` FOREIGN KEY (`idCaract`) REFERENCES `caracteristicas` (`idCaract`);
 
 --
