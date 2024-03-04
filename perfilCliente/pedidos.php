@@ -83,8 +83,8 @@ if(isset($_SESSION['sessCustomerID'])) {
                     <td><?php echo $row['totalPedido'] ?></td>
                     <td class="<?php
                 $estadoPedido = $row['estadoPedido'];
-                if ($estadoPedido === "Por pagar") {
-                    echo 'porPagar';
+                if ($estadoPedido === "Pagado") {
+                    echo 'pagado';
                 } elseif ($estadoPedido === "Por enviar" || $estadoPedido === "En camino") {
                     echo 'porEnviar';
                 } elseif ($estadoPedido === "Enviado") {
@@ -144,8 +144,8 @@ $(document).ready( function () {
     }
 
     /*estado colores*/
-.porPagar{
-    color: red !important;
+.pagado{
+    color: purple !important;
 }
 .porEnviar{
     color: blue !important;
