@@ -44,7 +44,7 @@ $resultDetalle = mysqli_query($conex, $queryDetalle);
                 <th></th>
                 <th scope="col">Producto</th>
                 <th scope="col">Cantidad</th>
-                <th scope="col">Precio</th>
+                <th scope="col">Precio + IVA 20%</th>
             </tr>
         </thead>
         <tbody>
@@ -66,6 +66,7 @@ $resultDetalle = mysqli_query($conex, $queryDetalle);
         <input type="hidden" name="codPedido" value="<?php echo $rowPedido['codPedido'];?>">
         <a href="../inicio.html" class="btn btn-success">Volver al inicio</a>
         <input class="btn btn-dark" name="enviar" type="submit" value="Enviar Copia al Correo">
+        <a class="btn btn-success" href="pdfPedido.php" target="_blank">Descargar Copia</a>
     </form>
 </div>
 </div>

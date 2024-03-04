@@ -88,6 +88,8 @@ include("../crudProd/db.php");
                         <a href="edit.php?codPedido=<?php echo $row['codPedido']?>" class="btn btn-success">
                         <i class="fa-solid fa-pen-to-square" style="color:black;"></i>
                         </a>
+                        <a class="btn btn-primary" title="Detalle del Pedido" href="detallePed.php?codPedido=<?php echo $row['codPedido']?>">
+                        <i class="fa-solid fa-eye" style="color:black;"></i>
                     </td>
                 </tr>
                 <?php } ?>

@@ -21,6 +21,8 @@
             <input type="password" id="pass" name="password" placeholder="Contraseña">
         </div>
 
+        <a class="pasword" href="recuperaPswAdmin/Pasworadmin.php">Olvidaste tu contraseña</a>
+
         <input type="submit" value="Iniciar sesión" class="button">
     </div>
 </form>

@@ -55,15 +55,16 @@ if($id == '' || $token == ''){
     PEDIDO NO. <?php echo $codPedido; ?>
     </div>
     <div class="card-body text-center">
-    <h5 id="estado" class="card-title <?php
-if ($estadoPedido === "Por pagar") {
-    echo 'porPagar';
+    <h5 id="estado" class="card-title">El estado de tu pedido es <spam class=" <?php
+if ($estadoPedido === "Pagado") {
+    echo 'pagado';
 } elseif ($estadoPedido === "Por enviar" || $estadoPedido === "En camino") {
     echo 'porEnviar';
 } elseif ($estadoPedido === "Enviado") {
     echo 'enviado';
 }
-?>">El estado de tu pedido es <?php echo $estadoPedido; ?></h5>
+?>
+"><?php echo $estadoPedido; ?></spam></h5>
     <p class="card-text"><strong>FECHA: </strong><?php echo $fechaPedido; ?></p>
     <p class="card-text"><strong>HORA: </strong><?php echo $horaPedido; ?></p>
     <p class="card-text"><strong>DIRECCION: </strong><br><p></p><?php echo $dirPedido; ?></p>
@@ -114,8 +115,8 @@ if ($estadoPedido === "Por pagar") {
         text-align: center;
     }
 
-    .porPagar{
-        color: red;
+    .pagado{
+        color: purple;
     }
     .porEnviar{
         color: blue;

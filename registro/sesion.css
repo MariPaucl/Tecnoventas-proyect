@@ -117,6 +117,17 @@ p{
   color: white;
 }
 
+.pasword{
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: #5b1c51;
+}
+
+.pasword:hover{
+  color: white;
+}
+
 
 @media(min-width:768px)
 {

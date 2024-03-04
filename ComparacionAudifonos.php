@@ -9,7 +9,11 @@
 </head>
 <body>
 
-    <h1>RESULTADOS DE COMPARACION</h1>
+    <main class="table">
+    <section class="table_head">
+    <h1>Resultados de Comparación <img src="img/balanza.gif" alt=""></h1>
+    </section>
+    <section class="table_body">
 
     <?php
         // Definir un array asociativo con las características de los productos (incluyendo URLs de imágenes)
@@ -74,7 +78,7 @@
                 'Longitud Del Cable cm' => '120  Centímetros',
                 'imagen' => 'imagenes/productos/Audífonos SONY Alámbricos In Ear Manos Libres MDR-EX15AP Blanco.png'
             ),
-            'Audífonos  SONY Inalámbricos Over Ear' => array(
+            'Audífonos de Diadema SONY Inalámbricos OverEar' => array(
                 'Precio' => '$999.900',
                 'Resistencia A' => 'N/A',
                 'Opciones De Conectividad' => 'Bluetooth <br>Conexión Con Cable NFC ',
@@ -84,7 +88,7 @@
                 'Longitud Del Cable cm' => '120  Centímetros',
                 'imagen' => 'imagenes/productos/SONY Inalámbricos Bluetooth Over Ear WH-1000XM4.png'
             ),
-            'Audífonos SONY Inalámbricos On Ear' => array(
+            'Audífonos de Diadema SONY Inalámbricos OnEar' => array(
                 'Precio' => '$199.900',
                 'Resistencia A' => 'N/A',
                 'Opciones De Conectividad' => 'Bluetooth',
@@ -94,7 +98,7 @@
                 'Longitud Del Cable cm' => 'N/A',
                 'imagen' => 'imagenes/productos/SONY Inalámbricos Bluetooth On Ear WH-CH520.png'
             ),
-            'Audífonos BOSE Inalámbricos Over Ear 7' => array(
+            'Audífonos de Diadema BOSE Inalámbricos OverEar 700' => array(
                 'Precio' => '$1.799.900',
                 'Resistencia A' => 'N/A',
                 'Opciones De Conectividad' => 'Bluetooth',
