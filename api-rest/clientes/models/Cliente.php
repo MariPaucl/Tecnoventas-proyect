@@ -1,5 +1,4 @@
 <?php
-//https://documenter.getpostman.com/view/31008990/2sA2xmUAbb
 
 require_once("../../../config/conexion.php");
 class Cliente extends Database{
