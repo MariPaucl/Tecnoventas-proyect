@@ -17,7 +17,7 @@ if(isset($_POST['enviar'])){
 
             // h-hotel account
             $mail->Username='tecnoventas.ayuda@gmail.com';
-            $mail->Password='zfdc aphg zmlc amlc';
+            $mail->Password='ixoj jxzs yfzk phlz';
 
             // send by h-hotel email
             $mail->setFrom($email, $nombres);

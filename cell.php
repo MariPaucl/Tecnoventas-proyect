@@ -62,7 +62,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 		</div>
 		<ul id="box-search">
 		<?php foreach($resultado as $row) { ?>
-			<li><a href="detailsCel.php?codProd=<?php echo $row['codProd'];?>&token=<?php echo hash_hmac('sha1', $row['codProd'], KEY_TOKEN);?>"><i class="fa-solid fa-magnifying-glass" ><img src="img/lupa2.png" alt="" ><?php echo $row['nomProd']?></i></a></li>
+			<li><a href="detailsCel.php?codProd=<?php echo $row['codProd'];?>&token=<?php echo hash_hmac('sha1', $row['codProd'], KEY_TOKEN);?>"><i class="fa-solid fa-magnifying-glass" ><?php echo $row['nomProd']?></i></a></li>
 			<?php } ?>
 		</ul>
 		<div id="cover-ctn-search"></div>
