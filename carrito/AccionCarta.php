@@ -81,6 +81,16 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                 // Update stock in the productos table
                 $updateStockQuery = "UPDATE productos SET stockProd = stockProd - $qty WHERE codProd = '$codProd';";
                 $db->query($updateStockQuery);
+
+                // Comprobar si el stock es cero y actualizar el estado
+                $result = $db->query("SELECT stockProd FROM productos WHERE codProd = '$codProd'");
+                $row = $result->fetch_assoc();
+                if($row['stockProd'] == 0){
+                    $updateEstProdQuery = "UPDATE productos SET estProd = 'Agotado' WHERE codProd = '$codProd';";
+                    $db->query($updateEstProdQuery);
+
+                }
+                
                 $sql .= "INSERT INTO detallepedidos (codPedido, codProd, cantidadProd) VALUES ('".$orderID."', '".$item['codProd']."', '".$item['qty']."');";
             }
             // insert order items into database
