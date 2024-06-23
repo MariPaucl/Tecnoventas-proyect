@@ -1,16 +1,14 @@
 <?php
 include("CRUD/crudProd/db.php");
 
-if(isset($_SESSION['sessAdminID'])) {
-    $idAdmin = $_SESSION['sessAdminID'];
-
-    $query = "SELECT * FROM administradores WHERE idAdmin = '$idAdmin'";
-    $result_prod = mysqli_query($conex, $query);
-
-} else {
+if(!isset($_SESSION['sessAdminID'])) {
     header('Location: sesionAdmin.php');
     exit();
 }
+$idAdmin = $_SESSION['sessAdminID'];
+
+$query = "SELECT * FROM administradores WHERE idAdmin = '$idAdmin'";
+$result_prod = mysqli_query($conex, $query);
 ?>
 
 <!DOCTYPE html>

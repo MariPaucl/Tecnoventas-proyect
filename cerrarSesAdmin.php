@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Unset de la variable de sesión específica
 unset($_SESSION['sessAdminID']);
 

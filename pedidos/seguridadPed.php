@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(!isset($_SESSION['sessCustomerID'])) {
+    header('Location: ../index.html');
+    exit();
+}
+
 if (isset($_POST['continuar'])){
 
     $ip = $_SERVER['REMOTE_ADDR'];

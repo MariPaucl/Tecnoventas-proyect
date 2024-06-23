@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['sessCustomerID'])) {
+    header('Location:../index.html');
+    exit();
+}
 
 include("../registro/conexion.php");
 

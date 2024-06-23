@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if(!isset($_SESSION['sessCustomerID'])){
+    header("location:index.html");
+    exit();
+}
 require 'config/config.php';
 require 'config/conexion.php';
 $db = new Database();

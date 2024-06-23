@@ -1,4 +1,13 @@
+<?php
+session_start();
 
+if(isset($_SESSION['sessCustomerID'])){
+    $idCliente = $_SESSION['sessCustomerID'];
+} else {
+    header("location:index.html");
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">

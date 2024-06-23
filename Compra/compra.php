@@ -1,5 +1,14 @@
-<?php session_start(); $value=$_SESSION['USD']
-?><!DOCTYPE html>
+<?php session_start();
+
+if(!isset($_SESSION['sessCustomerID'])) {
+    header('Location: ../index.html');
+    exit();
+}
+
+$value=$_SESSION['USD']
+?>
+
+<!DOCTYPE html>
 <header>
     <title>Metodo de Compra</title>
     <link rel="website icon" type="png" href="../imagenes/Tecnoventas.png">
