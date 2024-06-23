@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/styleCompara.css">
 </head>
 <body>
-
     <main class="table">
     <section class="table_head">
     <h1>Resultados de Comparación <img src="img/balanza.gif" alt=""></h1>
