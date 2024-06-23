@@ -10,7 +10,7 @@
 <body>
     <div class="form-container">
         <h2>Registro Productos</h2>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <input type="text" name="nomProd" id="nomProd" placeholder="Nombre Producto">
                 <input type="text" name="marca" id="marca" placeholder="Marca">

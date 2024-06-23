@@ -58,13 +58,14 @@ if(isset($_POST['guardar'])){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/d3ed00feee.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 <div class="container p-4">
     <div class="row">
     <h1 class="text-h1">Actualizar Productos</h1>
     <div class="col-md-4 mx-auto">
     <div class="card card-body">
-        <form action="edit.php?codProd=<?php echo $_GET['codProd']; ?>" method="post">
+        <form action="edit.php?codProd=<?php echo $_GET['codProd']; ?>" method="post" enctype="multipart/form-data">
             <div class="form-group mb-3">
                 <input type="hidden" name="codProd" value="<?php echo $codProd; ?>" class="form-control" placeholder="Cambiar codigo">
             </div>
@@ -76,11 +77,18 @@ if(isset($_POST['guardar'])){
             </div>
             <div class="form-group mb-3">
                 <input type="number" name="precio" value="<?php echo $precio; ?>" class="form-control" placeholder="Cambiar precio">
-            </div>
-            <div class="form-group mb-3">
-            <input type="file" name="imagen" class="form-control"><br>
-            <img src="../../imagenes/productos/<?php echo $imagen; ?>" width="100"><br>
-            </div>
+            </div> 
+                    <div class="form-group mb-3">
+                        <input type="text" name="imagen" value="<?php echo $imagen; ?>" class="form-control" placeholder="Direccion de la imagen">
+                        <input type="file" name="imagen" class="form-control mt-2">
+                        <br>
+                     
+                        <?php  if (filter_var($imagen, FILTER_VALIDATE_URL)) { ?>
+                            <img src="<?php echo $imagen; ?>" width="100"><br>
+                        <?php } else { ?>
+                            <img src="../../imagenes/productos/<?php echo $imagen; ?>" width="100"><br>
+                        <?php } ?>
+                    </div>
             <div class="form-group mb-3">
                 <select name="estProd" class="form-control">
                     <option value="Disponible" <?php if ($estProd == 'Disponible') echo 'selected'; ?>>Disponible</option>
