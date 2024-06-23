@@ -214,6 +214,12 @@ if(isset($_SESSION['sessCustomerID'])){
                             <a href="https://tecnoventaaas.blogspot.com/">Blog</a>
                         </li>
                         <li>
+                            <a href="#">Manual de Usuario</a>
+                        </li>
+                        <li>
+                            <a href="#">Descargar la APP</a>
+                        </li>
+                        <li>
                             <a href="terminos/terminos.html">Terminos & Condiciones</a>
                         </li>
                         <li>

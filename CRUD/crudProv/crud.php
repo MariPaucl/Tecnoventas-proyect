@@ -29,7 +29,7 @@ include("../crudProd/db.php");
     <nav class="navbar navbar-expand navbar-dark bg-dark">
         <div class="container-fluid">
         <ul class="navbar-nav">
-        <a href="regProv.php" class="navbar-brand">REGISTRAR PROVEEDOR</a>
+        <a class="navbar-brand">PROVEEDORES</a>
         <li class="nav-item">
         <a class="nav-link active" href="../crudProd/crud.php">Productos</a>
         </li>
@@ -58,6 +58,11 @@ include("../crudProd/db.php");
     <div class="col-sm-12">
     <div class="row">
     <div class="table-responsive">
+    <div class="d-flex justify-content-between mb-3">
+            <div class="d-grid gap-2 col-6 mx-auto">
+            <a class="btn btn-dark" role="button" href="regProv.php">Registrar Proveedor</a>
+            </div>
+            </div>
         <table id="table" class="table table-bordered">
             <thead>
                 <tr>

@@ -7,7 +7,7 @@ if (isset($_POST['registrar'])){
         strlen($_POST['nomProd']) >= 1 &&
         strlen($_POST['marca']) >= 1 &&
         strlen($_POST['precio']) >= 1 &&
-        strlen($_POST['imagen']) >= 1 &&
+        !empty($_FILES['imagen']['name']) &&
         strlen($_POST['stock']) >= 1 &&
         strlen($_POST['estado']) >= 1 &&
         strlen($_POST['categoria']) >= 1
@@ -20,6 +20,11 @@ if (isset($_POST['registrar'])){
             $estado = trim($_POST['estado']);
             $categoria = trim($_POST['categoria']);
             $idAdmin = $_SESSION['sessAdminID'];
+
+        // Procesar la imagen
+        $imagen = $_FILES['imagen']['name'];
+        $ruta = "../../imagenes/productos/" . $imagen;
+        move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta);
 
             // Verificar si el producto ya existe
             $sqlVerificar = "SELECT * FROM productos WHERE nomProd ='$nomProd' OR imagen ='$imagen'";

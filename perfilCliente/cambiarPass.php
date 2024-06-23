@@ -47,7 +47,7 @@ if(isset($_SESSION['sessCustomerID'])){
                 <input type="password" id="confirm" name="confirm" class="form-control" placeholder="Confirma la contraseña" required>
                 <i class="fa fa-eye-slash" id="togglePassword" onclick="togglePassword()"></i>
                 <div id="passwordHelpBlock" class="form-text">
-                Tu contraseña debe tener  al menos 8 caracteres y contener una letra mayúscula, una minúscula y un número
+                Tu contraseña debe tener  al menos 8 caracteres, contener una letra mayúscula, una minúscula y un número
                 </div>
                 <small id="error-confirm" style="color: red;"></small>
             </div>
