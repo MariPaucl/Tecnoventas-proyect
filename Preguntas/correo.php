@@ -40,7 +40,7 @@ if(isset($_POST['enviar'])){
                 ?>
                     <script>
                         alert("<?php echo "Mensaje enviado satisfactoriamente"?>")
-                        window.location.replace("../inicio.html");
+                        window.location.replace("../inicio.php");
                     </script>
                 <?php
             }

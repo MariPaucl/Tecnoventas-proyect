@@ -106,7 +106,7 @@
                 </label>
             </div>
 
-            <input type="submit" name="registrar" value="Registrarse" class="btn" href="inicio.html">
+            <input type="submit" name="registrar" value="Registrarse" class="btn" href="inicio.php">
             <p>¿Ya tienes cuenta? <a class="link" href="sesion.php">Inicia Sesión</a></p>
         </form>
     </div>

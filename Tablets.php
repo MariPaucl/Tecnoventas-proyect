@@ -28,7 +28,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 		<nav class="navbar">
 		<ul>
 			<li><a href="cerrarSesion.php">Cerrar sesion</a></li>
-			<li><a href="inicio.html">Inicio</a></li>
+			<li><a href="inicio.php">Inicio</a></li>
 			<li><a>Productos <i class="icon-abajo2"></i></a>
 				<ul class="submenu">
 					<li><a href="cell.php">

@@ -19,7 +19,7 @@ if (isset($_POST['numId']) && isset($_POST['password']) && isset($_POST['tipoId'
             // Inicio de sesión exitoso, redirigir al usuario a la página de inicio
             session_start();
             $_SESSION['sessCustomerID'] = $idCliente; // Almacena el id del cliente en la sesión
-            header("Location: inicio.html");
+            header("Location: inicio.php");
         } else {
             // Mensaje de contraseña incorrecta con estilo CSS
             echo '<div class="mensaje-error"><p>Contraseña incorrecta.</div>';

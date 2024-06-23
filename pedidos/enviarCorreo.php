@@ -172,7 +172,7 @@ if(isset($_POST["enviar"])){
             ?>
             <script>
                 alert("<?php echo "Correo Enviado"?>");
-                window.location.href = "../inicio.html";
+                window.location.href = "../inicio.php";
             </script>
             <?php
             unset($_SESSION['idPedido']);

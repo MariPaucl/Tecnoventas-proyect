@@ -64,7 +64,7 @@ $resultDetalle = mysqli_query($conex, $queryDetalle);
     <div class="card-footer text-center">
     <form action="enviarCorreo.php" method="post" enctype="multipart/form">
         <input type="hidden" name="codPedido" value="<?php echo $rowPedido['codPedido'];?>">
-        <a href="../inicio.html" class="btn btn-success">Volver al inicio</a>
+        <a href="../inicio.php" class="btn btn-success">Volver al inicio</a>
         <input class="btn btn-dark" name="enviar" type="submit" value="Enviar Copia al Correo">
         <a class="btn btn-success" href="pdfPedido.php" target="_blank">Descargar Copia</a>
     </form>

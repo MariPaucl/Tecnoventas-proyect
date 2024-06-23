@@ -47,7 +47,7 @@ if(isset($_SESSION['sessCustomerID'])) {
 <body>
 <div class="wrapper">
     <div class="sidebar">
-        <a href="../inicio.html" title="Volver"><i class="fa-solid fa-caret-left"></i></a><h2>TECNOVENTAS</h2>
+        <a href="../inicio.php" title="Volver"><i class="fa-solid fa-caret-left"></i></a><h2>TECNOVENTAS</h2>
         <ul>
             <li><a href="perfil.php"><i class="fa-solid fa-user"></i>Mis Datos</a></li>
             <li><a href=""><i class="fa-solid fa-bag-shopping"></i>Mis Pedidos</a></li>
