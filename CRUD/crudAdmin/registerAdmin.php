@@ -25,16 +25,15 @@
                 <input type="text" name="cargo" class="form-control" placeholder="Cargo">
             </div>
             <div class="form-group mb-3">
-            <select name="estado" class="form-control">
-                    <option value="Activo">Activo</option>
-                    <option value="Vacaciones">Vacaciones</option>
-                </select>
+                <input type="text" name="estado" class="form-control" value="Activo" readonly>
             </div>
             <div class="form-group mb-3">
                 <input type="email" name="correoAdmin" class="form-control" placeholder="Correo">
             </div>
             <div class="form-group mb-3">
-                <input type="password" name="passAdmin" class="form-control" placeholder="Contraseña">
+                <input type="password" id="pass" name="passAdmin" class="form-control" placeholder="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Debe contener un número, una mayúscula, una minúscula, y al menos 8 o más carácteres">
+                <i class="fas fa-eye-slash" id="togglePassword" onclick="togglePassword()" style="visibility: visible;top: 294px;right: 32px;position: absolute;"></i>
             </div>
         <div class="form-group p-1">
             <input type="submit" value="REGISTRAR" class="btn btn-dark" name="saveAdmin">
@@ -58,5 +57,21 @@
         background-color: black !important ;
     }
 </style>
+<script>
+        function togglePassword() {
+            var passwordField = document.getElementById('pass');
+            var toggleIcon = document.getElementById('togglePassword');
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
+    </script>
 </body>
 </html>

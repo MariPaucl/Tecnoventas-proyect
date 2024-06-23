@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
     <link rel="website icon" type="png" href="imagenes/Tecnoventas.png">
     <link rel="stylesheet" href="registro/registro.css">
-
-
     <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
+    <script src="https://kit.fontawesome.com/d3ed00feee.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
     <div class="container">
         <div class="header">
@@ -55,7 +52,7 @@
                 <label for="Apellidos"></label>
                 <img src="registro/persona.png" />
                 <input maxlength="20" minlength="1" oninput="this.value = this.value.replace(/[^A-Za-z-ñ]/g, '');"
-                    type="text" placeholder="Apelido" id="Apellidos" name="apellido" />
+                    type="text" placeholder="Apellido" id="Apellidos" name="apellido" />
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
@@ -71,7 +68,8 @@
             <div class="form-control">
                 <label for="password"></label>
                 <img src="registro/pass.png" />
-                <input type="password" placeholder="Contraseña" id="password" name="password" />
+                <input type="password" placeholder="Contraseña" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Tu contraseña debe tener  al menos 8 caracteres, contener una letra mayúscula, una minúscula y un número"/>
+                <i class="fas fa-eye-slash" id="togglePassword" onclick="togglePassword()" style="visibility: visible;top: 16px;right: 25px;"></i>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
@@ -94,7 +92,7 @@
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
-<center>
+            <center>
             <div class="form-checkbox">
                 <div class="g-recaptcha" data-sitekey="6Lfc8yUpAAAAAN-QfvBzvLk9B7I9zCOcSdhNQr-s"></div>
             </div><br>
@@ -112,10 +110,23 @@
     </div>
 
     <script src="registro/registro.js"></script>
+    <script>
+        function togglePassword() {
+            var passwordField = document.getElementById('password');
+            var toggleIcon = document.getElementById('togglePassword');
 
-    <?php
-include("registro/registrar.php");
-?>
-    <script src="https://kit.fontawesome.com/d3ed00feee.js" crossorigin="anonymous"></script>
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
+    </script>
+
+    <?php include("registro/registrar.php"); ?>
 </body>
 </html>

@@ -37,7 +37,7 @@
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">Nueva Contraseña</label>
                                 <div class="col-md-6">
-                                    <input type="password" id="password" class="form-control" name="password" required autofocus>
+                                    <input type="password" id="password" class="form-control" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Tu contraseña debe tener  al menos 8 caracteres, contener una letra mayúscula, una minúscula y un número" required autofocus>
                                 </div>
                                 <label for="password" class="col-md-4 col-form-label text-md-right">Confirmar contraseña</label>
                                 <div class="col-md-6">

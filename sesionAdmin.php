@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="registro/sesion.css">
 <title>Inicia Sesion</title>
 <link rel="website icon" type="png" href="imagenes/Tecnoventas.png">
+<script src="https://kit.fontawesome.com/d3ed00feee.js" crossorigin="anonymous"></script>
 <form class="formulario" action="sesionAdmin.php" method="post">
     <div class="mensaje-error"></div>
 
@@ -19,6 +20,7 @@
             <i class="fas fa-contraseña"></i>
             <img src="registro/pass.png" />
             <input type="password" id="pass" name="password" placeholder="Contraseña">
+            <i class="fas fa-eye-slash" id="togglePassword" onclick="togglePassword()" style="visibility: visible;top: 249px;right: 65px;position: absolute;"></i>
         </div>
 
         <a class="pasword" href="recuperaPswAdmin/Pasworadmin.php">Olvidaste tu contraseña</a>
@@ -26,6 +28,23 @@
         <input type="submit" value="Iniciar sesión" class="button">
     </div>
 </form>
+<script>
+        function togglePassword() {
+            var passwordField = document.getElementById('pass');
+            var toggleIcon = document.getElementById('togglePassword');
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
+    </script>
+
 </html>
 
 <?php

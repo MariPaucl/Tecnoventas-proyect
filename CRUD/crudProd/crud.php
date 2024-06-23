@@ -29,7 +29,7 @@ include("db.php");
 <nav class="navbar navbar-expand navbar-dark bg-dark">
         <div class="container-fluid">
         <ul class="navbar-nav">
-        <a href="../../Productos_Admin/FormProd/regProd.php" class="navbar-brand">REGISTRAR PRODUCTO</a>
+        <a class="navbar-brand">PRODUCTOS</a>
         <li class="nav-item">
         <a class="nav-link disabled">Productos</a>
         </li>
@@ -55,46 +55,50 @@ include("db.php");
         </nav>
     <div class="container p-4">
         <div class="col-sm-12">
-        <table id="table" class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Código</th>
-                    <th>Nombre Producto</th>
-                    <th>Marca</th>
-                    <th>Precio</th>
-                    <th>Imagen</th>
-                    <th>Estado</th>
-                    <th>Stock</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $query = "SELECT * FROM productos";
-                $result_prod = mysqli_query($conex, $query);
+            <div class="d-flex justify-content-between mb-3">
+            <div class="d-grid gap-2 col-6 mx-auto">
+            <a class="btn btn-dark" role="button" href="../../Productos_Admin/FormProd/regProd.php">Registrar Producto</a>
+            </div>
+            </div>
+            <table id="table" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre Producto</th>
+                        <th>Marca</th>
+                        <th>Precio</th>
+                        <th>Imagen</th>
+                        <th>Estado</th>
+                        <th>Stock</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $query = "SELECT * FROM productos";
+                    $result_prod = mysqli_query($conex, $query);
 
-                while($row = mysqli_fetch_array($result_prod)){ ?>
-                <tr>
-                    <td><?php echo $row['codProd']?></td>
-                    <td><?php echo $row['nomProd']?></td>
-                    <td><?php echo $row['marca']?></td>
-                    <td><?php echo $row['precio']?></td>
-                    <td><img src="../../imagenes/productos/<?php echo $row['imagen'] ?>" alt="<?php echo $row['imagen']?>" width="50"></td>
-                    <td><?php echo $row['estProd']?></td>
-                    <td><?php echo $stock = $row['stockProd'];?></td>
-                    <td>
-                        <a href="edit.php?codProd=<?php echo $row['codProd']?>" class="btn btn-success">
-                        <i class="fa-solid fa-pen-to-square" style="color:black;"></i>
-                        </a>
-                        <a href="delete.php?codProd=<?php echo $row['codProd']?>" class="btn btn-danger">
-                        <i class="fa-solid fa-trash" style="color:black;"></i>
-                        </a>
-                    </td>
-                </tr>
-                <?php } ?>
-
-            </tbody>
-        </table>
+                    while($row = mysqli_fetch_array($result_prod)){ ?>
+                    <tr>
+                        <td><?php echo $row['codProd']?></td>
+                        <td><?php echo $row['nomProd']?></td>
+                        <td><?php echo $row['marca']?></td>
+                        <td><?php echo $row['precio']?></td>
+                        <td><img src="../../imagenes/productos/<?php echo $row['imagen'] ?>" alt="<?php echo $row['imagen']?>" width="50"></td>
+                        <td><?php echo $row['estProd']?></td>
+                        <td><?php echo $stock = $row['stockProd'];?></td>
+                        <td>
+                            <a href="edit.php?codProd=<?php echo $row['codProd']?>" class="btn btn-success">
+                            <i class="fa-solid fa-pen-to-square" style="color:black;"></i>
+                            </a>
+                            <a href="delete.php?codProd=<?php echo $row['codProd']?>" class="btn btn-danger">
+                            <i class="fa-solid fa-trash" style="color:black;"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -155,6 +159,10 @@ $(document).ready( function () {
 <style>
     .btn-group {
         margin-bottom: 7px;
+    }
+    .dt-buttons {
+        display: flex;
+        align-items: center;
     }
     a{
         margin: 5px;

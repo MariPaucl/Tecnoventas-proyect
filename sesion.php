@@ -2,6 +2,7 @@
 <html lang="en">
 <link rel="stylesheet" href="registro/sesion.css">
 <title>Inicia Sesion</title>
+<script src="https://kit.fontawesome.com/d3ed00feee.js" crossorigin="anonymous"></script>
 <link rel="website icon" type="png" href="imagenes/Tecnoventas.png">
 <form class="formulario" method="post" onsubmit='return validarForm()'>
     <div class="mensaje-error"></div>
@@ -29,6 +30,7 @@
             <i class="fas fa-contraseña"></i>
             <img src="registro/pass.png" />
             <input type="password" id="pass" name="password" placeholder="Contraseña">
+            <i class="fas fa-eye-slash" id="togglePassword" onclick="togglePassword()" style="visibility: visible;top: 272px;right: 62px;position: absolute;"></i>
         </div>
         <a id="psw" href="recuperaPsw/recover_psw.php">¿Olvidaste tu Contraseña?</a>
         <input type="submit" value="Iniciar sesión" class="button" href="inicio.php">
@@ -45,8 +47,23 @@
     justify-content: center;
         }
 </style>
-</html>
+    <script>
+        function togglePassword() {
+            var passwordField = document.getElementById('pass');
+            var toggleIcon = document.getElementById('togglePassword');
 
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
+    </script>
+</html>
 <?php
 include("registro/procesar_login.php");
 ?>

@@ -45,7 +45,7 @@ $cart = new Cart;
             border: none;
         }
     </style>
-     <script>
+    <script>
     function updateCartItem(rowid, qty){
         $.get("AccionCarta.php", {action: "updateCartItem", rowid: rowid, qty: qty}, function(data){
             if(data == 'ok'){
