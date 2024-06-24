@@ -74,30 +74,24 @@ if($id == '' || $token == ''){
 .tableO tr:nth-child(even) {
     background-color: rgba(196, 196, 196, 0.87);
 }
-/* Estilos para el botón */
 .back-button {
     position: absolute;
     top: 20px;
     left: 20px;
     display: block;
-    width: 150px;
+    width: 100px;
     padding: 10px 20px;
     text-align: center;
-    background-color: rgba(196, 196, 196, 0.87);
-
-    color: white;
+    background-color: rgb(24 23 23 / 61%);
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 18px;
     font-family: 'Concert One', sans-serif;
 }
-
 </style>
 <script src="https://kit.fontawesome.com/d3ed00feee.js" crossorigin="anonymous"></script>
-
-
-<a href="javascript:history.back()" class="back-button">
-<img src="imagenes\volver.png" width="40px"></a>
+    <a href="javascript:history.back()" class="back-button" title="Regresar">
+    <img src="imagenes/volver.png" width="40%"></a>
 
         <font size="5" color="white" face="Concert One"><b><h1><?php echo $nombre; ?></h1></b></font><p>
          
