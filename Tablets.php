@@ -154,7 +154,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 			        <div>
 					    <nav class="navv">
 						<ul>
-						<a onclick="comparar('<?php echo $row['nomProd']?>')">Comparar
+						<a onclick="comparar('<?php echo $row['codProd']?>')">Comparar
 						<span></span><span></span><span></span><span></span>
                     </div>
 

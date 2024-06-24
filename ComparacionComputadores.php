@@ -1,336 +1,120 @@
 <!DOCTYPE html>
 <html lang="es">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados de Comparación</title>
-    <link rel="website icon" type="png" href="imagenes/Tecnoventas.png">
-
-     <link rel="stylesheet" href="css/styleCompara.css">
+    <link rel="stylesheet" href="css/styleCompara.css">
 </head>
 <body>
-<main class="table">
-    <section class="table_head">
-    <h1>Resultados de Comparación <img src="img/balanza.gif" alt=""></h1>
-    </section>
-    <section class="table_body">
+    <main class="table">
+        <section class="table_head">
+            <h1>Resultados de Comparación <img src="img/balanza.gif" alt=""></h1>
+        </section>
+        <section class="table_body">
+            <?php
+            require 'config/config.php';
+            require 'config/conexion.php';
 
-    <?php
-        // Definir un array asociativo con las características de los productos (incluyendo URLs de imágenes)
-        $caracteristicas = array(
-            'Computador All In One Lenovo AIO 3' => array(
-                'Precio' => '$1.999.000',
-                'Resolucion Camara Web' => '5.0 MP',
-                'N° De Puertos HDMI' => '1 Puerto',
-                'N° De Puetos LAN Ethernet' => '1 Puerto',
-                'N° De Puertos USB' => '4 Puertos',
-                'N° De Salidas De Audio' => 'N/A',
-                'Tipos De Puertos' => 'Puerto HDMI <br> Puerto LAN/Ethernet <br> Puerto USB <br>Puerto USB 2.0',
-                'Nivel De Uso' => 'Medio',
-                'Caracteristicas Especiales' => 'Cámara WEB Integrada',
-                'Resolucion De Pantalla' => 'Full HD',
-                'Tamaño De Pantalla' => '27  Pulgadas',
-                'Memoria Ram' => '16GB',
-                'Tipo De Discos Que Inlcuye' => 'Disco Estado Solido (SSD)',
-                'Capacidad De Disco' => '1TB',
-                'Marca Del Procesador' => 'AMD',
-                'Procesador' => 'AMD R5',
-                'Modelo Del Procesador' => '7530U',
-                'Marca Tarjeta De Video/Grafica' => 'N/A',
-                'Sistema Operativo' => 'Windows',
-                'Version Del Sistema Operativo' => '11 Home, español',
-                'Nucleos Del Procesador' => '6',
-                'Velocidad Del Procesador' => '2.0GHz',
-                'Fuentes De Alimentacion De Energia' => 'Energía Eléctrica',
-                'Color' => 'Negro',
-                'Opciones De Conectividad' => 'Bluetooth , WiFi',
-                'imagen' => 'imagenes/productos/AllInOneLenovoAio3.png' // Reemplaza 'url_imagen_producto1.jpg' con la URL real de la imagen
-            ),
-            'Computador All in One HP dd2006la' => array(
-                'Precio' => '$1.3990.00',
-                'Resolucion Camara Web' => '720p HD',
-                'N° De Puertos HDMI' => '1 Puerto',
-                'N° De Puetos LAN Ethernet' => '1 Puerto',
-                'N° De Puertos USB' => '2 Puertos',
-                'N° De Salidas De Audio' => '1 Puerto',
-                'Tipos De Puertos' => 'Entrada Tarjeta SD <br>Puerto HDMI <br>Puerto LAN/Ethernet <br>Puerto USB <br>Salida de Audífonos',
-                'Nivel De Uso' => 'Medio',
-                'Caracteristicas Especiales' => 'Cámara WEB Integrada',
-                'Resolucion De Pantalla' => 'Full HD',
-                'Tamaño De Pantalla' => '21.5  Pulgadas',
-                'Memoria Ram' => '8GB',
-                'Tipo De Discos Que Inlcuye' => 'Disco Estado Solido (SSD)',
-                'Capacidad De Disco' => '256GB',
-                'Marca Del Procesador' => 'Intel',
-                'Procesador' => 'Intel Celeron ',
-                'Modelo Del Procesador' => 'Intel Celeron J4025 ',
-                'Marca Tarjeta De Video/Grafica' => 'NA',
-                'Sistema Operativo' => 'Windows',
-                'Version Del Sistema Operativo' => '11 Home, español',
-                'Nucleos Del Procesador' => '2',
-                'Velocidad Del Procesador' => '2.00 GHz',
-                'Fuentes De Alimentacion De Energia' => 'Energía Eléctrica',
-                'Color' => 'Negro',
-                'Opciones De Conectividad' => 'Bluetooth, WiFi ',
-                'imagen' => 'imagenes/productos/all(6).png'
-            ),
-            'Computador All in One HP dd2011la' => array(
-                'Precio' => '$1.549.000',
-                'Resolucion Camara Web' => '720p HD',
-                'N° De Puertos HDMI' => '1 Puerto',
-                'N° De Puetos LAN Ethernet' => '1 Puerto',
-                'N° De Puertos USB' => '2 Puertos',
-                'N° De Salidas De Audio' => 'NA',
-                'Tipos De Puertos' => '<br>Entrada Tarjeta SD  <br>Puerto HDMI  <br>Puerto LAN/Ethernet  <br>Puerto USB  <br>Salida de Audífonos ',
-                'Nivel De Uso' => 'Medio',
-                'Caracteristicas Especiales' => 'Cámara WEB Integrada',
-                'Resolucion De Pantalla' => 'Full HD',
-                'Tamaño De Pantalla' => '21.5  Pulgadas',
-                'Memoria Ram' => '8GB',
-                'Tipo De Discos Que Inlcuye' => 'Disco Estado Solido (SSD)',
-                'Capacidad De Disco' => '256GB',
-                'Marca Del Procesador' => 'Intel',
-                'Procesador' => 'Intel Pentium',
-                'Modelo Del Procesador' => 'Silver J5040 ',
-                'Marca Tarjeta De Video/Grafica' => 'N/A',
-                'Sistema Operativo' => 'Windows',
-                'Version Del Sistema Operativo' => '11 Home, español',
-                'Nucleos Del Procesador' => '4',
-                'Velocidad Del Procesador' => '2.00 GHz',
-                'Fuentes De Alimentacion De Energia' => 'Energía Eléctrica',
-                'Color' => 'Blanco Nieve ',
-                'Opciones De Conectividad' => 'Bluetooth ,WiFi ',
-                'imagen' => 'imagenes/productos/all(4).png'
-            ),
-            'Computador All In One LENOVO AIO 3 White' => array(
-                'Precio' => '$2.999.000',
-                'Resolucion Camara Web' => '5.0MP + IR',
-                'N° De Puertos HDMI' => '1 Puerto',
-                'N° De Puetos LAN Ethernet' => '1 Puerto',
-                'N° De Puertos USB' => '1 Puerto',
-                'N° De Salidas De Audio' => 'N/A',
-                'Tipos De Puertos' => '<br>Puerto HDMI  <br>Puerto LAN/Ethernet  <br>Puerto USB  <br>Salida de Audífonos ',
-                'Nivel De Uso' => 'Avanzado',
-                'Caracteristicas Especiales' => 'Reconocimiento Facial ',
-                'Resolucion De Pantalla' => 'Full HD',
-                'Tamaño De Pantalla' => '23.8  Pulgadas',
-                'Memoria Ram' => '8GB',
-                'Tipo De Discos Que Inlcuye' => 'Disco Estado Solido (SSD)',
-                'Capacidad De Disco' => '512GB',
-                'Marca Del Procesador' => 'Intel ',
-                'Procesador' => 'Intel Core i5',
-                'Modelo Del Procesador' => '12450H ',
-                'Marca Tarjeta De Video/Grafica' => 'NA',
-                'Sistema Operativo' => 'Windows',
-                'Version Del Sistema Operativo' => '11 Home, español',
-                'Marca De Tarjeta De Video/Grafica' => '8',
-                'Nucleos Del Procesador' => '8',
-                'Velocidad Del Procesador' => '4.40 GHz',
-                'Fuentes De Alimentacion De Energia' => 'Energía Eléctrica',
-                'Color' => 'Blanco',
-                'Opciones De Conectividad' => 'Bluetooth Conexión Con Cable ,WiFi ',
-                'imagen' => 'imagenes/productos/all(8).png'
-            ),
-            'Computador All in One ASUS ' => array(
-                'Precio' => '$2.899.000',
-                'Resolucion Camara Web' => 'HD',
-                'N° De Puertos HDMI' => '2 Puerto',
-                'N° De Puetos LAN Ethernet' => '1 Puerto',
-                'N° De Puertos USB' => '5 Puertos',
-                'N° De Salidas De Audio' => '3 Puertos',
-                'Tipos De Puertos' => 'Puerto HDMI  <br>Puerto LAN/Ethernet  <br>Puerto USB 2.0  <br>Puerto USB 3.2  <br>Puerto USB Tipo C  <br>Salida de Audífonos',
-                'Nivel De Uso' => 'Avanzado',
-                'Caracteristicas Especiales' => 'Cámara WEB Integrada',
-                'Resolucion De Pantalla' => 'Full HD',
-                'Tamaño De Pantalla' => '23.8  Pulgadas',
-                'Memoria Ram' => '8GB',
-                'Tipo De Discos Que Inlcuye' => 'Disco Estado Solido (SSD)',
-                'Capacidad De Disco' => '512GB',
-                'Marca Del Procesador' => 'INTEL ',
-                'Procesador' => 'Intel Core I5 ',
-                'Modelo Del Procesador' => 'Ci5 1235U ',
-                'Marca Tarjeta De Video/Grafica' => 'NA',
-                'Sistema Operativo' => 'Windows',
-                'Version Del Sistema Operativo' => '11 Home, español',
-                'Nucleos Del Procesador' => '10',
-                'Velocidad Del Procesador' => '4.40 GHz',
-                'Fuentes De Alimentacion De Energia' => 'Energía Eléctrica',
-                'Color' => 'Blanco ',
-                'Opciones De Conectividad' => 'Bluetooth, USB, WiFi ',
-                'imagen' => 'imagenes/productos/ASUS.png'
-            ),
-            'Computador All in One HP PAVILION ca0000la' => array(
-                'Precio' => '$2.899.000',
-                'Resolucion Camara Web' => 'HD',
-                'N° De Puertos HDMI' => '1 Puerto',
-                'N° De Puetos LAN Ethernet' => '1 Puerto',
-                'N° De Puertos USB' => '3 Puerto',
-                'N° De Salidas De Audio' => '1 Puerto',
-                'Tipos De Puertos' => 'Puerto HDMI <br>Puerto LAN/Ethernet <br>Puerto USB <br>Puerto USB Tipo C <br>Salida de Audífonos ',
-                'Nivel De Uso' => 'Medio',
-                'Caracteristicas Especiales' => 'Cámara WEB Integrada',
-                'Resolucion De Pantalla' => 'Full HD',
-                'Tamaño De Pantalla' => '27  Pulgadas',
-                'Memoria Ram' => '8GB',
-                'Tipo De Discos Que Inlcuye' => 'Disco Estado Solido (SSD)',
-                'Capacidad De Disco' => '512GB',
-                'Marca Del Procesador' => 'AMD',
-                'Procesador' => 'AMD R5',
-                'Modelo Del Procesador' => 'AMD Ryzen™ 5 5500U',
-                'Marca Tarjeta De Video/Grafica' => 'N/A',
-                'Sistema Operativo' => 'Windows',
-                'Version Del Sistema Operativo' => '11 Home, español',
-                'Nucleos Del Procesador' => '6',
-                'Velocidad Del Procesador' => '4.0GHz',
-                'Fuentes De Alimentacion De Energia' => 'Energía Eléctrica',
-                'Color' => 'Blanco Nieve ',
-                'Opciones De Conectividad' => 'Bluetooth, Conexión Con Cable ,WiFi ',
-                'imagen' => 'imagenes/productos/Computador All in One HP PAVILION.png'
-            ),
-            'Computador All In One Lenovo' => array(
-                'Precio' => '$4.349.000',
-                'Resolucion Camara Web' => '5.0 MP',
-                'N° De Puertos HDMI' => '1 Puerto',
-                'N° De Puetos LAN Ethernet' => '1 Puerto',
-                'N° De Puertos USB' => '4 Puerto',
-                'N° De Salidas De Audio' => 'N/A',
-                'Tipos De Puertos' => 'Puerto HDMI <br>  Puerto LAN/Ethernet<br> Puerto USB <br> Puerto USB 2.0<br>Puerto HDMI  <br>Puerto LAN/Ethernet  <br>Puerto USB  <br>Puerto USB 2.0 ',
-                'Nivel De Uso' => 'Avanzado ',
-                'Caracteristicas Especiales' => 'Cámara WEB Integrada',
-                'Resolucion De Pantalla' => 'Full HD',
-                'Tamaño De Pantalla' => '27  Pulgadas',
-                'Memoria Ram' => '16GB',
-                'Tipo De Discos Que Inlcuye' => 'Hibrido TB + SSD ',
-                'Capacidad De Disco' => 'HDD 1 TB + SSD 512 GB ',
-                'Marca Del Procesador' => 'AMD',
-                'Procesador' => 'AMD R7',
-                'Modelo Del Procesador' => '7730U ',
-                'Marca Tarjeta De Video/Grafica' => 'NA',
-                'Sistema Operativo' => 'Windows',
-                'Version Del Sistema Operativo' => '11 Home, español',
-                'Nucleos Del Procesador' => '8',
-                'Velocidad Del Procesador' => '4.5GHz',
-                'Fuentes De Alimentacion De Energia' => 'Energía Eléctrica',
-                'Color' => 'Negro',
-                'Opciones De Conectividad' => 'Bluetooth, Conexión Con Cable, WiFi ',
-                'imagen' => 'imagenes/productos/IO 3 - AMD Ryzen 7.png'
-            ),
-            'iMac 24 Chip M3 Apple' => array(
-                'Precio' => '$10.029.000',
-                'Resolucion Camara Web' => '1080',
-                'N° De Puertos HDMI' => 'N/A',
-                'N° De Puetos LAN Ethernet' => '1 Puerto',
-                'N° De Puertos USB' => '4 Puertos',
-                'N° De Salidas De Audio' => '1 Puerto',
-                'Tipos De Puertos' => 'Puerto LAN/Ethernet <br>Puerto USB Tipo C ',
-                'Nivel De Uso' => 'Esencial ',
-                'Caracteristicas Especiales' => 'Cámara WEB Integrada, Reconocimiento de Voz',
-                'Resolucion De Pantalla' => 'Retina ',
-                'Tamaño De Pantalla' => '24  Pulgadas',
-                'Memoria Ram' => '8GB',
-                'Tipo De Discos Que Inlcuye' => 'Disco Estado Solido (SSD)',
-                'Capacidad De Disco' => '512GB',
-                'Marca Del Procesador' => 'Apple ',
-                'Procesador' => 'Apple M3 ',
-                'Modelo Del Procesador' => 'Apple M3 ',
-                'Marca Tarjeta De Video/Grafica' => 'N/A',
-                'Sistema Operativo' => 'MacOs ',
-                'Version Del Sistema Operativo' => 'MacOs Sonoma ',
-                'Nucleos Del Procesador' => '8',
-                'Velocidad Del Procesador' => '100GB por segundo',
-                'Fuentes De Alimentacion De Energia' => 'Energía Eléctrica',
-                'Color' => 'Negro',
-                'Opciones De Conectividad' => 'Bluetooth, WiFi ',
-                'imagen' => 'imagenes/productos/APPLE.png'
-            ),
-            'Computador All In One LENOVO Yoga AIO' => array(
-                'Precio' => '$13.999.000',
-                'Resolucion Camara Web' => '5.0MP + IR ',
-                'N° De Puertos HDMI' => '1 Puerto',
-                'N° De Puetos LAN Ethernet' => 'N/A',
-                'N° De Puertos USB' => '3 Puertos',
-                'N° De Salidas De Audio' => '1 Puerto',
-                'Tipos De Puertos' => 'Puerto HDMI  <br>Puerto USB 3.2  <br>Puerto USB Tipo C  <br>Salida de Audífonos ',
-                'Nivel De Uso' => 'Avanzado',
-                'Caracteristicas Especiales' => 'Reconocimiento Facial ',
-                'Resolucion De Pantalla' => '4K Ultra HD ',
-                'Tamaño De Pantalla' => '31.5  Pulgadas',
-                'Memoria Ram' => '32GB',
-                'Tipo De Discos Que Inlcuye' => 'Disco Estado Solido (SSD)',
-                'Capacidad De Disco' => '1TB',
-                'Marca Del Procesador' => 'INTEL',
-                'Procesador' => 'Intel Core I9',
-                'Modelo Del Procesador' => '13900H ',
-                'Marca Tarjeta De Video/Grafica' => 'GeForce® RTX 4050 ',
-                'Sistema Operativo' => 'Windows',
-                'Version Del Sistema Operativo' => '11 Home, español',
-                'Nucleos Del Procesador' => '14',
-                'Velocidad Del Procesador' => '5.40 GHz',
-                'Fuentes De Alimentacion De Energia' => 'Energía Eléctrica',
-                'Color' => 'Gris tormenta ',
-                'Opciones De Conectividad' => 'Bluetooth , WiFi',
-                'imagen' => 'imagenes/productos/e LENOVO Yoga.png'
-            ),
-            
-            
-        );
+            $db = new Database();
+            $con = $db->conectar();
 
-        // Verifica si se han enviado productos desde index.php
-        if(isset($_GET['productos'])) {
-            $productosSeleccionados = explode(',', $_GET['productos']);
+            if (isset($_GET['ids'])) {
+                $ids = explode(',', $_GET['ids']);
 
-            // Crea una tabla para mostrar las características
-            echo "<table>";
-            echo "<tr><th>Características</th>";
+                // Consulta para obtener la información de los productos seleccionados
+                $sql = $con->prepare("SELECT p.codProd, p.nomProd, p.precio, p.imagen, p.stockProd, 
+                                     GROUP_CONCAT(i.valor    ORDER BY i.idinfo SEPARATOR ', ') AS caracteristicas
+                                     FROM productos p 
+                                     INNER JOIN infoproductos i ON p.codProd = i.codProd 
+                                     WHERE p.codProd IN (" . implode(',', array_fill(0, count($ids), '?')) . ") AND p.codigoCat = 3
+                                     GROUP BY p.codProd");
+                $sql->execute($ids);
+                $productos = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-            // Incluye los detalles de cada producto
-            foreach ($productosSeleccionados as $productoId) {
-                echo "<th>$productoId</th>";
-            }
-            echo "</tr>";
+                // Definir el mapeo de valores específicos en el orden deseado
+                $valoresEspecificos = [
+                    0 => 'Resolucion Camara Web',
+                    1 => 'No. Puertos HDMI',
+                    2 => 'No. Puertos LAN Ethernet',
+                    3 => 'No. Puertos USB',
+                    4 => 'No. Salidas de Audio',
+                    5 => 'Tipos de Puertos',
+                    6 => 'Nivel de uso',
+                    7 => 'Caracteristicas Especiales',
+                    8 => 'Resolucion Pantalla',
+                    9 => 'Tamaño Pantalla',
+                    10 => 'Memoria RAM',
+                    11 => 'Tipo de Discos que Incluye',
+                    12 => 'Capacidad de Disco',
+                    13 => 'Marca del procesador',
+                    14 => 'Procesador',
+                    15 => 'Modelo Procesador',
+                    16 => 'Marca Tarjeta de Video/Grafica',
+                    17 => 'version sistema operativo',
+                    18 => 'Tamaño pantalla',
+                    19 => 'Idioma sistema operativo',
+                    20 => 'Nucleos del Procesador',
+                    21 => 'Velocidad del Procesador	',
+                    22 => 'Fuentes de Alimentacion de Energia',
+                    23 => 'Color',
+               
+                ];
 
-            // Muestra las características para cada producto
-            echo "<tr><td>Imagen</td>";
-            foreach ($productosSeleccionados as $productoId) {
-                // Verifica si el producto está en el array de características
-                if (array_key_exists($productoId, $caracteristicas)) {
-                    // Muestra la imagen del producto
-                    echo "<td><img src='" . $caracteristicas[$productoId]['imagen'] . "' alt='Imagen $productoId'></td>";
-                } else {
-                    // Mensaje de error si no se encuentran las características del producto
-                    echo "<td colspan='4'>Características no encontradas para este producto.</td>";
-                }
-            }
-            echo "</tr>";
+                if (count($productos) > 0) {
+                    // Mostrar los productos en una tabla con el diseño específico
+                    echo "<table>";
+                    echo "<tr><th>Producto</th>";
 
-            // Muestra las características de cada producto
-            foreach (array('Precio','Resolucion Camara Web', 'N° De Puertos HDMI', 'N° De Puetos LAN Ethernet' , 'N° De Puertos USB',  'N° De Salidas De Audio',  'Tipos De Puertos',  'Nivel De Uso' ,
-            'Caracteristicas Especiales', 'Resolucion De Pantalla',  'Tamaño De Pantalla',  'Memoria Ram',  'Tipo De Discos Que Inlcuye',  'Capacidad De Disco',
-            'Tamaño De Pantalla', 'Memoria Ram','Tipo De Discos Que Inlcuye', 'Capacidad De Disco', 'Marca Del Procesador', 
-            'Marca Del Procesador', 'Procesador',  'Modelo Del Procesador',   'Marca Tarjeta De Video/Grafica', 
-            'Sistema Operativo', 'Version Del Sistema Operativo',  'Nucleos Del Procesador', 'Velocidad Del Procesador',
-               'Fuentes De Alimentacion De Energia',  'Color',  'Opciones De Conectividad',) as $caracteristica) {
-                echo "<tr><td>$caracteristica</td>";
-                foreach ($productosSeleccionados as $productoId) {
-                    // Verifica si el producto está en el array de características
-                    if (array_key_exists($productoId, $caracteristicas)) {
-                        // Muestra las características del producto
-                        echo "<td>" . $caracteristicas[$productoId][$caracteristica] . "</td>";
-                    } else {
-                        // Mensaje de error si no se encuentran las características del producto
-                        echo "<td colspan='4'>Características no encontradas para este producto.</td>";
+                    // Encabezados de columna para cada producto
+                    foreach ($productos as $producto) {
+                        echo "<th>" . htmlspecialchars($producto['nomProd']) . "</th>";
                     }
-                }
-                echo "</tr>";
-            }
+                    echo "</tr>";
 
-            echo "</table>";
-        } else {
-            echo "<p>No se han seleccionado productos para comparar.</p>";
-        }
-    ?>
-</section>
-</main>
+                    // Fila para la imagen de cada producto
+                    echo "<tr><td>Imagen</td>";
+                    foreach ($productos as $producto) {
+                        echo '<td><img src="imagenes/productos/' . htmlspecialchars($producto['imagen']) . '" alt="' . htmlspecialchars($producto['nomProd']) . '" width="200"></td>';
+                    }
+                    echo "</tr>";
+
+                    // Fila para el precio de cada producto
+                    echo "<tr><td>Precio</td>";
+                    foreach ($productos as $producto) {
+                        echo "<td>$" . htmlspecialchars($producto['precio']) . "</td>";
+                    }
+                    echo "</tr>";
+
+                    // Filas para las características de cada producto
+                    $caracteristicasPorProducto = [];
+                    foreach ($productos as $producto) {
+                        $caracteristicas = explode(', ', $producto['caracteristicas']);
+                        $caracteristicasPorProducto[$producto['codProd']] = $caracteristicas;
+                    }
+
+                    foreach ($valoresEspecificos as $indice => $nombreCaracteristica) {
+                        echo "<tr><td>" . $nombreCaracteristica . "</td>";
+                        foreach ($productos as $producto) {
+                            // Mapea el índice correcto de las características del producto
+                            $valor = 'No disponible';
+                            if (isset($caracteristicasPorProducto[$producto['codProd']][$indice])) {
+                                $valor = $caracteristicasPorProducto[$producto['codProd']][$indice];
+                            }
+                            echo "<td>" . htmlspecialchars($valor) . "</td>";
+                        }
+                        echo "</tr>";
+                    }
+
+                    echo "</table>";
+                } else {
+                    echo 'No se encontraron productos con los IDs proporcionados.';
+                }
+            } else {
+                echo 'Error: No se recibieron los IDs de los productos para comparar';
+            }
+            ?>
+        </section>
+    </main>
 </body>
 </html>

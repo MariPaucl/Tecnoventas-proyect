@@ -4,230 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados de Comparación</title>
-    <link rel="website icon" type="png" href="imagenes/Tecnoventas.png">
-
-     <link rel="stylesheet" href="css/styleCompara.css">
+    <link rel="stylesheet" href="css/styleCompara.css">
 </head>
 <body>
+    <main class="table">
+        <section class="table_head">
+            <h1>Resultados de Comparación <img src="img/balanza.gif" alt=""></h1>
+        </section>
+        <section class="table_body">
+            <?php
+            require 'config/config.php';
+            require 'config/conexion.php';
 
-<main class="table">
-    <section class="table_head">
-    <h1>Resultados de Comparación <img src="img/balanza.gif" alt=""></h1>
-    </section>
-    <section class="table_body">
+            $db = new Database();
+            $con = $db->conectar();
 
-    <?php
-        // Definir un array asociativo con las características de los productos (incluyendo URLs de imágenes)
-        $caracteristicas = array(
-            'Parlante Sonos Era 300' => array(
-                'Precio' => '$590.000',
-                'Resistencia A' => 'N/A',
-                'Caracteristicas Especiales' => 'Integrado Asistente de Voz',
-                'Portabilidad' => 'N/A',
-                'Fuentes De Alimentacion De Energia' => 'Energía Eléctrica',
-                'Color' => 'Negro',
-                'Duracion De la Bateria' => 'NA',
-                'Rango Bluetooth' => '30 Metros',
-                'Opciones De Conectividad' => 'Bluetooth y Wifi',
-                'Conexion' => 'Alambrica',
-                'Ancho/Frente de la Unidad Principal' => '26',
-                'Alto de la Ud Principal' => '16',
-                'Fondo de la Unidad Principal' => '18.5',
-                'Extra' => 'N/A',
-                'imagen' => 'imagenes/productos/parlanteSonosEra300.png'// Reemplaza 'url_imagen_producto1.jpg' con la URL real de la imagen
-            ),
-            'Parlante BOSE SoundLink Flex' => array(
-                'Precio' => '$599.900',
-                'Resistencia A' => 'Resistente al Agua y el Polvo (IP 67)',
-                'Caracteristicas Especiales' => 'Apto para Llamadas en Altavoz ',
-                'Portabilidad' => 'Si es Portable',
-                'Fuentes De Alimentacion De Energia' => 'Energía Eléctrica',
-                'Color' => 'Negro',
-                'Duracion De la Bateria' => '12  Horas Aproximadas',
-                'Rango Bluetooth' => '10 Metros',
-                'Opciones De Conectividad' => 'Bluetooth',
-                'Conexion' => 'Inalámbrica',
-                'Ancho/Frente de la Unidad Principal' => '9.04 cm',
-                'Alto de la Ud Principal' => '20.14 cm',
-                'Fondo de la Unidad Principal' => '5.23  cm',
-                'Extra' => 'Cable USB-C',
-                'imagen' => 'imagenes/productos/Parlante BOSE SoundLink Flex.png'
-            ),
-            'Parlante JBL PARTYBOX' => array(
-            'Precio' => '$1.199.900',
-                'Resistencia A' => 'Resistente a Salpicaduras (IPX4)',
-                'Caracteristicas Especiales' => 'Tiene Luces LED',
-                'Portabilidad' => 'Si es Portable',
-                'Fuentes De Alimentacion De Energia' => 'Batería Recargable Interna, Energía Eléctrica  ',
-                'Color' => 'Negro',
-                'Duracion De la Bateria' => '6  Horas Aproximadas',
-                'Rango Bluetooth' => '10 Metros',
-                'Opciones De Conectividad' => 'Bluetooth, Entradas de guitarra ',
-                'Conexion' => 'Inalámbrica',
-                'Ancho/Frente de la Unidad Principal' => '32.6 cm',
-                'Alto de la Ud Principal' => '47.2 cm',
-                'Fondo de la Unidad Principal' => 'N/A',
-                'Extra' => 'N/A',
-                'imagen' => 'imagenes/productos/Parlante JBL PARTYBOX.png'
-            ),
-            'KALLEY K-SPK400' => array(
-                'Precio' => '$1.699.900',
-                'Resistencia A' => 'N/A',
-                'Caracteristicas Especiales' => 'Tiene Función Karaoke Tiene Luces LED ',
-                'Portabilidad' => 'N/A',
-                'Fuentes De Alimentacion De Energia' => 'Energía Eléctrica',
-                'Color' => 'Negro',
-                'Duracion De la Bateria' => 'N/A',
-                'Rango Bluetooth' => '10 Metros',
-                'Opciones De Conectividad' => 'Bluetooth',
-                'Conexion' => 'Alambrica',
-                'Ancho/Frente de la Unidad Principal' => '45 cm',
-                'Alto de la Ud Principal' => '110.5 cm',
-                'Fondo de la Unidad Principal' => '35.5  cm',
-                'Extra' => 'Micrófono y control remoto',
-                'imagen' => 'imagenes/productos/Kalley.png'
-            ),
-            'Parlante SONOS ERA 100 Blanco' => array(
-                'Precio' => '$1.399.900',
-                'Resistencia A' => 'N/A',
-                'Caracteristicas Especiales' => 'Integrado Asistente de Voz',
-                'Portabilidad' => 'N/A',
-                'Fuentes De Alimentacion De Energia' => 'Energía Eléctrica',
-                'Color' => 'Blanco',
-                'Duracion De la Bateria' => 'N/A',
-                'Rango Bluetooth' => '30 Metros',
-                'Opciones De Conectividad' => 'Bluetooth y Wifi',
-                'Conexion' => 'Alambrica',
-                'Ancho/Frente de la Unidad Principal' => '12 cm',
-                'Alto de la Ud Principal' => '18.2  cm',
-                'Fondo de la Unidad Principal' => '13 cm',
-                'Extra' => 'N/A ',
-                'imagen' => 'imagenes/productos/Parlante SONOS ERA 100 Blanco.png'
-            ),
-            'Parlante BOSE S1 PRO' => array(
-                'Precio' => '$3.599.900',
-                'Resistencia A' => 'N/A',
-                'Caracteristicas Especiales' => 'Tiene Función Karaoke ',
-                'Portabilidad' => 'Si es Portable ',
-                'Fuentes De Alimentacion De Energia' => 'Batería Recargable Interna, Energía Eléctrica ',
-                'Color' => 'Negro',
-                'Duracion De la Bateria' => '11  Horas Aproximadas',
-                'Rango Bluetooth' => '9 Metros',
-                'Opciones De Conectividad' => 'Bluetooth y Wifi',
-                'Conexion' => 'Inalámbrica ',
-                'Ancho/Frente de la Unidad Principal' => '23.8 cm',
-                'Alto de la Ud Principal' => '33.2 cm',
-                'Fondo de la Unidad Principal' => '27.9  cm',
-                'Extra' => 'Cable de alimentación de CA, Guía de inicio rápido ',
-                'imagen' => 'imagenes/productos/Parlante BOSE S1 PRO+.png'
-            ),
-            'Parlante KALLEY K-SPK50BL2' => array(
-                'Precio' => '$394.000',
-                'Resistencia A' => 'N/A',
-                'Caracteristicas Especiales' => 'Tiene Luces LED ',
-                'Portabilidad' => 'Si es Portable ',
-                'Fuentes De Alimentacion De Energia' => 'Batería Recargable Interna ',
-                'Color' => 'Negro',
-                'Duracion De la Bateria' => '4  Horas Aproximadas',
-                'Rango Bluetooth' => '10 Bluetooth',
-                'Opciones De Conectividad' => 'Bluetooth cm',
-                'Conexion' => 'Inalámbrica cm',
-                'Ancho/Frente de la Unidad Principal' => '24 cm',
-                'Alto de la Ud Principal' => '39.5 cm',
-                'Fondo de la Unidad Principal' => '19 cm',
-                'Extra' => 'Micrófono y control remoto ',
-                'imagen' => 'imagenes/productos/Parlante KALLEY K-SPK50BL2.png'
-            ),
-            'Parlante KALLEY K-SPK30BL2' => array(
-                'Precio' => '$399.900',
-                'Resistencia A' => 'N/A',
-                'Caracteristicas Especiales' => 'Tiene Luces LED ',
-                'Portabilidad' => 'Si es Portable ',
-                'Fuentes De Alimentacion De Energia' => 'Batería Recargable Interna ',
-                'Color' => 'Negro',
-                'Duracion De la Bateria' => 'NA',
-                'Rango Bluetooth' => '10  Metros',
-                'Opciones De Conectividad' => 'Bluetooth ',
-                'Conexion' => 'Inalámbrica',
-                'Ancho/Frente de la Unidad Principal' => '25.2 cm',
-                'Alto de la Ud Principal' => '40 cm',
-                'Fondo de la Unidad Principal' => '20.2 cm',
-                'Extra' => 'Micrófono y control remoto ',
-                'imagen' => 'imagenes/productos/Parlante KALLEY K-SPK30BL2.png'
-            ),
-            'Parlante LG XBOOM GO XG7QBK' => array(
-                'Precio' => '$549.900',
-                'Resistencia A' => 'Resistente al Agua y el Polvo (IP 67) ',
-                'Caracteristicas Especiales' => 'Integrado Asistente de Voz',
-                'Portabilidad' => 'Si es Portable ',
-                'Fuentes De Alimentacion De Energia' => 'Batería Recargable Interna ',
-                'Color' => 'Negro',
-                'Duracion De la Bateria' => '24  Horas Aproximadas',
-                'Rango Bluetooth' => '10 Metros',
-                'Opciones De Conectividad' => 'Bluetooth ',
-                'Conexion' => 'Inalámbrica',
-                'Ancho/Frente de la Unidad Principal' => '32 cm',
-                'Alto de la Ud Principal' => '14.3 cm',
-                'Fondo de la Unidad Principal' => '14.5 cm',
-                'Extra' => 'N/A',
-                'imagen' => 'imagenes/productos/Parlante LG XBOOM GO XG7QBK.png'
-            ),
-            
-            
-        );
+            if (isset($_GET['ids'])) {
+                $ids = explode(',', $_GET['ids']);
 
-        // Verifica si se han enviado productos desde index.php
-        if(isset($_GET['productos'])) {
-            $productosSeleccionados = explode(',', $_GET['productos']);
+                // Consulta para obtener la información de los productos seleccionados
+                $sql = $con->prepare("SELECT p.codProd, p.nomProd, p.precio, p.imagen, p.stockProd, 
+                                     GROUP_CONCAT(i.valor ORDER BY i.idinfo SEPARATOR ', ') AS caracteristicas
+                                     FROM productos p 
+                                     INNER JOIN infoproductos i ON p.codProd = i.codProd 
+                                     WHERE p.codProd IN (" . implode(',', array_fill(0, count($ids), '?')) . ") AND p.codigoCat = 6
+                                     GROUP BY p.codProd");
+                $sql->execute($ids);
+                $productos = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-            // Crea una tabla para mostrar las características
-            echo "<table>";
-            echo "<tr><th>Características</th>";
+                // Definir el mapeo de valores específicos en el orden deseado
+                $valoresEspecificos = [
+                    0 => 'Resistencia a',
+                    1 => 'Caracteristicas Especiales',
+                    2 => 'Portabilidad',
+                    3 => 'Fuentes de Alimentacion de Energia',
+                    4 => 'Color',
+                    5 => 'Rango Bluetooth',
+                    6 => 'Opciones Conectividad',
+                    7 => 'Conexion',
+                    8 => 'Flash posterior',
+                    9 => 'Ancho en Cm',
+                    10 => 'Alto en Cm',
+                    11 => 'Fondo en Cm',
+                    12 => 'Extra',
+             
+                
+                ];
 
-            // Incluye los detalles de cada producto
-            foreach ($productosSeleccionados as $productoId) {
-                echo "<th>$productoId</th>";
-            }
-            echo "</tr>";
+                if (count($productos) > 0) {
+                    // Mostrar los productos en una tabla con el diseño específico
+                    echo "<table>";
+                    echo "<tr><th>Producto</th>";
 
-            // Muestra las características para cada producto
-            echo "<tr><td>Imagen</td>";
-            foreach ($productosSeleccionados as $productoId) {
-                // Verifica si el producto está en el array de características
-                if (array_key_exists($productoId, $caracteristicas)) {
-                    // Muestra la imagen del producto
-                    echo "<td><img src='" . $caracteristicas[$productoId]['imagen'] . "' alt='Imagen $productoId'></td>";
-                } else {
-                    // Mensaje de error si no se encuentran las características del producto
-                    echo "<td colspan='4'>Características no encontradas para este producto.</td>";
-                }
-            }
-            echo "</tr>";
-
-            // Muestra las características de cada producto
-            foreach (array('Precio', 'Resistencia A' , 'Caracteristicas Especiales',  'Portabilidad',  'Fuentes De Alimentacion De Energia',  'Color',  
-            'Duracion De la Bateria','Rango Bluetooth','Opciones De Conectividad',  'Conexion', 
-             'Ancho/Frente de la Unidad Principal', 'Alto de la Ud Principal','Fondo de la Unidad Principal',  'Extra',) as $caracteristica) {
-                echo "<tr><td>$caracteristica</td>";
-                foreach ($productosSeleccionados as $productoId) {
-                    // Verifica si el producto está en el array de características
-                    if (array_key_exists($productoId, $caracteristicas)) {
-                        // Muestra las características del producto
-                        echo "<td>" . $caracteristicas[$productoId][$caracteristica] . "</td>";
-                    } else {
-                        // Mensaje de error si no se encuentran las características del producto
-                        echo "<td colspan='4'>Características no encontradas para este producto.</td>";
+                    // Encabezados de columna para cada producto
+                    foreach ($productos as $producto) {
+                        echo "<th>" . htmlspecialchars($producto['nomProd']) . "</th>";
                     }
-                }
-                echo "</tr>";
-            }
+                    echo "</tr>";
 
-            echo "</table>";
-        } else {
-            echo "<p>No se han seleccionado productos para comparar.</p>";
-        }
-    ?>
-</section>
-</main>
+                    // Fila para la imagen de cada producto
+                    echo "<tr><td>Imagen</td>";
+                    foreach ($productos as $producto) {
+                        echo '<td><img src="imagenes/productos/' . htmlspecialchars($producto['imagen']) . '" alt="' . htmlspecialchars($producto['nomProd']) . '" width="200"></td>';
+                    }
+                    echo "</tr>";
+
+                    // Fila para el precio de cada producto
+                    echo "<tr><td>Precio</td>";
+                    foreach ($productos as $producto) {
+                        echo "<td>$" . htmlspecialchars($producto['precio']) . "</td>";
+                    }
+                    echo "</tr>";
+
+                    // Filas para las características de cada producto
+                    $caracteristicasPorProducto = [];
+                    foreach ($productos as $producto) {
+                        $caracteristicas = explode(', ', $producto['caracteristicas']);
+                        $caracteristicasPorProducto[$producto['codProd']] = $caracteristicas;
+                    }
+
+                    foreach ($valoresEspecificos as $indice => $nombreCaracteristica) {
+                        echo "<tr><td>" . $nombreCaracteristica . "</td>";
+                        foreach ($productos as $producto) {
+                            // Mapea el índice correcto de las características del producto
+                            $valor = 'No disponible';
+                            if (isset($caracteristicasPorProducto[$producto['codProd']][$indice])) {
+                                $valor = $caracteristicasPorProducto[$producto['codProd']][$indice];
+                            }
+                            echo "<td>" . htmlspecialchars($valor) . "</td>";
+                        }
+                        echo "</tr>";
+                    }
+
+                    echo "</table>";
+                } else {
+                    echo 'No se encontraron productos con los IDs proporcionados.';
+                }
+            } else {
+                echo 'Error: No se recibieron los IDs de los productos para comparar';
+            }
+            ?>
+        </section>
+    </main>
 </body>
 </html>

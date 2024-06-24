@@ -4,164 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados de Comparación</title>
-    <link rel="website icon" type="png" href="imagenes/Tecnoventas.png">
     <link rel="stylesheet" href="css/styleCompara.css">
 </head>
 <body>
     <main class="table">
-    <section class="table_head">
-    <h1>Resultados de Comparación <img src="img/balanza.gif" alt=""></h1>
-    </section>
-    <section class="table_body">
+        <section class="table_head">
+            <h1>Resultados de Comparación <img src="img/balanza.gif" alt=""></h1>
+        </section>
+        <section class="table_body">
+            <?php
+            require 'config/config.php';
+            require 'config/conexion.php';
 
-    <?php
-        // Definir un array asociativo con las características de los productos (incluyendo URLs de imágenes)
-        $caracteristicas = array(
-            'Audifonos Sony In Ear WFC700N' => array(
-                'Precio' => '$290.000',
-                'Resistencia A' => 'Salpicaduras',
-                'Opciones De Conectividad' => 'Bluetooth',
-                'Duracion De La Bateria' => '20 Horas Aprx',
-                'Conexion' => 'Inalambrica',
-                'Color' => 'Negro',
-                'Longitud Del Cable cm' => 'N/A',
-                'imagen' => 'imagenes/productos/audifonosSonyInEarWFC700N.png'// Reemplaza 'url_imagen_producto1.jpg' con la URL real de la imagen
-            ),
-            'Audifonos BOSE In Ear EarbudsII' => array(
-                'Precio' => '$1.799.900',
-                'Resistencia A' => 'Resistente a Salpicaduras (IPX4) ',
-                'Opciones De Conectividad' => 'Bluetooth',
-                'Duracion De La Bateria' => '6 Horas Aprx',
-                'Conexion' => 'Inalambrica',
-                'Color' => 'Eclipse Grey ',
-                'Longitud Del Cable cm' => 'N/A',
-                'imagen' => 'imagenes/productos/Audifonos BOSE In Ear QuietComfort EarbudsII Gris.png'
-            ),
-            'Audífonos APPLE AirPods Pro 2.ª Generación' => array(
-                'Precio' => '$1.229.000',
-                'Resistencia A' => 'Resistente a Salpicaduras (IPX4)',
-                'Opciones De Conectividad' => 'Bluetooth',
-                'Duracion De La Bateria' => '6 Horas Aprx',
-                'Conexion' => 'Inalambrica',
-                'Color' => 'Blanco ',
-                'Longitud Del Cable cm' => 'N/A',
-                'imagen' => 'imagenes/productos/Audífonos APPLE AirPods Pro 2.ª Generación.png'
-            ),
-            'Audífonos PANASONIC In Ear' => array(
-                'Precio' => '$14.900',
-                'Resistencia A' => 'N/A',
-                'Opciones De Conectividad' => 'Conexión Con Cable ',
-                'Duracion De La Bateria' => 'N/A',
-                'Conexion' => 'Alambrica',
-                'Color' => 'Negro',
-                'Longitud Del Cable cm' => '120  Centímetros',
-                'imagen' => 'imagenes/productos/Audífonos PANASONIC Alámbricos In Ear RP-HV096P Negro.png'
-            ),
-            'Audífonos XIAOMI Alámbricos InEar Basic Plateado' => array(
-                'Precio' => '$32.900',
-                'Resistencia A' => 'N/A',
-                'Opciones De Conectividad' => 'Conexión Con Cable ',
-                'Duracion De La Bateria' => 'N/A',
-                'Conexion' => 'Alambrica',
-                'Color' => 'Plateado ',
-                'Longitud Del Cable cm' => '60  Centímetros',
-                'imagen' => 'imagenes/productos/Audífonos XIAOMI Alámbricos InEar Basic Plateado.png'
-            ),
-            'Audífonos SONY Alámbricos In Ear' => array(
-                'Precio' => '$39.900',
-                'Resistencia A' => 'N/A',
-                'Opciones De Conectividad' => 'Conexión Con Cable ',
-                'Duracion De La Bateria' => 'N/A',
-                'Conexion' => 'Alambrica',
-                'Color' => 'Negro',
-                'Longitud Del Cable cm' => '120  Centímetros',
-                'imagen' => 'imagenes/productos/Audífonos SONY Alámbricos In Ear Manos Libres MDR-EX15AP Blanco.png'
-            ),
-            'Audífonos de Diadema SONY Inalámbricos OverEar' => array(
-                'Precio' => '$999.900',
-                'Resistencia A' => 'N/A',
-                'Opciones De Conectividad' => 'Bluetooth <br>Conexión Con Cable NFC ',
-                'Duracion De La Bateria' => '30  Horas Aproximadas',
-                'Conexion' => 'Inalambrica',
-                'Color' => 'Negro',
-                'Longitud Del Cable cm' => '120  Centímetros',
-                'imagen' => 'imagenes/productos/SONY Inalámbricos Bluetooth Over Ear WH-1000XM4.png'
-            ),
-            'Audífonos de Diadema SONY Inalámbricos OnEar' => array(
-                'Precio' => '$199.900',
-                'Resistencia A' => 'N/A',
-                'Opciones De Conectividad' => 'Bluetooth',
-                'Duracion De La Bateria' => '50  Horas Aproximadas',
-                'Conexion' => 'Inalambrica',
-                'Color' => 'Azul',
-                'Longitud Del Cable cm' => 'N/A',
-                'imagen' => 'imagenes/productos/SONY Inalámbricos Bluetooth On Ear WH-CH520.png'
-            ),
-            'Audífonos de Diadema BOSE Inalámbricos OverEar 700' => array(
-                'Precio' => '$1.799.900',
-                'Resistencia A' => 'N/A',
-                'Opciones De Conectividad' => 'Bluetooth',
-                'Duracion De La Bateria' => 'Alambrica',
-                'Conexion' => '20 Horas Aproximadas',
-                'Color' => 'Negro',
-                'Longitud Del Cable cm' => 'N/A',
-                'imagen' => 'imagenes/productos/BOSE Inalámbricos Bluetooth Over Ear 700.png'
-            ),
-            
-            
-        );
+            $db = new Database();
+            $con = $db->conectar();
 
-        // Verifica si se han enviado productos desde index.php
-        if(isset($_GET['productos'])) {
-            $productosSeleccionados = explode(',', $_GET['productos']);
+            if (isset($_GET['ids'])) {
+                $ids = explode(',', $_GET['ids']);
 
-            // Crea una tabla para mostrar las características
-            echo "<table>";
-            echo "<tr><th>Características</th>";
+                // Consulta para obtener la información de los productos seleccionados
+                $sql = $con->prepare("SELECT p.codProd, p.nomProd, p.precio, p.imagen, p.stockProd, 
+                                     GROUP_CONCAT(i.valor  SEPARATOR ', ') AS caracteristicas
+                                     FROM productos p 
+                                     INNER JOIN infoproductos i ON p.codProd = i.codProd 
+                                     WHERE p.codProd IN (" . implode(',', array_fill(0, count($ids), '?')) . ") AND p.codigoCat = 5
+                                     GROUP BY p.codProd");
+                $sql->execute($ids);
+                $productos = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-            // Incluye los detalles de cada producto
-            foreach ($productosSeleccionados as $productoId) {
-                echo "<th>$productoId</th>";
-            }
-            echo "</tr>";
+                // Definir el mapeo de valores específicos en el orden deseado
+                $valoresEspecificos = [
+                    0 => 'Resistencia a',
+                    1 => 'Opciones Conectividad',
+                    2 => 'Duracion Bateria',
+                    3 => 'Conexion',
+                    4 => 'Color',
+                    5 => 'Longitud Cable Cm',
+                  
+                 
+                 
+                ];
 
-            // Muestra las características para cada producto
-            echo "<tr><td>Imagen</td>";
-            foreach ($productosSeleccionados as $productoId) {
-                // Verifica si el producto está en el array de características
-                if (array_key_exists($productoId, $caracteristicas)) {
-                    // Muestra la imagen del producto
-                    echo "<td><img src='" . $caracteristicas[$productoId]['imagen'] . "' alt='Imagen $productoId'></td>";
-                } else {
-                    // Mensaje de error si no se encuentran las características del producto
-                    echo "<td colspan='4'>Características no encontradas para este producto.</td>";
-                }
-            }
-            echo "</tr>";
+                if (count($productos) > 0) {
+                    // Mostrar los productos en una tabla con el diseño específico
+                    echo "<table>";
+                    echo "<tr><th>Producto</th>";
 
-            // Muestra las características de cada producto
-            foreach (array('Precio', 'Resistencia A' ,'Opciones De Conectividad', 'Duracion De La Bateria', 
-             'Conexion', 'Color', 'Longitud Del Cable cm',) as $caracteristica) {
-                echo "<tr><td>$caracteristica</td>";
-                foreach ($productosSeleccionados as $productoId) {
-                    // Verifica si el producto está en el array de características
-                    if (array_key_exists($productoId, $caracteristicas)) {
-                        // Muestra las características del producto
-                        echo "<td>" . $caracteristicas[$productoId][$caracteristica] . "</td>";
-                    } else {
-                        // Mensaje de error si no se encuentran las características del producto
-                        echo "<td colspan='4'>Características no encontradas para este producto.</td>";
+                    // Encabezados de columna para cada producto
+                    foreach ($productos as $producto) {
+                        echo "<th>" . htmlspecialchars($producto['nomProd']) . "</th>";
                     }
-                }
-                echo "</tr>";
-            }
+                    echo "</tr>";
 
-            echo "</table>";
-        } else {
-            echo "<p>No se han seleccionado productos para comparar.</p>";
-        }
-    ?>
-</section>
-</main>
+                    // Fila para la imagen de cada producto
+                    echo "<tr><td>Imagen</td>";
+                    foreach ($productos as $producto) {
+                        echo '<td><img src="imagenes/productos/' . htmlspecialchars($producto['imagen']) . '" alt="' . htmlspecialchars($producto['nomProd']) . '" width="200"></td>';
+                    }
+                    echo "</tr>";
+
+                    // Fila para el precio de cada producto
+                    echo "<tr><td>Precio</td>";
+                    foreach ($productos as $producto) {
+                        echo "<td>$" . htmlspecialchars($producto['precio']) . "</td>";
+                    }
+                    echo "</tr>";
+
+                    // Filas para las características de cada producto
+                    $caracteristicasPorProducto = [];
+                    foreach ($productos as $producto) {
+                        $caracteristicas = explode(', ', $producto['caracteristicas']);
+                        $caracteristicasPorProducto[$producto['codProd']] = $caracteristicas;
+                    }
+
+                    foreach ($valoresEspecificos as $indice => $nombreCaracteristica) {
+                        echo "<tr><td>" . $nombreCaracteristica . "</td>";
+                        foreach ($productos as $producto) {
+                            // Mapea el índice correcto de las características del producto
+                            $valor = 'No disponible';
+                            if (isset($caracteristicasPorProducto[$producto['codProd']][$indice])) {
+                                $valor = $caracteristicasPorProducto[$producto['codProd']][$indice];
+                            }
+                            echo "<td>" . htmlspecialchars($valor) . "</td>";
+                        }
+                        echo "</tr>";
+                    }
+
+                    echo "</table>";
+                } else {
+                    echo 'No se encontraron productos con los IDs proporcionados.';
+                }
+            } else {
+                echo 'Error: No se recibieron los IDs de los productos para comparar';
+            }
+            ?>
+        </section>
+    </main>
 </body>
 </html>

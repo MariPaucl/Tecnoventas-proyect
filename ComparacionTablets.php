@@ -4,266 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados de Comparación</title>
-    <link rel="website icon" type="png" href="imagenes/Tecnoventas.png">
-
-     <link rel="stylesheet" href="css/styleCompara.css">
+    <link rel="stylesheet" href="css/styleCompara.css">
 </head>
 <body>
+    <main class="table">
+        <section class="table_head">
+            <h1>Resultados de Comparación <img src="img/balanza.gif" alt=""></h1>
+        </section>
+        <section class="table_body">
+            <?php
+            require 'config/config.php';
+            require 'config/conexion.php';
 
- <main class="table">
-    <section class="table_head">
-    <h1>Resultados de Comparación <img src="img/balanza.gif" alt=""></h1>
-    </section>
-    <section class="table_body">
+            $db = new Database();
+            $con = $db->conectar();
 
-    <?php
-        // Definir un array asociativo con las características de los productos (incluyendo URLs de imágenes)
-        $caracteristicas = array(
-            'Tablet Samsung A8' => array(
-                'Precio' => '$799.900',
-                'Memoria Interna' => '128',
-                'Marca Del Procesador' => 'Unisoc',
-                'Memoria Ram' => '4GB',
-                'Sistema Operativo' => 'Android',
-                'Version Del Sistema Operativo' => 'Android 11',
-                'Nucleos Del Procesador' => '8',
-                'Velocidad Del Procesador' => '2GHz',
-                'Tipos De Puertos' => 'Tipo C,<br> Micro SD',
-                'Resolucion De Camara Frontal' => '5Mpx',
-                'Resolucion De La Camara Posterior' => '8Mpx',
-                'Duracion De La Bateria' => '12 Horas Aprx',
-                'Opciones De Conectividad' => 'Bluetooth, USB, Wifi',
-                'Resolucion De Pantalla' => '1920x1200',
-                'Tamaño De Pantalla' => '10.5  Pulgadas',
-                'Fuentes De Alimentacion De Energia' => 'Batería Recargable Interna',
-                'Color' => 'Gris',
-                'Extra' => 'Incluye Cable y Adaptador de Carga',
-                'imagen' => 'imagenes/productos/tabletsamsungA8.png'// Reemplaza 'url_imagen_producto1.jpg' con la URL real de la imagen
-            ),
-            'Tablet TCL TAB 8' => array(
-                'Precio' => '$399.900',
-                'Memoria Interna' => '32GB',
-                'Marca Del Procesador' => 'MediaTek ',
-                'Memoria Ram' => '2GB',
-                'Sistema Operativo' => 'Android',
-                'Version Del Sistema Operativo' => 'Android 11',
-                'Nucleos Del Procesador' => '4',
-                'Velocidad Del Procesador' => '2.0GHz ',
-                'Tipos De Puertos' => 'Entrada Tarjeta Micro SD <br>Puerto USB Tipo C  <br>Salida de Audífonos',
-                'Resolucion De Camara Frontal' => '2Mpx',
-                'Resolucion De La Camara Posterior' => '5Mpx',
-                'Duracion De La Bateria' => '48 Horas Aprx',
-                'Opciones De Conectividad' => 'HD (1280x800) ',
-                'Resolucion De Pantalla' => 'HD (1280x800) ',
-                'Tamaño De Pantalla' => '8  Pulgadas',
-                'Fuentes De Alimentacion De Energia' => 'Batería Recargable Interna',
-                'Color' => 'Negro',
-                'Extra' => 'Cargador tipo C y Clable tipo C. ',
-                'imagen' => 'imagenes/productos/Tablet TCL 8_ Pulgadas TAB.png'
-            ),
-            'Tablet LENOVO M8' => array(
-                'Precio' => '$579.000',
-                'Memoria Interna' => '32GB',
-                'Marca Del Procesador' => 'MediaTek A22 ',
-                'Memoria Ram' => '2 GB ',
-                'Sistema Operativo' => 'Android',
-                'Version Del Sistema Operativo' => 'Android 10',
-                'Nucleos Del Procesador' => '4',
-                'Velocidad Del Procesador' => '2,0 GHz ',
-                'Tipos De Puertos' => 'Entrada Tarjeta Micro SD <br>Salida de Audífonos ',
-                'Resolucion De Camara Frontal' => '2Mpx',
-                'Resolucion De La Camara Posterior' => '5Mpx',
-                'Duracion De La Bateria' => '12 Horas Aprx',
-                'Opciones De Conectividad' => 'Bluetooth, Wifi',
-                'Resolucion De Pantalla' => '1280 x 800 ',
-                'Tamaño De Pantalla' => '8  Pulgadas',
-                'Fuentes De Alimentacion De Energia' => 'Batería Recargable Interna',
-                'Color' => 'Gris',
-                'Extra' => 'Incluye Cable y Adaptador de Carga',
-                'imagen' => 'imagenes/productos/Tablet LENOVO 8 Pulgadas M8 2gen LTE Color Gris.png'
-            ),
-            'Tablet LENOVO M10 Plus' => array(
-                'Precio' => '$1.299.000',
-                'Memoria Interna' => '128GB',
-                'Marca Del Procesador' => 'MediaTek Helio G80 ',
-                'Memoria Ram' => '4GB',
-                'Sistema Operativo' => 'Android',
-                'Version Del Sistema Operativo' => 'Android 10',
-                'Nucleos Del Procesador' => '8',
-                'Velocidad Del Procesador' => '2,0 GHz',
-                'Tipos De Puertos' => 'Puerto USB Tipo C <br>Salida de Audífonos ',
-                'Resolucion De Camara Frontal' => '8Mpx',
-                'Resolucion De La Camara Posterior' => '8Mpx',
-                'Duracion De La Bateria' => '12 Horas Aprx',
-                'Opciones De Conectividad' => 'Bluetooth, Wifi',
-                'Resolucion De Pantalla' => '2K (2000x1200) ',
-                'Tamaño De Pantalla' => '10  Pulgadas',
-                'Fuentes De Alimentacion De Energia' => 'Batería Recargable Interna',
-                'Color' => 'Gris',
-                'Extra' => 'Incluye Lapiz Precision 2 y Folio Case ',
-                'imagen' => 'imagenes/productos/Tablet LENOVO 10 Pulgadas M10 Plus Wifi Color Gris.png'
-            ),
-            'Tablet SAMSUNG S7Fe' => array(
-                'Precio' => '$3.199.900',
-                'Memoria Interna' => '128GB',
-                'Marca Del Procesador' => 'Snap Dragon',
-                'Memoria Ram' => '6GB',
-                'Sistema Operativo' => 'Android',
-                'Version Del Sistema Operativo' => 'Android 11',
-                'Nucleos Del Procesador' => '8',
-                'Velocidad Del Procesador' => '2.4GHz',
-                'Tipos De Puertos' => 'Entrada Tarjeta Micro SD  <br>Puerto USB Tipo C  <br>Salida de Audífonos  <br>Salida de Parlantes',
-                'Resolucion De Camara Frontal' => '5Mpx',
-                'Resolucion De La Camara Posterior' => '8Mpx',
-                'Duracion De La Bateria' => '13 Horas Aprx',
-                'Opciones De Conectividad' => 'Bluetooth, Wifi',
-                'Resolucion De Pantalla' => '2560 x 1600 (WQXGA) ',
-                'Tamaño De Pantalla' => '12.4  Pulgadas',
-                'Fuentes De Alimentacion De Energia' => 'Batería Recargable Interna',
-                'Color' => 'Plateado',
-                'Extra' => 'Adaptador y cable + Mouse BT ',
-                'imagen' => 'imagenes/productos/Tablet SAMSUNG 12.4 Pulgadas S7Fe Wifi Color Plata.png'
-            ),
-            'Tablet SAMSUNG S6' => array(
-                'Precio' => '$1.999.900',
-                'Memoria Interna' => '64GB',
-                'Marca Del Procesador' => 'Qualcomm ',
-                'Memoria Ram' => '4GB',
-                'Sistema Operativo' => 'Android',
-                'Version Del Sistema Operativo' => 'Android 11',
-                'Nucleos Del Procesador' => '8',
-                'Velocidad Del Procesador' => '2.3GHz',
-                'Tipos De Puertos' => 'Entrada Tarjeta SD <br> Salida de Audífonos',
-                'Resolucion De Camara Frontal' => '5Mpx',
-                'Resolucion De La Camara Posterior' => '8Mpx',
-                'Duracion De La Bateria' => '14 Horas Aprx',
-                'Opciones De Conectividad' => 'Bluetooth, USB, Wifi',
-                'Resolucion De Pantalla' => '2000x1200 (WUXGA+) ',
-                'Tamaño De Pantalla' => '10.3  Pulgadas',
-                'Fuentes De Alimentacion De Energia' => 'Batería Recargable Interna',
-                'Color' => 'Azul ',
-                'Extra' => 'Cover,Spen,Cable de carga',
-                'imagen' => 'imagenes/productos/Tablet SAMSUNG 10.3 pulgadas S6 Wifi Color Azul.png'
-            ),
-            'iPad Pro 6ta Gen' => array(
-                'Precio' => '$13.149.000',
-                'Memoria Interna' => '256 GB',
-                'Marca Del Procesador' => 'Apple M2',
-                'Memoria Ram' => '16GB',
-                'Sistema Operativo' => '16Mpx',
-                'Version Del Sistema Operativo' => 'iPad OS',
-                'Nucleos Del Procesador' => 'iPad OS 16',
-                'Velocidad Del Procesador' => '8',
-                'Tipos De Puertos' => 'Puerto USB Tipo C <br>Salida de Audífonos',
-                'Resolucion De Camara Frontal' => '12Mpx',
-                'Resolucion De La Camara Posterior' => '12Mpx',
-                'Duracion De La Bateria' => '12 Horas Aprx',
-                'Opciones De Conectividad' => 'Bluetooth, Wifi',
-                'Resolucion De Pantalla' => '2732 x 2048 a 264 pixeles',
-                'Tamaño De Pantalla' => '12.9 Pulgadas',
-                'Fuentes De Alimentacion De Energia' => 'Batería Recargable Interna',
-                'Color' => 'Gris',
-                'Extra' => 'Cable de carga USB-C (1 m) <br> Adaptador de corriente USB-C de 20 W ',
-                'imagen' => 'imagenes/productos/iPad Pro 12.9 pulgadas 2TB 6ta Gen Wifi Gris.png'
-            ),
-            'Tablet SAMSUNG Galaxy S8 Ultra' => array(
-                'Precio' => '$6.299.900',
-                'Memoria Interna' => '128GB',
-                'Marca Del Procesador' => 'Qualcomm ',
-                'Memoria Ram' => '8GB',
-                'Sistema Operativo' => 'Android',
-                'Version Del Sistema Operativo' => 'Android 11',
-                'Nucleos Del Procesador' => '8',
-                'Velocidad Del Procesador' => '2.99 GHz',
-                'Tipos De Puertos' => 'Entrada Tarjeta Micro SD <br> Puerto USB Tipo C <br>Salida de Audífonos <br>Salida de Parlantes ',
-                'Resolucion De Camara Frontal' => '12Mpx',
-                'Resolucion De La Camara Posterior' => '13Mpx',
-                'Duracion De La Bateria' => '8 Horas Aprx',
-                'Opciones De Conectividad' => 'Bluetooth, Wifi',
-                'Resolucion De Pantalla' => '2960 x 1848 (WQXGA+) ',
-                'Tamaño De Pantalla' => '14.6  Pulgadas',
-                'Fuentes De Alimentacion De Energia' => 'Batería Recargable Interna',
-                'Color' => 'Gris',
-                'Extra' => 'Cover con teclado, Spen',
-                'imagen' => 'imagenes/productos/Tablet SAMSUNG Galaxy 14.6 Pulgadas S8 Ultra Wifi 5G color Gris.png'
-            ),
-            'Tablet SAMSUNG Galaxy S8 Plus' => array(
-                'Precio' => '$5.299.900',
-                'Memoria Interna' => '128GB',
-                'Marca Del Procesador' => 'Qualcomm ',
-                'Memoria Ram' => '8GB',
-                'Sistema Operativo' => 'Android',
-                'Version Del Sistema Operativo' => 'Android 11',
-                'Nucleos Del Procesador' => '8',
-                'Velocidad Del Procesador' => '2.99 GHz',
-                'Tipos De Puertos' => 'Entrada Tarjeta Micro SD <br>Puerto USB Tipo C  <br>Salida de Audífonos  <br>Salida de Parlantes',
-                'Resolucion De Camara Frontal' => '12Mpx',
-                'Resolucion De La Camara Posterior' => '13Mpx',
-                'Duracion De La Bateria' => '8 Horas Aprx',
-                'Opciones De Conectividad' => 'Bluetooth, Wifi',
-                'Resolucion De Pantalla' => '2800 x 1752 (WQXGA+)',
-                'Tamaño De Pantalla' => '12.4  Pulgadas',
-                'Fuentes De Alimentacion De Energia' => 'Batería Recargable Interna',
-                'Color' => 'Negro ',
-                'Extra' => 'Cover con teclado, Spen',
-                'imagen' => 'imagenes/productos/Tablet SAMSUNG Galaxy 12.4 Pulgadas S8+ Wifi 5G color Negro.png'
-            ),
-            
-            
-        );
+            if (isset($_GET['ids'])) {
+                $ids = explode(',', $_GET['ids']);
 
-        // Verifica si se han enviado productos desde index.php
-        if(isset($_GET['productos'])) {
-            $productosSeleccionados = explode(',', $_GET['productos']);
+                // Consulta para obtener la información de los productos seleccionados
+                $sql = $con->prepare("SELECT p.codProd, p.nomProd, p.precio, p.imagen, p.stockProd, 
+                                     GROUP_CONCAT(i.valor ORDER BY i.idinfo SEPARATOR ', ') AS caracteristicas
+                                     FROM productos p 
+                                     INNER JOIN infoproductos i ON p.codProd = i.codProd 
+                                     WHERE p.codProd IN (" . implode(',', array_fill(0, count($ids), '?')) . ") AND p.codigoCat = 4
+                                     GROUP BY p.codProd");
+                $sql->execute($ids);
+                $productos = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-            // Crea una tabla para mostrar las características
-            echo "<table>";
-            echo "<tr><th>Características</th>";
+                // Definir el mapeo de valores específicos en el orden deseado
+                $valoresEspecificos = [
+       
+                    0 => 'Memoria Interna',
+                    1 => 'Marca Procesador',
+                    2 => 'Memoria RAM',
+                    3 => 'Sistema Operativo',
+                    4 => 'Version Sistema Operativo',
+                    5 => 'Nucleos del Procesador',
+                    6 => 'Velocidad del Procesador',
+                    7 => 'Tipos de Puertos',
+                    8 => 'Resolucion Camara Frontal',
+                    9 => 'Resolucion Camara Posterior',
+                    10 => 'Duracion de la bateria',
+                    12 => 'Opciones Conectividad',
+                    13 => 'Resolucion Pantalla',
+                    14 => 'Tamaño Pantalla',
+                    15 => 'Fuentes de Alimentacion de Energia',
+                    16 => 'Color',
+                    17 => 'Extra',
+                
+                 
+             
+                ];
 
-            // Incluye los detalles de cada producto
-            foreach ($productosSeleccionados as $productoId) {
-                echo "<th>$productoId</th>";
-            }
-            echo "</tr>";
+                // Agrupar características específicas bajo un solo encabezado
+                $gruposDeCaracteristicas = [
+                    'Opciones Conectividad' => [12, 11],
+                ];
 
-            // Muestra las características para cada producto
-            echo "<tr><td>Imagen</td>";
-            foreach ($productosSeleccionados as $productoId) {
-                // Verifica si el producto está en el array de características
-                if (array_key_exists($productoId, $caracteristicas)) {
-                    // Muestra la imagen del producto
-                    echo "<td><img src='" . $caracteristicas[$productoId]['imagen'] . "' alt='Imagen $productoId'></td>";
-                } else {
-                    // Mensaje de error si no se encuentran las características del producto
-                    echo "<td colspan='4'>Características no encontradas para este producto.</td>";
-                }
-            }
-            echo "</tr>";
+                if (count($productos) > 0) {
+                    // Mostrar los productos en una tabla con el diseño específico
+                    echo "<table>";
+                    echo "<tr><th>Producto</th>";
 
-            // Muestra las características de cada producto
-            foreach (array('Precio', 'Memoria Interna' , 'Marca Del Procesador',  'Memoria Ram',  'Sistema Operativo',  'Version Del Sistema Operativo',  'Nucleos Del Procesador',
-            'Velocidad Del Procesador','Tipos De Puertos', 'Resolucion De Camara Frontal',  'Resolucion De La Camara Posterior',  'Duracion De La Bateria', 'Opciones De Conectividad',
-             'Resolucion De Pantalla',  'Tamaño De Pantalla',  'Fuentes De Alimentacion De Energia', 'Color', 'Extra',) as $caracteristica) {
-                echo "<tr><td>$caracteristica</td>";
-                foreach ($productosSeleccionados as $productoId) {
-                    // Verifica si el producto está en el array de características
-                    if (array_key_exists($productoId, $caracteristicas)) {
-                        // Muestra las características del producto
-                        echo "<td>" . $caracteristicas[$productoId][$caracteristica] . "</td>";
-                    } else {
-                        // Mensaje de error si no se encuentran las características del producto
-                        echo "<td colspan='4'>Características no encontradas para este producto.</td>";
+                    // Encabezados de columna para cada producto
+                    foreach ($productos as $producto) {
+                        echo "<th>" . htmlspecialchars($producto['nomProd']) . "</th>";
                     }
-                }
-                echo "</tr>";
-            }
+                    echo "</tr>";
 
-            echo "</table>";
-        } else {
-            echo "<p>No se han seleccionado productos para comparar.</p>";
-        }
-    ?>
-</section>
-</main>
+                    // Fila para la imagen de cada producto
+                    echo "<tr><td>Imagen</td>";
+                    foreach ($productos as $producto) {
+                        echo '<td><img src="imagenes/productos/' . htmlspecialchars($producto['imagen']) . '" alt="' . htmlspecialchars($producto['nomProd']) . '" width="200"></td>';
+                    }
+                    echo "</tr>";
+
+                    // Fila para el precio de cada producto
+                    echo "<tr><td>Precio</td>";
+                    foreach ($productos as $producto) {
+                        echo "<td>$" . htmlspecialchars($producto['precio']) . "</td>";
+                    }
+                    echo "</tr>";
+
+                    // Filas para las características de cada producto
+                    $caracteristicasPorProducto = [];
+                    foreach ($productos as $producto) {
+                        $caracteristicas = explode(', ', $producto['caracteristicas']);
+                        $caracteristicasPorProducto[$producto['codProd']] = $caracteristicas;
+                    }
+
+                    // Mostrar las características según el mapeo
+                    foreach ($valoresEspecificos as $indice => $nombreCaracteristica) {
+                        if (array_key_exists($nombreCaracteristica, $gruposDeCaracteristicas)) {
+                            // Si la característica es un grupo
+                            echo "<tr><td>" . $nombreCaracteristica . "</td>";
+                            foreach ($productos as $producto) {
+                                $valoresGrupo = [];
+                                foreach ($gruposDeCaracteristicas[$nombreCaracteristica] as $indiceGrupo) {
+                                    if (isset($caracteristicasPorProducto[$producto['codProd']][$indiceGrupo])) {
+                                        $valoresGrupo[] = $caracteristicasPorProducto[$producto['codProd']][$indiceGrupo];
+                                    } else {
+                                        $valoresGrupo[] = 'No disponible';
+                                    }
+                                }
+                                echo "<td>" . htmlspecialchars(implode(', ', $valoresGrupo)) . "</td>";
+                            }
+                            echo "</tr>";
+                        } else {
+                            // Si la característica es una sola
+                            echo "<tr><td>" . $nombreCaracteristica . "</td>";
+                            foreach ($productos as $producto) {
+                                $valor = isset($caracteristicasPorProducto[$producto['codProd']][$indice]) ? $caracteristicasPorProducto[$producto['codProd']][$indice] : 'No disponible';
+                                echo "<td>" . htmlspecialchars($valor) . "</td>";
+                            }
+                            echo "</tr>";
+                        }
+                    }
+
+                    echo "</table>";
+                } else {
+                    echo 'No se encontraron productos con los IDs proporcionados.';
+                }
+            } else {
+                echo 'Error: No se recibieron los IDs de los productos para comparar';
+            }
+            ?>
+        </section>
+    </main>
 </body>
 </html>
